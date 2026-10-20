@@ -29,6 +29,9 @@
   grid-area: main;
   min-width: 0;
   overflow: auto;
+  /* A page that grows past the viewport would otherwise shift the whole
+     content column by the scrollbar's width (fc5-diff). */
+  scrollbar-gutter: stable;
 }
 
 .hs-shell__player {
