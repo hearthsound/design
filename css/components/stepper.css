@@ -96,6 +96,9 @@
 
 .hs-step-line__row .hs-step__marker {
   font-weight: 650;
+  /* The step line names the current step, so its marker is the current disc (k29). */
+  background: var(--hs-fg);
+  color: var(--hs-view-bg);
 }
 
 .hs-step-line__count {

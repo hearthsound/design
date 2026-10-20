@@ -266,9 +266,11 @@ a.hs-lockup:focus-visible {
     grid-template-rows: auto 1fr;
   }
 
+  /* Phones show the plain frame: the brand panel loses its tone (l12-r1 B). */
   .hs-onboarding--split .hs-onboarding__brand {
     justify-content: flex-start;
     padding: 14px;
+    background: none;
   }
 
   /* The large lockup collapses to the small size on phones. */
