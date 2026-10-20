@@ -1,0 +1,339 @@
+/*
+ * @hearthsound/design - cards
+ *
+ * k13 C album card, k14 B artist card, k15 playlist card, k16 C mosaic,
+ * f15b missing art, l10 admin Overview cards, p18 Top Result card.
+ * Values from shared/approved/components.css (.ac, .mos, .dash, .acard,
+ * p18 page CSS) and spec/components.md.
+ */
+
+/* ------------------------------------------------------------------ */
+/* k13 / k14 / k15 - cards                                            */
+/* ------------------------------------------------------------------ */
+
+.hs-card {
+  position: relative;
+  padding: 8px;
+  margin: -8px;
+  border-radius: var(--hs-radius-card);
+  color: var(--hs-fg);
+  font: 400 14px/1.35 var(--hs-font-body);
+  container-type: inline-size;
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+/* The card link covers the whole tile; the play disc is a separate target
+ * above it, reachable with Tab after the card (k13). */
+.hs-card__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.hs-card:has(.hs-card__link:focus-visible) {
+  outline: none;
+  background: var(--hs-accent-tint);
+}
+
+.hs-card__cover {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  border-radius: var(--hs-radius-art);
+  transition: transform var(--hs-duration-hover) var(--hs-ease),
+    box-shadow var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-card__cover img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  display: block;
+  object-fit: cover;
+}
+
+/* f15b - tonal tile with the centred icon at 36% (minimum 14 px). */
+.hs-art-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--hs-art-placeholder-bg);
+  color: var(--hs-fg-muted);
+}
+
+.hs-art-placeholder .hs-icon {
+  --hs-icon-size: 36%;
+  min-width: 14px;
+  min-height: 14px;
+  opacity: 0.8;
+}
+
+.hs-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hs-card__title {
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hs-card__artist {
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+/* Play disc: 44 px acid disc at the cover's bottom-right, 8 px inset. */
+.hs-card__play {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(4px);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  transition: opacity var(--hs-duration-hover) var(--hs-ease),
+    transform var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-card:hover,
+.hs-card:active {
+  background: var(--hs-control-tone);
+}
+
+.hs-card:hover .hs-card__play,
+.hs-card:focus-within .hs-card__play {
+  opacity: 1;
+  transform: none;
+}
+
+.hs-card:active .hs-card__cover {
+  transform: scale(0.98);
+}
+
+.hs-card:has(.hs-card__link:focus-visible) .hs-card__cover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+.hs-card:has(.hs-card__link:focus-visible) .hs-card__title {
+  color: var(--hs-accent-text);
+}
+
+/* k14 B - round picture, name under, centred, 4 px disc inset. */
+.hs-card--artist .hs-card__cover {
+  border-radius: 50%;
+}
+
+.hs-card--artist .hs-art-placeholder .hs-icon {
+  --hs-icon-size: 40%;
+}
+
+.hs-card--artist .hs-card__play {
+  right: 4px;
+  bottom: 4px;
+}
+
+.hs-card--artist .hs-card__text {
+  align-items: center;
+  text-align: center;
+}
+
+/* f09 - art corners drop to 6 px below a 120 px cover. */
+@container (max-width: 119px) {
+  .hs-card__cover {
+    border-radius: var(--hs-radius-art-small);
+  }
+
+  .hs-card__cover > .hs-mosaic {
+    border-radius: var(--hs-radius-art-small);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-card,
+  .hs-card__cover,
+  .hs-card__play {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k16 C - playlist mosaic cover                                      */
+/* ------------------------------------------------------------------ */
+
+.hs-mosaic {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.hs-mosaic img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  object-fit: cover;
+}
+
+.hs-mosaic .hs-art-placeholder {
+  border-radius: 0;
+  min-height: 0;
+}
+
+.hs-mosaic--1 {
+  grid-template: 1fr / 1fr;
+}
+
+.hs-mosaic--2 {
+  grid-template: 1fr / 1fr 1fr;
+}
+
+.hs-mosaic--3 {
+  grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+.hs-mosaic--3 > :first-child {
+  grid-row: 1 / 3;
+}
+
+.hs-mosaic--4 {
+  grid-template: 1fr 1fr / 1fr 1fr;
+}
+
+/* ------------------------------------------------------------------ */
+/* l10 - admin Overview cards                                         */
+/* ------------------------------------------------------------------ */
+
+.hs-admin-card {
+  background: var(--hs-group-bg);
+  box-shadow: var(--hs-group-shadow);
+  border-radius: var(--hs-radius-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--hs-fg);
+  text-decoration: none;
+}
+
+.hs-admin-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font-weight: 600;
+}
+
+.hs-admin-card__header .hs-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-admin-card__header .hs-icon:last-child {
+  margin-left: auto;
+}
+
+.hs-admin-card__number {
+  font: 750 29px var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+/* c04 value line under the key number. */
+.hs-admin-card__line {
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+.hs-admin-card .hs-progress {
+  width: 100%;
+}
+
+.hs-admin-card:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* ------------------------------------------------------------------ */
+/* p18 - Top Result card                                              */
+/* ------------------------------------------------------------------ */
+
+.hs-top-result-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: 24px;
+  padding: 0 24px 8px 32px;
+}
+
+.hs-top-result {
+  position: relative;
+  background: var(--hs-group-bg);
+  border-radius: var(--hs-radius-card);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.hs-top-result__art {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--hs-radius-art);
+  overflow: hidden;
+  display: block;
+  margin-bottom: 8px;
+  box-shadow: var(--hs-art-shadow);
+}
+
+.hs-top-result__art img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hs-top-result__name {
+  font: 750 26px/1.15 var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+.hs-top-result__meta {
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+.hs-top-result .hs-play-button {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+}
+
+@media (max-width: 1000px) {
+  .hs-top-result-row {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hs-top-result-row {
+    padding: 0 14px;
+  }
+}

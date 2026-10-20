@@ -1,0 +1,228 @@
+<section>
+  <h2>Admin</h2>
+
+  <h3>Overview grid (l10)</h3>
+  <div class="hs-admin-overview" style="margin-bottom: 24px;">
+    <a class="hs-admin-card" href="#" aria-label="Open Users">
+      <span class="hs-admin-card__header">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-users"></use></svg>
+        Users
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"></use></svg>
+      </span>
+      <span class="hs-admin-card__number">12</span>
+      <span>2 administrators</span>
+    </a>
+    <a class="hs-admin-card" href="#" aria-label="Open Music Folders">
+      <span class="hs-admin-card__header">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-folder"></use></svg>
+        Music folders
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"></use></svg>
+      </span>
+      <span class="hs-pill hs-pill--accent">Scanning 42%</span>
+      <span>Last scan 3 min ago</span>
+    </a>
+    <a class="hs-admin-card" href="#" aria-label="Open Plugins">
+      <span class="hs-admin-card__header">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-plugin"></use></svg>
+        Plugins
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"></use></svg>
+      </span>
+      <span class="hs-admin-card__number">7</span>
+      <span>installed</span>
+    </a>
+    <a class="hs-admin-card" href="#" aria-label="Open Providers">
+      <span class="hs-admin-card__header">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-remote"></use></svg>
+        Providers
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"></use></svg>
+      </span>
+      <span class="hs-admin-card__number">4</span>
+      <span>
+        <span class="hs-pill hs-pill--success">Healthy</span>
+        <span class="hs-count-badge">3</span>
+      </span>
+    </a>
+    <a class="hs-admin-card" href="#" aria-label="Open Storage">
+      <span class="hs-admin-card__header">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-storage"></use></svg>
+        Storage
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"></use></svg>
+      </span>
+      <span class="hs-progress"><span class="hs-progress__fill" style="width: 62%;"></span></span>
+      <span>48.2 GB of 78.0 GB</span>
+    </a>
+    <a class="hs-admin-card" href="#" aria-label="Open Acquisitions">
+      <span class="hs-admin-card__header">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-acquire"></use></svg>
+        Acquisitions
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"></use></svg>
+      </span>
+      <span class="hs-admin-card__number">18</span>
+      <span>1 failed</span>
+    </a>
+  </div>
+
+  <h3>Instance dialog import roots (p05)</h3>
+  <div class="hs-import-roots" style="margin-bottom: 8px;">
+    <div class="hs-import-root">
+      <div class="hs-field hs-import-root__id">
+        <input class="hs-field__input" value="music" aria-label="Root id">
+      </div>
+      <div class="hs-field hs-import-root__path">
+        <span class="hs-field__value">/srv/music</span>
+      </div>
+      <div class="hs-field hs-import-root__mode">
+        <span class="hs-field__value">move</span>
+        <svg class="hs-icon hs-field__action" aria-hidden="true"><use href="../dist/icons.svg#adwaita-collapse"></use></svg>
+      </div>
+      <label class="hs-choice">
+        <input class="hs-choice__input" type="checkbox">
+        <span class="hs-choice__box"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"></use></svg></span>
+        Read-only
+      </label>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Remove">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-delete"></use></svg>
+      </button>
+    </div>
+    <div class="hs-import-root">
+      <div class="hs-field hs-import-root__id">
+        <input class="hs-field__input" value="inbox" aria-label="Root id">
+      </div>
+      <div class="hs-field hs-import-root__path">
+        <span class="hs-field__value">/srv/inbox</span>
+      </div>
+      <div class="hs-field hs-import-root__mode">
+        <span class="hs-field__value">link</span>
+        <svg class="hs-icon hs-field__action" aria-hidden="true"><use href="../dist/icons.svg#adwaita-collapse"></use></svg>
+      </div>
+      <label class="hs-choice">
+        <input class="hs-choice__input" type="checkbox" checked>
+        <span class="hs-choice__box hs-choice__box--on"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"></use></svg></span>
+        Read-only
+      </label>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Remove">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-delete"></use></svg>
+      </button>
+    </div>
+    <button class="hs-setting-row hs-setting-row--button" type="button">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-add"></use></svg>
+      Add import root
+    </button>
+  </div>
+  <p class="hs-import-roots__hint">A file left in an import root is moved, copied or linked into the library when it is imported.</p>
+
+  <h3>Plugin permission list (p24-r3)</h3>
+  <div class="hs-settings-group" style="padding: 14px 16px; margin: 16px 0 24px;">
+    <div class="hs-permission-list">
+      <div class="hs-permission-row">
+        <span class="hs-permission-row__scope">music.read</span>
+        <span class="hs-permission-row__detail">Read your music library</span>
+        <span class="hs-pill hs-pill--success">Low</span>
+      </div>
+      <div class="hs-permission-row">
+        <span class="hs-permission-row__scope">library.write</span>
+        <span class="hs-permission-row__detail">Add and change library items</span>
+        <span class="hs-pill hs-pill--warning">Medium</span>
+      </div>
+      <div class="hs-permission-row">
+        <span class="hs-permission-row__scope">admin.network</span>
+        <span class="hs-permission-row__detail">Open network connections as an administrator</span>
+        <span class="hs-pill hs-pill--error">High</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Install confirmation (built, switched off)</h3>
+  <div style="position: relative; transform: translateZ(0); height: 420px; overflow: hidden; background: var(--hs-window-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-scrim"></div>
+    <div class="hs-dialog" role="dialog" aria-modal="true" aria-labelledby="spec-install-title">
+      <h2 class="hs-dialog__title" id="spec-install-title">Install Audioscrobbler?</h2>
+      <p style="margin: 0;">Audioscrobbler (audioscrobbler) version 2.4.0. It will be able to:</p>
+      <div class="hs-settings-group" style="padding: 12px 14px;">
+        <div class="hs-permission-list">
+          <div class="hs-permission-row">
+            <span class="hs-permission-row__scope">music.read</span>
+            <span class="hs-permission-row__detail">Read your music library</span>
+            <span class="hs-pill hs-pill--success">Low</span>
+          </div>
+          <div class="hs-permission-row">
+            <span class="hs-permission-row__scope">admin.network</span>
+            <span class="hs-permission-row__detail">Open network connections</span>
+            <span class="hs-pill hs-pill--error">High</span>
+          </div>
+        </div>
+      </div>
+      <div class="hs-dialog__footer">
+        <button class="hs-button" type="button">Cancel</button>
+        <button class="hs-button hs-button--suggested" type="button">Install</button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Storage usage (p26)</h3>
+  <div class="hs-storage-usage" style="margin-bottom: 24px;">
+    <div class="hs-storage-bar">
+      <i class="hs-storage-bar__library" style="width: 38%;"></i>
+      <i class="hs-storage-bar__cache" style="width: 14%;"></i>
+      <i class="hs-storage-bar__folders" style="width: 10%;"></i>
+      <i class="hs-storage-bar__free" style="width: 38%;"></i>
+    </div>
+    <div class="hs-storage-legend">
+      <div class="hs-storage-legend__item">
+        <span class="hs-storage-legend__swatch hs-storage-legend__swatch--library"></span>
+        <span class="hs-storage-legend__text"><span>Library</span><span>48.2 GB - 2,104 files</span></span>
+      </div>
+      <div class="hs-storage-legend__item">
+        <span class="hs-storage-legend__swatch hs-storage-legend__swatch--cache"></span>
+        <span class="hs-storage-legend__text"><span>Cache</span><span>12.6 GB - 318 files</span></span>
+      </div>
+      <div class="hs-storage-legend__item">
+        <span class="hs-storage-legend__swatch hs-storage-legend__swatch--folders"></span>
+        <span class="hs-storage-legend__text"><span>Folders</span><span>9.4 GB - 612 files</span></span>
+      </div>
+      <div class="hs-storage-legend__item">
+        <span class="hs-storage-legend__swatch hs-storage-legend__swatch--free"></span>
+        <span class="hs-storage-legend__text"><span>Free</span><span>7.8 GB of 78.0 GB</span></span>
+      </div>
+    </div>
+    <p class="hs-storage-pinned">Pinned tracks: 4</p>
+  </div>
+
+  <h3>Acquisition rows (p26b)</h3>
+  <div class="hs-settings-group">
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--acquisition">
+      <div class="hs-setting-row__text">
+        <span>Night Signal <span class="hs-pill hs-pill--accent">Downloading 42%</span></span>
+        <span class="hs-setting-row__subtitle">Northbound - high priority - audioscrobbler - 12 s ago</span>
+      </div>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+      </button>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--acquisition">
+      <div class="hs-setting-row__text">
+        <span>Slow Tide <span class="hs-pill hs-pill--neutral">Queued</span></span>
+        <span class="hs-setting-row__subtitle">Northbound - normal priority - bandcamp - 40 s ago</span>
+      </div>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+      </button>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--acquisition">
+      <div class="hs-setting-row__text">
+        <span>Salt Air <span class="hs-pill hs-pill--error">Failed</span></span>
+        <span class="hs-setting-row__subtitle">Northbound - normal priority - bandcamp - 2 min ago</span>
+        <span class="hs-setting-row__subtitle">No source has it.</span>
+      </div>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+      </button>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--acquisition">
+      <div class="hs-setting-row__text">
+        <span>Harbour Lights <span class="hs-pill hs-pill--success">Completed</span></span>
+        <span class="hs-setting-row__subtitle">Northbound - normal priority - audioscrobbler - 8 min ago</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,86 @@
+/*
+ * @hearthsound/design - sections
+ *
+ * k33 C section header whose title is the link, and l13 B Home shelves.
+ * Values from shared/approved/components.css (.shead, .homebody, .hsec,
+ * .shelf) and spec/components.md.
+ */
+
+.hs-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+}
+
+.hs-section-header__title {
+  margin: 0;
+  font: 750 19px/1.2 var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+.hs-section-header__link {
+  color: inherit;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.hs-section-header__arrow {
+  width: 18px;
+  height: 18px;
+  vertical-align: -2px;
+  margin-left: 4px;
+  color: var(--hs-fg-muted);
+}
+
+/* Keyboard focus uses the approved tint; no hover treatment is drawn. */
+.hs-section-header__link:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+}
+
+/* ------------------------------------------------------------------ */
+/* l13 B - Home shelves                                               */
+/* ------------------------------------------------------------------ */
+
+.hs-home {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 4px 0 28px;
+}
+
+.hs-home-section .hs-section-header {
+  padding: 0 24px 8px 32px;
+}
+
+/* Desktop scroll buttons sit at the right of the header. */
+.hs-home-section .hs-section-header > .hs-shelf__button:first-of-type {
+  margin-left: auto;
+}
+
+.hs-shelf {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 180px;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 0 32px 6px;
+  scrollbar-width: none;
+}
+
+@media (max-width: 720px) {
+  .hs-home-section .hs-section-header {
+    padding: 0 14px 6px;
+  }
+
+  .hs-shelf {
+    grid-auto-columns: 140px;
+    gap: 14px;
+    padding: 0 14px 4px;
+  }
+
+  .hs-shelf__button {
+    display: none;
+  }
+}

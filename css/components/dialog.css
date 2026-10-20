@@ -1,0 +1,85 @@
+/*
+ * k19 C - dialogs: a centred card on desktop, a bottom card on phones (l11c A), the
+ * 640 px instance-dialog exception (p05-r1 A) and the o05 A no-close-button rule.
+ *
+ * Markup: <div class="hs-scrim"></div> then <div class="hs-dialog" role="dialog"
+ * aria-modal="true" aria-labelledby="...">. Alerts use role="alertdialog" with
+ * aria-describedby on the alert text and a destructive action button; action dialogs
+ * carry the suggested button. There is never a close button: Escape, a click on the
+ * scrim or Cancel closes the dialog. Focus moves in and is trapped by the page.
+ * Long forms grow in height and scroll inside (l11c).
+ */
+
+/* p17 z-index fix: above the sticky page header (5), below the dialog (10). */
+.hs-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background: rgb(0 0 0 / 40%);
+}
+
+.hs-dialog {
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(340px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--hs-dialog-bg);
+  border-radius: var(--hs-radius-dialog);
+  box-shadow: var(--hs-elevation-3);
+  color: var(--hs-fg);
+  font: 400 14px/1.45 var(--hs-font-body);
+}
+
+/* p05-r1 A: the instance dialog (setup Configure and admin Instances) is 640 px wide. */
+.hs-dialog--wide {
+  width: min(640px, calc(100vw - 48px));
+}
+
+.hs-dialog__title {
+  margin: 0;
+  font: 750 19px/1.2 var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+.hs-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Alerts are the same card: role="alertdialog" with aria-describedby on the alert text
+ * and a destructive action button; action dialogs use the suggested button (k19). */
+
+/* ------------------------------------------------------------------ */
+/* Phone (l07): bottom card, stacked full-width buttons                */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-dialog {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    top: auto;
+    width: auto;
+    max-height: calc(100vh - 20px);
+    transform: none;
+  }
+
+  .hs-dialog__footer {
+    flex-direction: column-reverse;
+  }
+
+  .hs-dialog__footer .hs-button {
+    width: 100%;
+    height: 44px;
+  }
+}

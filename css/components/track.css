@@ -1,0 +1,336 @@
+/*
+ * @hearthsound/design - track rows
+ *
+ * k12-r1 A, k12-ctx, p08 column subgrid, p21-r2 actions area, k17-r3 feedback
+ * glyph, k12-rm equaliser. Values from shared/approved/components.css
+ * (.tr2, .eq, .tlist, p21-r2) and spec/components.md.
+ */
+
+/* ------------------------------------------------------------------ */
+/* List grid - rows share columns through subgrid (p08)               */
+/* ------------------------------------------------------------------ */
+
+.hs-track-list {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1.5fr) minmax(0, 1fr) auto auto 44px;
+  column-gap: 12px;
+  align-content: start;
+}
+
+.hs-track-list--album {
+  grid-template-columns: 40px minmax(0, 1fr) auto auto 44px;
+}
+
+/* List columns minus the album column (artist Top Songs, Uploads on desktop). */
+.hs-track-list--no-album {
+  grid-template-columns: 40px minmax(0, 1fr) auto auto 44px;
+}
+
+.hs-track-list > .hs-track-row {
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+}
+
+/* ------------------------------------------------------------------ */
+/* Row                                                                */
+/* ------------------------------------------------------------------ */
+
+.hs-track-row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1.5fr) minmax(0, 1fr) auto auto 44px;
+  column-gap: 12px;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 8px 0 6px;
+  border-radius: var(--hs-radius-row);
+  position: relative;
+  font: 400 14px/1.35 var(--hs-font-body);
+  color: var(--hs-fg);
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+/* Album context (k12-ctx): numbered lead, no album column. */
+.hs-track-row--album {
+  grid-template-columns: 40px minmax(0, 1fr) auto auto 44px;
+}
+
+.hs-track-row--album .hs-track-row__album {
+  display: none;
+}
+
+/* No-album list context: cover lead, album name as the second line (p16-r1). */
+.hs-track-row--no-album,
+.hs-track-row--queue {
+  grid-template-columns: 40px minmax(0, 1fr) auto auto 44px;
+}
+
+.hs-track-row--no-album .hs-track-row__album,
+.hs-track-row--queue .hs-track-row__album {
+  display: none;
+}
+
+/* Lead: cover in list context, track number in album context. */
+.hs-track-row__lead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  color: var(--hs-fg-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+}
+
+.hs-track-row__art {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--hs-radius-art-small);
+  display: block;
+  object-fit: cover;
+}
+
+.hs-track-row__lead .hs-art-placeholder {
+  border-radius: var(--hs-radius-art-small);
+}
+
+.hs-track-row__number {
+  transition: opacity var(--hs-duration-hover) var(--hs-ease);
+}
+
+/* Hover: play icon over the cover darkened 50% (list) or in place of the
+ * number (album context, k12-r1 board). */
+.hs-track-row__overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--hs-radius-art-small);
+  background: rgb(0 0 0 / 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-track-row__overlay .hs-icon {
+  color: #fff;
+  width: 16px;
+  height: 16px;
+}
+
+.hs-track-row--album .hs-track-row__overlay {
+  background: transparent;
+}
+
+.hs-track-row--album .hs-track-row__overlay .hs-icon {
+  color: inherit;
+}
+
+.hs-track-row:hover .hs-track-row__overlay,
+.hs-track-row:focus-within .hs-track-row__overlay,
+.hs-track-row--current .hs-track-row__overlay {
+  opacity: 1;
+}
+
+.hs-track-row--album:hover .hs-track-row__number,
+.hs-track-row--album:focus-within .hs-track-row__number {
+  opacity: 0;
+}
+
+.hs-track-row__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hs-track-row__title,
+.hs-track-row__artist,
+.hs-track-row__album {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hs-track-row__artist,
+.hs-track-row__album,
+.hs-track-row__duration {
+  color: var(--hs-fg-muted);
+}
+
+.hs-track-row__duration {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.hs-track-row--current .hs-track-row__title {
+  font-weight: 650;
+}
+
+/* Queue only (l06): played rows dim their content. */
+.hs-track-row--played .hs-track-row__text,
+.hs-track-row--played .hs-track-row__album {
+  opacity: 0.55;
+}
+
+/* ------------------------------------------------------------------ */
+/* Equaliser (k12-r1)                                                 */
+/* ------------------------------------------------------------------ */
+
+.hs-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.hs-eq i {
+  width: 3px;
+  border-radius: 1px;
+  background: var(--hs-accent-bg);
+  animation: hs-eq 1s ease-in-out infinite;
+}
+
+.hs-eq i:nth-child(1) {
+  height: 60%;
+  animation-delay: -0.3s;
+}
+
+.hs-eq i:nth-child(2) {
+  height: 100%;
+  animation-delay: -0.6s;
+}
+
+.hs-eq i:nth-child(3) {
+  height: 40%;
+}
+
+.hs-eq--paused i {
+  animation: none;
+}
+
+@keyframes hs-eq {
+  50% {
+    height: 25%;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Feedback glyph (k17-r3, p21-r2)                                    */
+/* ------------------------------------------------------------------ */
+
+.hs-feedback-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hs-accent-text);
+}
+
+.hs-feedback-glyph .hs-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Actions area (p21-r2): fixed width, like / dislike / menu           */
+/* ------------------------------------------------------------------ */
+
+.hs-track-row__actions {
+  display: flex;
+  align-items: center;
+}
+
+.hs-track-row__actions .hs-button {
+  width: 32px;
+  height: 32px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-track-row__actions .hs-button--on {
+  background: transparent;
+  color: var(--hs-accent-text);
+}
+
+@media (min-width: 721px) {
+  .hs-track-row__actions {
+    position: relative;
+    width: 96px;
+    justify-content: flex-end;
+  }
+
+  /* At rest only the state glyph shows, in the rightmost (menu) spot. */
+  .hs-track-row__actions .hs-feedback-glyph {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+  }
+
+  .hs-track-row:hover .hs-track-row__actions .hs-feedback-glyph,
+  .hs-track-row:focus-within .hs-track-row__actions .hs-feedback-glyph {
+    display: none;
+  }
+
+  .hs-track-row:not(:hover):not(:focus-within) .hs-track-row__actions .hs-button {
+    visibility: hidden;
+  }
+}
+
+.hs-track-row:hover {
+  background: var(--hs-control-tone);
+}
+
+.hs-track-row:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* ------------------------------------------------------------------ */
+/* Phones (l07, p21-r2): menu always visible, glyph beside it          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-track-list,
+  .hs-track-list--album,
+  .hs-track-list--no-album {
+    grid-template-columns: 40px minmax(0, 1fr) auto auto;
+  }
+
+  .hs-track-row,
+  .hs-track-row--album,
+  .hs-track-row--no-album,
+  .hs-track-row--queue {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+  }
+
+  .hs-track-row__album,
+  .hs-track-row__status,
+  .hs-track-row__duration {
+    display: none;
+  }
+
+  .hs-track-row__actions .hs-button:not([aria-haspopup]) {
+    display: none;
+  }
+
+  .hs-track-row__actions {
+    width: auto;
+    gap: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-eq i {
+    animation: none;
+  }
+
+  .hs-track-row,
+  .hs-track-row__number,
+  .hs-track-row__overlay {
+    transition: none;
+  }
+}

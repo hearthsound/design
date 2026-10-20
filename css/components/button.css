@@ -1,0 +1,309 @@
+/*
+ * k01 buttons - k01 A tonal (current), k01b A focus for filled buttons, k01d A disabled,
+ * the busy-rule loading state - and k02 transport and the play/pause disc.
+ *
+ * Markup: <button class="hs-button">Label</button>. A label that must be replaced by the
+ * spinner while busy has to be an element, because the busy rule hides the button's
+ * children and keeps the accessible name (busy-rule).
+ */
+
+/* ------------------------------------------------------------------ */
+/* k01 - anatomy                                                       */
+/* ------------------------------------------------------------------ */
+
+.hs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-control);
+  font: 500 14px var(--hs-font-body);
+  color: var(--hs-fg);
+  background: var(--hs-control-tone);
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+  appearance: none;
+  transition:
+    background var(--hs-duration-hover) var(--hs-ease),
+    box-shadow var(--hs-duration-hover) var(--hs-ease),
+    transform var(--hs-duration-press) var(--hs-ease),
+    color var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-button__icon {
+  --hs-icon-size: 16px;
+}
+
+/* Sizes and shapes. */
+.hs-button--large {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.hs-button--pill {
+  border-radius: var(--hs-radius-full);
+  padding: 0 18px;
+}
+
+.hs-button--circular {
+  width: 36px;
+  padding: 0;
+  border-radius: var(--hs-radius-full);
+}
+
+.hs-button--icon {
+  width: 36px;
+  padding: 0;
+}
+
+/* Fills. */
+.hs-button--suggested {
+  background: var(--hs-accent-bg);
+  color: var(--hs-accent-fg);
+}
+
+.hs-button--destructive {
+  background: var(--hs-destructive-bg);
+  color: var(--hs-destructive-fg);
+}
+
+.hs-button--flat {
+  background: transparent;
+}
+
+/* Menu button: tighter right padding and a 14 px trailing chevron at 80% opacity. */
+.hs-button--menu {
+  padding-right: 10px;
+}
+
+.hs-button--menu .hs-button__icon:last-child {
+  --hs-icon-size: 14px;
+  opacity: 0.8;
+}
+
+/* Split button: the action first, the 30 px arrow second (inside hs-button-group). */
+.hs-button--split-arrow {
+  width: 30px;
+  padding: 0;
+}
+
+.hs-button--split-arrow .hs-button__icon {
+  --hs-icon-size: 14px;
+  opacity: 0.8;
+}
+
+/* Header button (p08, p12-p26 page headers; pagekit.css): icon plus label on desktop and
+ * tablet, icon-only on phones. The label element is also what the busy rule can hide. */
+@media (max-width: 720px) {
+  .hs-button--header {
+    width: 36px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .hs-button--header .hs-button__label {
+    display: none;
+  }
+}
+
+/* Linked group: 1 px gaps, outer corners only. */
+.hs-button-group {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.hs-button-group .hs-button {
+  border-radius: 0;
+}
+
+.hs-button-group .hs-button:first-child {
+  border-radius: var(--hs-radius-control) 0 0 var(--hs-radius-control);
+}
+
+.hs-button-group .hs-button:last-child {
+  border-radius: 0 var(--hs-radius-control) var(--hs-radius-control) 0;
+}
+
+.hs-button-group .hs-button:not(:first-child):not(:last-child) {
+  padding: 0 12px;
+}
+
+/* ------------------------------------------------------------------ */
+/* k01 - states                                                        */
+/* ------------------------------------------------------------------ */
+
+.hs-button:hover {
+  background: color-mix(in srgb, var(--hs-fg) 14%, transparent);
+}
+
+.hs-button:active {
+  background: color-mix(in srgb, var(--hs-fg) 20%, transparent);
+}
+
+.hs-button--flat:hover {
+  background: var(--hs-control-tone);
+}
+
+.hs-button--flat:active {
+  background: color-mix(in srgb, var(--hs-fg) 15%, transparent);
+}
+
+.hs-button--suggested:hover {
+  background: color-mix(in srgb, var(--hs-accent-bg) 90%, #000);
+}
+
+.hs-button--suggested:active {
+  background: color-mix(in srgb, var(--hs-accent-bg) 80%, #000);
+}
+
+.hs-button--destructive:hover {
+  background: color-mix(in srgb, var(--hs-destructive-bg) 88%, #000);
+}
+
+.hs-button--destructive:active {
+  background: color-mix(in srgb, var(--hs-destructive-bg) 76%, #000);
+}
+
+/* Toggle on: the 24% tone and a heavier label. Declared after hover and press so the
+ * on state holds while the pointer is over it. */
+.hs-button--on,
+.hs-button[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--hs-fg) 24%, transparent);
+  font-weight: 650;
+}
+
+/* f13-r3: tonal and flat buttons take the tint. */
+.hs-button:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  box-shadow: var(--hs-focus-shadow);
+  transform: translateY(-1px);
+}
+
+/* k01b A: filled buttons deepen their own fill and keep their own label colour. */
+.hs-button--suggested:focus-visible {
+  background: color-mix(in srgb, var(--hs-accent-bg) 72%, #000);
+  color: var(--hs-accent-fg);
+}
+
+.hs-button--destructive:focus-visible {
+  background: var(--hs-destructive-focus-bg);
+  color: var(--hs-destructive-fg);
+}
+
+/* k01d A: 40% opacity, inert. Every button fades the same way, destructive included. */
+.hs-button:disabled,
+.hs-button[aria-disabled='true'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* busy-rule: the button keeps its exact size, the spinner takes the label's place in
+ * the button's own colours (progress.css) and presses are ignored. The label stays in
+ * the accessibility tree, so the accessible name is unchanged. */
+.hs-button[aria-busy='true'] {
+  position: relative;
+  pointer-events: none;
+}
+
+.hs-button[aria-busy='true'] > :not(.hs-spinner) {
+  opacity: 0;
+}
+
+.hs-button[aria-busy='true'] > .hs-spinner {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+/* ------------------------------------------------------------------ */
+/* k02 - transport and play/pause                                      */
+/* ------------------------------------------------------------------ */
+
+.hs-transport {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* The now-playing view: wider gaps and 48 px flat round previous/next buttons with
+ * 24 px glyphs (k02). */
+.hs-transport--large {
+  gap: 14px;
+}
+
+.hs-transport--large .hs-button--circular {
+  width: 48px;
+  height: 48px;
+}
+
+.hs-transport--large .hs-button__icon {
+  --hs-icon-size: 24px;
+}
+
+/* The disc: 44 px in the player bar and the mini player, 64 px in the full player. */
+.hs-play-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-full);
+  background: var(--hs-accent-bg);
+  color: var(--hs-accent-fg);
+  cursor: default;
+  appearance: none;
+  transition:
+    background var(--hs-duration-hover) var(--hs-ease),
+    box-shadow var(--hs-duration-hover) var(--hs-ease),
+    transform var(--hs-duration-press) var(--hs-ease);
+}
+
+.hs-play-button .hs-icon {
+  --hs-icon-size: 20px;
+}
+
+.hs-play-button--large {
+  width: 64px;
+  height: 64px;
+}
+
+.hs-play-button--large .hs-icon {
+  --hs-icon-size: 28px;
+}
+
+.hs-play-button:hover {
+  background: color-mix(in srgb, var(--hs-accent-bg) 90%, #000);
+}
+
+.hs-play-button:active {
+  background: color-mix(in srgb, var(--hs-accent-bg) 80%, #000);
+}
+
+.hs-play-button:focus-visible {
+  outline: none;
+  background: color-mix(in srgb, var(--hs-accent-bg) 72%, #000);
+  box-shadow: var(--hs-focus-shadow);
+  transform: translateY(-1px);
+}
+
+.hs-play-button:disabled,
+.hs-play-button[aria-disabled='true'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* p19b, p19-r1: while a song is being fetched the disc holds a k09 spinner; on failure the
+ * same disc holds adwaita/refresh and is named "Retry". progress.css sizes and colours it. */

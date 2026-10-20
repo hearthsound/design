@@ -1,0 +1,140 @@
+/*
+ * k21 B - banner: a rounded tinted card; icon, text and one regular button.
+ * Placement l11b: floating at the bottom of the content column, level-2 shadow, above
+ * the player bar or the mini player card, not scrolling with the page.
+ *
+ * Markup: .hs-overlay-dock wraps the banner and the toast region in DOM order
+ * (banner first). Its column-reverse stacking puts the banner on the player edge and the
+ * toast 12 px above it (l11d A), and it is placed before the content in the document
+ * even though it floats visually. Warnings use role="status", errors role="alert"; the
+ * glyph is aria-hidden. Regular inline banners (sign-in session expiry, setup index
+ * errors) omit .hs-banner--floating.
+ *
+ * SPEC GAP: the phase brief names an info banner, but components.md k21 and the approved
+ * .bn styles define only warning (the base tone), error and success. The base
+ * .hs-banner keeps the approved warning tone; no separate info tone is invented.
+ */
+
+/* ------------------------------------------------------------------ */
+/* l11b, l11d - the floating dock                                      */
+/* ------------------------------------------------------------------ */
+
+.hs-overlay-dock {
+  position: fixed;
+  z-index: 6; /* above the page and its header (5), below the dialog scrim (9) */
+  left: 240px;
+  right: 0;
+  bottom: 100px; /* 88 px player bar + 12 px */
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.hs-overlay-dock > * {
+  pointer-events: auto;
+}
+
+@media (max-width: 1280px) {
+  .hs-overlay-dock {
+    left: 200px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hs-overlay-dock {
+    left: 0;
+    bottom: 84px; /* 8 px inset + 64 px mini card + 12 px */
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k21 - anatomy                                                       */
+/* ------------------------------------------------------------------ */
+
+.hs-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: var(--hs-radius-card);
+  font: 400 14px/1.45 var(--hs-font-body);
+  color: var(--hs-fg);
+  background: color-mix(in srgb, var(--hs-warning) var(--hs-message-tint), var(--hs-view-bg));
+}
+
+.hs-banner__glyph {
+  --hs-icon-size: 18px;
+  flex: none;
+  color: var(--hs-warning);
+}
+
+.hs-banner__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hs-banner__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+/* Warning is the base tone; the modifier exists so the state is explicit in markup. */
+.hs-banner--warning {
+  background: color-mix(in srgb, var(--hs-warning) var(--hs-message-tint), var(--hs-view-bg));
+}
+
+.hs-banner--warning .hs-banner__glyph {
+  color: var(--hs-warning);
+}
+
+.hs-banner--error {
+  background: color-mix(in srgb, var(--hs-error) var(--hs-message-tint), var(--hs-view-bg));
+}
+
+.hs-banner--error .hs-banner__glyph {
+  color: var(--hs-error);
+}
+
+.hs-banner--success {
+  background: color-mix(in srgb, var(--hs-success) var(--hs-message-tint), var(--hs-view-bg));
+}
+
+.hs-banner--success .hs-banner__glyph {
+  color: var(--hs-success);
+}
+
+/* l11b C: floating, level-2 shadow, content margins 24 px desktop and 14 px phones,
+ * width capped with the l08 1440 px content cap. */
+.hs-banner--floating {
+  width: calc(100% - 48px);
+  max-width: 1440px;
+  box-shadow: var(--hs-elevation-2);
+}
+
+/* ------------------------------------------------------------------ */
+/* Phone (l11b, k21): the button wraps below, right-aligned            */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-banner {
+    flex-wrap: wrap;
+  }
+
+  .hs-banner--floating {
+    width: calc(100% - 28px);
+  }
+
+  .hs-banner__actions {
+    flex-basis: 100%;
+    justify-content: flex-end;
+  }
+}

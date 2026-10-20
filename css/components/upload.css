@@ -1,0 +1,70 @@
+/*
+ * @hearthsound/design - uploads
+ *
+ * k31-r1 A drop zone (neutral grey, acid tint with a dashed outline while
+ * dragging) and the p21-r1 upload items: k11-r1 two-line rows with a k10 pill,
+ * no progress bar. Values from shared/approved/components.css (.dz) and
+ * spec/components.md.
+ */
+
+.hs-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 34px 20px;
+  border-radius: var(--hs-radius-card);
+  background: var(--hs-group-bg);
+  border: 2px dashed transparent;
+  transition: background var(--hs-duration-hover) var(--hs-ease),
+    border-color var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-drop-zone > .hs-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-drop-zone__hint {
+  color: var(--hs-fg-muted);
+}
+
+.hs-drop-zone--over {
+  background: var(--hs-accent-tint);
+  border-color: var(--hs-accent-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-drop-zone {
+    transition: none;
+  }
+}
+
+/* Upload items: no duration-style bar; the pill carries the state. */
+.hs-upload-row .hs-setting-row__text {
+  gap: 4px;
+}
+
+.hs-upload-row > .hs-pill {
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 720px) {
+  .hs-drop-zone {
+    padding: 24px 16px;
+  }
+
+  .hs-upload-row {
+    flex-wrap: wrap;
+  }
+
+  .hs-upload-row > .hs-pill {
+    max-width: 100%;
+    margin-left: 28px;
+  }
+}

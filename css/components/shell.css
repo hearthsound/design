@@ -1,0 +1,281 @@
+/*
+ * l01-r1 - the app shell: one solid grid, never translucent (f11). Sidebar on the left,
+ * the content column on the right, the player bar docked under the content column only.
+ * Widths follow l07: 240 px above 1280 px, 200 px from 721 to 1280 px, and a phone
+ * drawer at 720 px and below. l08 caps the page at 1440 px and sets the card grids.
+ * l12/l12-r1 onboarding frames (plain and split), the i03 lockup sizes and the p27
+ * booting frame also live here.
+ */
+
+.hs-shell {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'side main'
+    'side player';
+  height: 100vh;
+  overflow: hidden;
+  background: var(--hs-view-bg);
+  color: var(--hs-fg);
+}
+
+.hs-shell__sidebar {
+  grid-area: side;
+  min-height: 0;
+}
+
+.hs-shell__main {
+  grid-area: main;
+  min-width: 0;
+  overflow: auto;
+}
+
+.hs-shell__player {
+  grid-area: player;
+}
+
+@media (max-width: 1280px) {
+  .hs-shell {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* l01-r1 - phone: one column, no sidebar, mini player at the foot     */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'main'
+      'player';
+  }
+
+  .hs-shell__sidebar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* l01-r1 - the 300 px drawer over the 40% scrim, level-3 shadow       */
+/* ------------------------------------------------------------------ */
+
+.hs-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow-y: auto;
+  background: var(--hs-sidebar-bg);
+  box-shadow: var(--hs-elevation-3);
+}
+
+.hs-drawer .hs-sidebar,
+.hs-sidebar--drawer {
+  height: 100%;
+}
+
+/* layouts.md 11.4: drawer scrim 20, drawer 30. The base scrim is dialog.css. */
+.hs-scrim--drawer {
+  z-index: 20;
+}
+
+/* ------------------------------------------------------------------ */
+/* l08 - content cap and card grids                                    */
+/* ------------------------------------------------------------------ */
+
+.hs-page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hs-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 30px 28px;
+}
+
+@media (max-width: 720px) {
+  .hs-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 18px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* i03 - lockup and its sizes                                          */
+/* ------------------------------------------------------------------ */
+
+.hs-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--hs-fg);
+  font: 750 19px var(--hs-font-display);
+  letter-spacing: -0.025em;
+}
+
+.hs-lockup img,
+.hs-lockup svg {
+  flex: none;
+  width: 26px;
+  height: 26px;
+}
+
+.hs-lockup--large {
+  gap: 14px;
+  font-size: 34px;
+}
+
+.hs-lockup--large img,
+.hs-lockup--large svg {
+  width: 46px;
+  height: 46px;
+}
+
+/* ------------------------------------------------------------------ */
+/* l12, l12-r1 - onboarding frames                                     */
+/* ------------------------------------------------------------------ */
+
+.hs-onboarding {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--hs-view-bg);
+  color: var(--hs-fg);
+}
+
+.hs-onboarding__top {
+  padding: 18px 24px;
+}
+
+.hs-onboarding__body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 24px 24px 48px;
+}
+
+/* Split sign-in frame above 720 px: the brand panel is 40% wide, at least 320 px. */
+.hs-onboarding--split {
+  display: grid;
+  grid-template-columns: minmax(320px, 40%) 1fr;
+}
+
+.hs-onboarding__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hs-sidebar-bg);
+}
+
+.hs-onboarding__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+/* The sign-in column: 340 px, 18 px gaps, a full-width 44 px suggested button. */
+.hs-signin {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.hs-signin .hs-button--suggested {
+  width: 100%;
+  height: 44px;
+  justify-content: center;
+}
+
+/* Setup: 760 px column, 640 px form, Back and Continue at the ends. */
+.hs-setup {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  max-width: 760px;
+}
+
+.hs-setup .hs-form {
+  max-width: 640px;
+}
+
+.hs-setup__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  max-width: 640px;
+}
+
+/* p27: the booting frame is the plain frame with a 48 px spinner and no text. */
+.hs-booting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------------ */
+/* Phone (l12-r1 B)                                                    */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-onboarding__top {
+    padding: 14px;
+  }
+
+  .hs-onboarding__body {
+    padding: 0 14px 24px;
+  }
+
+  .hs-onboarding__body > .hs-signin {
+    margin-top: 20vh;
+  }
+
+  .hs-onboarding--split {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+
+  .hs-onboarding--split .hs-onboarding__brand {
+    justify-content: flex-start;
+    padding: 14px;
+  }
+
+  /* The large lockup collapses to the small size on phones. */
+  .hs-onboarding--split .hs-lockup--large {
+    gap: 8px;
+    font-size: 19px;
+  }
+
+  .hs-onboarding--split .hs-lockup--large img,
+  .hs-onboarding--split .hs-lockup--large svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .hs-onboarding__main {
+    align-items: flex-start;
+    padding: 14px 14px 24px;
+  }
+
+  .hs-setup__actions {
+    flex-direction: column-reverse;
+  }
+
+  .hs-setup__actions .hs-button {
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+  }
+}

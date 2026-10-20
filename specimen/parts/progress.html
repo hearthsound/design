@@ -1,0 +1,63 @@
+<h2 class="hs-title-4">k09 Progress bar and spinner</h2>
+<p class="hs-caption">6 px acid bar on a 16% track; a 40% segment slides every 1.4 s when indeterminate. Spinners: 16, 24 and 48 px rings. Reduced motion slows the spinner to 2.7 s per turn and stills the bar.</p>
+
+<h3 class="hs-heading">Progress bar</h3>
+<div style="display:flex; flex-direction:column; gap:14px; max-width:420px">
+  <div class="hs-progress" role="progressbar" aria-label="Downloading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42">
+    <span class="hs-progress__fill" style="width:42%"></span>
+  </div>
+  <div class="hs-progress hs-progress--indeterminate" role="progressbar" aria-label="Scanning">
+    <span class="hs-progress__fill"></span>
+  </div>
+</div>
+
+<h3 class="hs-heading">Spinners</h3>
+<div style="display:flex; flex-wrap:wrap; gap:24px; align-items:center">
+  <span class="hs-spinner" role="status"><span class="hs-visually-hidden">Loading</span></span>
+  <span class="hs-spinner hs-spinner--24" role="status"><span class="hs-visually-hidden">Loading</span></span>
+  <span class="hs-spinner hs-spinner--48" role="status"><span class="hs-visually-hidden">Loading</span></span>
+</div>
+
+<h3 class="hs-heading">Spinner inside buttons and the disc</h3>
+<div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center">
+  <button class="hs-button hs-button--suggested" type="button" aria-busy="true"><span>Save Changes</span><span class="hs-spinner"></span></button>
+  <button class="hs-button" type="button" aria-busy="true"><span>Scan</span><span class="hs-spinner"></span></button>
+  <button class="hs-play-button" type="button" aria-label="Pause" aria-busy="true"><span class="hs-spinner"></span></button>
+  <button class="hs-play-button hs-play-button--large" type="button" aria-label="Pause" aria-busy="true"><span class="hs-spinner"></span></button>
+</div>
+
+<h2 class="hs-title-4">k09b Skeleton</h2>
+<p class="hs-caption">A 9% placeholder with a sweeping band, still under reduced motion. Skeletons hold the space of the real item and are aria-hidden.</p>
+
+<div aria-hidden="true" style="display:flex; flex-direction:column; gap:14px; max-width:420px">
+  <span class="hs-skeleton" style="width:180px;height:12px"></span>
+  <span class="hs-skeleton" style="width:260px;height:12px"></span>
+  <span class="hs-skeleton" style="width:120px;height:12px"></span>
+  <span class="hs-skeleton" style="width:120px;height:120px;border-radius:var(--hs-radius-art)"></span>
+  <span class="hs-skeleton" style="width:64px;height:64px;border-radius:var(--hs-radius-artist)"></span>
+</div>
+
+<h2 class="hs-title-4">k34 Endless loading</h2>
+<p class="hs-caption">The list region sets aria-busy="true" and publishes "Loading..." while the next page arrives; k09b placeholders in the shape of the rows hold the space. No Load more button; the true end shows nothing extra.</p>
+
+<div class="hs-endless" aria-busy="true" style="display:flex; flex-direction:column; gap:12px; max-width:480px">
+  <div class="hs-endless__placeholder" aria-hidden="true">
+    <div style="display:flex; align-items:center; gap:12px">
+      <span class="hs-skeleton" style="width:40px;height:40px;border-radius:var(--hs-radius-art-small)"></span>
+      <span style="display:flex; flex-direction:column; gap:6px; flex:1">
+        <span class="hs-skeleton" style="width:60%;height:10px"></span>
+        <span class="hs-skeleton" style="width:35%;height:10px"></span>
+      </span>
+      <span class="hs-skeleton" style="width:44px;height:10px"></span>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px">
+      <span class="hs-skeleton" style="width:40px;height:40px;border-radius:var(--hs-radius-art-small)"></span>
+      <span style="display:flex; flex-direction:column; gap:6px; flex:1">
+        <span class="hs-skeleton" style="width:52%;height:10px"></span>
+        <span class="hs-skeleton" style="width:30%;height:10px"></span>
+      </span>
+      <span class="hs-skeleton" style="width:44px;height:10px"></span>
+    </div>
+  </div>
+  <p class="hs-visually-hidden" role="status">Loading...</p>
+</div>

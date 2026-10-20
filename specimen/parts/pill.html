@@ -1,0 +1,39 @@
+<h2 class="hs-title-4">k10 Status pill, count badge and health indicator</h2>
+<p class="hs-caption">22 px pill: 12 px glyph, 12 px weight 600 label, state colour on a 13% tint. In-progress states use the accent text on the accent tint; neutral states the muted text. Glyphs are decorative; the label is the accessible text.</p>
+
+<h3 class="hs-heading">State pills</h3>
+<div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+  <span class="hs-pill hs-pill--success"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>Ready</span>
+  <span class="hs-pill hs-pill--success"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>Done</span>
+  <span class="hs-pill hs-pill--success"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>Healthy</span>
+  <span class="hs-pill hs-pill--warning"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"/></svg>Approvals</span>
+  <span class="hs-pill hs-pill--error"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"/></svg>Failed</span>
+  <span class="hs-pill hs-pill--error"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"/></svg>Failed: timed out</span>
+  <span class="hs-pill hs-pill--neutral"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-queue"/></svg>Prefetch queued</span>
+  <span class="hs-pill hs-pill--neutral"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-remove"/></svg>Not prefetched</span>
+  <span class="hs-pill hs-pill--neutral"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#custom-unknown"/></svg>Unknown</span>
+</div>
+
+<h3 class="hs-heading">In-progress pills</h3>
+<div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+  <span class="hs-pill hs-pill--accent"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-search"/></svg>Searching sources</span>
+  <span class="hs-pill hs-pill--accent"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-acquire"/></svg>Downloading 42%</span>
+  <span class="hs-pill hs-pill--accent"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-acquire"/></svg>Prefetching 18%</span>
+  <span class="hs-pill hs-pill--accent"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#custom-upload"/></svg>Uploading 64%</span>
+  <span class="hs-pill hs-pill--accent"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-refresh"/></svg>Processing</span>
+</div>
+
+<h3 class="hs-heading">Count badge</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <span class="hs-count-badge">3<span class="hs-visually-hidden"> items</span></span>
+  <span class="hs-count-badge">128<span class="hs-visually-hidden"> items</span></span>
+  <span class="hs-count-badge">1 204<span class="hs-visually-hidden"> items</span></span>
+</div>
+
+<h3 class="hs-heading">Row health indicator</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <span class="hs-health-indicator hs-health-indicator--success" role="img" aria-label="Healthy"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg></span>
+  <span class="hs-health-indicator hs-health-indicator--warning" role="img" aria-label="Degraded"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"/></svg></span>
+  <span class="hs-health-indicator hs-health-indicator--error" role="img" aria-label="Failed"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"/></svg></span>
+  <span class="hs-health-indicator hs-health-indicator--neutral" role="img" aria-label="Unknown"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#custom-unknown"/></svg></span>
+</div>

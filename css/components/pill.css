@@ -1,0 +1,101 @@
+/*
+ * k10 A - status pill (compact), count badge and row health indicator.
+ *
+ * Colour and glyph are the state colour on a --hs-status-tint background; in-progress
+ * states use --hs-accent-text on --hs-accent-tint, neutral states --hs-fg-muted. Every
+ * state carries a glyph and a label, never colour alone (f07). Pills are not focusable;
+ * glyphs are aria-hidden and the visible label is the accessible text.
+ */
+
+.hs-pill {
+  --c: var(--hs-fg-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  padding: 0 9px 0 7px;
+  border-radius: var(--hs-radius-full);
+  white-space: nowrap;
+  font: 600 12px var(--hs-font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) var(--hs-status-tint), transparent);
+}
+
+.hs-pill__glyph {
+  --hs-icon-size: 12px;
+}
+
+.hs-pill--success {
+  --c: var(--hs-success);
+}
+
+.hs-pill--warning {
+  --c: var(--hs-warning);
+}
+
+.hs-pill--error {
+  --c: var(--hs-error);
+}
+
+.hs-pill--neutral {
+  --c: var(--hs-fg-muted);
+}
+
+/* In-progress states: Searching sources, Downloading N%, Prefetching N%, Uploading N%,
+ * Processing. */
+.hs-pill--accent {
+  color: var(--hs-accent-text);
+  background: var(--hs-accent-tint);
+}
+
+/* Count badge: "items" is added as visually hidden text in the markup. */
+.hs-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: var(--hs-accent-bg);
+  color: var(--hs-accent-fg);
+  font: 600 12px var(--hs-font-body);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Row health indicator: a 22 px tinted circle; role="img" with an aria-label, and the
+ * label repeated in a tooltip on hover and row focus. */
+.hs-health-indicator {
+  --c: var(--hs-fg-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) var(--hs-status-tint), transparent);
+}
+
+.hs-health-indicator .hs-icon {
+  --hs-icon-size: 14px;
+}
+
+.hs-health-indicator--success {
+  --c: var(--hs-success);
+}
+
+.hs-health-indicator--warning {
+  --c: var(--hs-warning);
+}
+
+.hs-health-indicator--error {
+  --c: var(--hs-error);
+}
+
+.hs-health-indicator--neutral {
+  --c: var(--hs-fg-muted);
+}

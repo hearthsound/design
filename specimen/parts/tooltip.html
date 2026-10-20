@@ -1,0 +1,14 @@
+<h2 class="hs-title-4">k27 Tooltip</h2>
+<p class="hs-caption">Ink in light, popover in dark. Shown below the control: hover after 800 ms, at once on keyboard focus, after a 500 ms long-press on touch (hidden 1.5 s after the finger lifts). Escape hides it; it is never focusable.</p>
+
+<h3 class="hs-heading">Below a control</h3>
+<div style="display:inline-flex; flex-direction:column; align-items:flex-start; gap:6px">
+  <button class="hs-button hs-button--icon hs-button--flat" type="button" aria-label="Sort" aria-describedby="spec-tooltip-sort"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-sort"/></svg></button>
+  <span class="hs-tooltip" role="tooltip" id="spec-tooltip-sort" style="position:static">Sort by title</span>
+</div>
+
+<h3 class="hs-heading">The "Failed" pill carries the reason (o07)</h3>
+<div style="display:inline-flex; flex-direction:column; align-items:flex-start; gap:6px">
+  <span class="hs-pill hs-pill--error"><svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"/></svg>Failed</span>
+  <span class="hs-tooltip" role="tooltip" style="position:static">Every source failed.</span>
+</div>

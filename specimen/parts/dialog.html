@@ -1,0 +1,67 @@
+<section>
+  <h2>Dialogs</h2>
+
+  <h3>Action dialog with a busy submit</h3>
+  <div style="position: relative; transform: translateZ(0); height: 360px; overflow: hidden; background: var(--hs-window-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-scrim"></div>
+    <div class="hs-dialog" role="dialog" aria-modal="true" aria-labelledby="spec-dlg-rename">
+      <h2 class="hs-dialog__title" id="spec-dlg-rename">Rename Playlist</h2>
+      <div class="hs-form">
+        <div class="hs-form-field">
+          <label class="hs-form-field__label" for="spec-dlg-name">Name</label>
+          <div class="hs-field">
+            <input class="hs-field__input" id="spec-dlg-name" value="Road Trip">
+          </div>
+        </div>
+      </div>
+      <div class="hs-dialog__footer">
+        <button class="hs-button" type="button">Cancel</button>
+        <button class="hs-button hs-button--suggested" type="button" aria-busy="true">
+          <span class="hs-button__label">Rename</span>
+          <span class="hs-spinner"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Alert dialog</h3>
+  <div style="position: relative; transform: translateZ(0); height: 340px; overflow: hidden; background: var(--hs-window-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-scrim"></div>
+    <div class="hs-dialog" role="alertdialog" aria-modal="true" aria-labelledby="spec-dlg-delete" aria-describedby="spec-dlg-delete-text">
+      <h2 class="hs-dialog__title" id="spec-dlg-delete">Delete Playlist?</h2>
+      <p id="spec-dlg-delete-text" style="margin: 0;">"Road Trip" and its song order are deleted. The songs stay in your library.</p>
+      <div class="hs-dialog__footer">
+        <button class="hs-button" type="button">Cancel</button>
+        <button class="hs-button hs-button--destructive" type="button">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Wide dialog (instance, 640 px)</h3>
+  <div style="position: relative; transform: translateZ(0); height: 400px; overflow: hidden; background: var(--hs-window-bg); border-radius: 12px;">
+    <div class="hs-scrim"></div>
+    <div class="hs-dialog hs-dialog--wide" role="dialog" aria-modal="true" aria-labelledby="spec-dlg-instance">
+      <h2 class="hs-dialog__title" id="spec-dlg-instance">Add Instance</h2>
+      <div class="hs-form">
+        <div class="hs-form-field">
+          <label class="hs-form-field__label" for="spec-dlg-plugin">Plugin</label>
+          <div class="hs-field">
+            <input class="hs-field__input" id="spec-dlg-plugin" value="Audioscrobbler">
+            <svg class="hs-icon hs-field__action" aria-hidden="true"><use href="../dist/icons.svg#adwaita-collapse"></use></svg>
+          </div>
+        </div>
+        <div class="hs-form-field">
+          <label class="hs-form-field__label" for="spec-dlg-slug">Slug</label>
+          <div class="hs-field">
+            <input class="hs-field__input" id="spec-dlg-slug" value="audioscrobbler">
+          </div>
+          <span class="hs-form-field__hint">Used in the instance URL.</span>
+        </div>
+      </div>
+      <div class="hs-dialog__footer">
+        <button class="hs-button" type="button">Cancel</button>
+        <button class="hs-button hs-button--suggested" type="button">Add instance</button>
+      </div>
+    </div>
+  </div>
+</section>

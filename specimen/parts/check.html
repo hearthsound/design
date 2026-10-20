@@ -1,0 +1,68 @@
+<h2 class="hs-title-4">k06 Checkbox and radio</h2>
+<p class="hs-caption">Outline at rest, acid fill when on. The whole row is the target. Mixed uses aria-checked="mixed" with adwaita/remove in the box. Hover, press and keyboard focus are live.</p>
+
+<h3 class="hs-heading">Checkbox</h3>
+<div style="display:flex; flex-direction:column; align-items:flex-start; gap:6px">
+  <label class="hs-choice">
+    <input class="hs-choice__input" type="checkbox">
+    <span class="hs-choice__box"></span>
+    Download missing artwork
+  </label>
+  <label class="hs-choice">
+    <input class="hs-choice__input" type="checkbox" checked>
+    <span class="hs-choice__box hs-choice__box--on"><svg class="hs-icon hs-choice__check"><use href="../dist/icons.svg#adwaita-check"/></svg></span>
+    Download missing artwork
+  </label>
+  <label class="hs-choice">
+    <input class="hs-choice__input" type="checkbox" aria-checked="mixed">
+    <span class="hs-choice__box hs-choice__box--on"><svg class="hs-icon hs-choice__check"><use href="../dist/icons.svg#adwaita-remove"/></svg></span>
+    Download missing artwork (mixed)
+  </label>
+  <label class="hs-choice hs-choice--disabled">
+    <input class="hs-choice__input" type="checkbox" disabled>
+    <span class="hs-choice__box"></span>
+    Disabled
+  </label>
+</div>
+
+<h3 class="hs-heading">Radio group</h3>
+<div role="radiogroup" aria-label="Streaming quality" style="display:flex; flex-direction:column; align-items:flex-start; gap:6px">
+  <label class="hs-choice hs-choice--radio">
+    <input class="hs-choice__input" type="radio" name="spec-quality" checked>
+    <span class="hs-choice__box hs-choice__box--on"><span class="hs-choice__dot"></span></span>
+    Original
+  </label>
+  <label class="hs-choice hs-choice--radio">
+    <input class="hs-choice__input" type="radio" name="spec-quality">
+    <span class="hs-choice__box"><span class="hs-choice__dot"></span></span>
+    High
+  </label>
+  <label class="hs-choice hs-choice--radio">
+    <input class="hs-choice__input" type="radio" name="spec-quality">
+    <span class="hs-choice__box"><span class="hs-choice__dot"></span></span>
+    Data saver
+  </label>
+  <label class="hs-choice hs-choice--radio hs-choice--disabled">
+    <input class="hs-choice__input" type="radio" name="spec-quality" disabled>
+    <span class="hs-choice__box"><span class="hs-choice__dot"></span></span>
+    Disabled
+  </label>
+</div>
+
+<h2 class="hs-title-4">k07-r2 Switch</h2>
+<p class="hs-caption">44 x 24 track, 18 px knob; press stretches the knob to 22 px. Focus tints the containing row.</p>
+
+<div style="display:flex; flex-direction:column; align-items:flex-start; gap:10px">
+  <div class="hs-choice">
+    <button class="hs-switch" type="button" role="switch" aria-checked="false" aria-label="Enable uploads"></button>
+    <span>Enable uploads</span>
+  </div>
+  <div class="hs-choice">
+    <button class="hs-switch hs-switch--on" type="button" role="switch" aria-checked="true" aria-label="Enable uploads"></button>
+    <span>Enable uploads</span>
+  </div>
+  <div class="hs-choice hs-choice--disabled">
+    <button class="hs-switch" type="button" role="switch" aria-checked="false" aria-label="Enable uploads" disabled></button>
+    <span>Disabled</span>
+  </div>
+</div>

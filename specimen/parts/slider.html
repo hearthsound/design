@@ -1,0 +1,57 @@
+<h2 class="hs-title-4">k08 Seek and volume sliders</h2>
+<p class="hs-caption">24 px hit area, 8 px track thickening to 12 px on hover and drag, buffered portion behind the acid elapsed. No thumb at rest; tab to a slider to see the 20 px focus thumb. The disabled idle state keeps the look at 40% and has no thumb.</p>
+
+<h3 class="hs-heading">Seek</h3>
+<div style="display:flex; align-items:center; gap:10px; max-width:520px">
+  <span class="hs-caption" style="font-variant-numeric:tabular-nums">1:23</span>
+  <div class="hs-slider" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="237" aria-valuenow="83" aria-valuetext="1 minute 23 seconds of 3 minutes 57 seconds">
+    <span class="hs-slider__track"></span>
+    <span class="hs-slider__buffer" style="width:58%"></span>
+    <span class="hs-slider__elapsed" style="width:35%"></span>
+    <span class="hs-slider__thumb" style="left:35%"></span>
+  </div>
+  <span class="hs-caption" style="font-variant-numeric:tabular-nums">3:57</span>
+</div>
+
+<h3 class="hs-heading">Seek at the start</h3>
+<div style="display:flex; align-items:center; gap:10px; max-width:520px">
+  <span class="hs-caption" style="font-variant-numeric:tabular-nums">0:00</span>
+  <div class="hs-slider" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="212" aria-valuenow="0" aria-valuetext="0 seconds of 3 minutes 32 seconds">
+    <span class="hs-slider__track"></span>
+    <span class="hs-slider__buffer" style="width:12%"></span>
+    <span class="hs-slider__elapsed" style="width:0%"></span>
+    <span class="hs-slider__thumb" style="left:0%"></span>
+  </div>
+  <span class="hs-caption" style="font-variant-numeric:tabular-nums">3:32</span>
+</div>
+
+<h3 class="hs-heading">Volume</h3>
+<div style="display:flex; align-items:center; gap:8px; max-width:220px">
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Mute" aria-pressed="false"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-mute"/></svg></button>
+  <div class="hs-slider" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" aria-valuetext="70 percent">
+    <span class="hs-slider__track"></span>
+    <span class="hs-slider__elapsed" style="width:70%"></span>
+    <span class="hs-slider__thumb" style="left:70%"></span>
+  </div>
+</div>
+
+<h3 class="hs-heading">Idle (o02): disabled seek and volume</h3>
+<div style="display:flex; flex-direction:column; gap:12px; max-width:360px">
+  <div style="display:flex; align-items:center; gap:10px">
+    <span class="hs-caption" style="font-variant-numeric:tabular-nums">0:00</span>
+    <div class="hs-slider" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" aria-disabled="true" aria-valuetext="0 seconds of 0 seconds">
+      <span class="hs-slider__track"></span>
+      <span class="hs-slider__elapsed" style="width:0%"></span>
+      <span class="hs-slider__thumb" style="left:0%"></span>
+    </div>
+    <span class="hs-caption" style="font-variant-numeric:tabular-nums">0:00</span>
+  </div>
+  <div style="display:flex; align-items:center; gap:8px">
+    <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Mute" aria-pressed="false" disabled><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-mute"/></svg></button>
+    <div class="hs-slider" role="slider" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 percent" aria-disabled="true">
+      <span class="hs-slider__track"></span>
+      <span class="hs-slider__elapsed" style="width:0%"></span>
+      <span class="hs-slider__thumb" style="left:0%"></span>
+    </div>
+  </div>
+</div>

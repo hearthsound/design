@@ -1,0 +1,251 @@
+<section>
+  <h2>Shell</h2>
+
+  <h3>Desktop app grid</h3>
+  <div style="width: 100%; height: 440px; overflow: hidden; border-radius: 12px; margin-bottom: 24px; background: var(--hs-window-bg);">
+    <div style="position: relative; width: 1100px; height: 700px; transform: scale(0.62); transform-origin: top left;">
+      <div class="hs-shell" style="height: 700px;">
+        <aside class="hs-shell__sidebar">
+          <div class="hs-sidebar">
+            <span class="hs-lockup">
+              <img src="../identity/mark/mark-symbolic.svg" alt="">
+              Hearthsound
+            </span>
+            <a class="hs-nav-item" href="#">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-home"></use></svg>
+              Home
+            </a>
+            <h2 class="hs-nav__heading">Library</h2>
+            <a class="hs-nav-item" href="#">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"></use></svg>
+              Songs
+            </a>
+            <a class="hs-nav-item hs-nav-item--current" href="#" aria-current="page">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"></use></svg>
+              Albums
+            </a>
+            <a class="hs-nav-item" href="#">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-artist"></use></svg>
+              Artists
+            </a>
+            <a class="hs-nav-item" href="#">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-playlist"></use></svg>
+              Playlists
+            </a>
+            <div class="hs-sidebar__spacer"></div>
+            <button class="hs-account" type="button" aria-expanded="false" aria-haspopup="menu" aria-label="Account, Echo">
+              <span class="hs-avatar" aria-hidden="true">
+                <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-account"></use></svg>
+              </span>
+              <span class="hs-account__name">Echo</span>
+            </button>
+          </div>
+        </aside>
+
+        <div class="hs-shell__main">
+          <div class="hs-page">
+            <div class="hs-page-header">
+              <h1 class="hs-page-header__title">Albums</h1>
+              <div class="hs-page-actions">
+                <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Sort">
+                  <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-sort"></use></svg>
+                </button>
+              </div>
+            </div>
+            <div class="hs-card-grid" style="padding: 8px 32px 32px;">
+              <div class="hs-card">
+                <a class="hs-card__link" href="#" aria-label="Signals"></a>
+                <span class="hs-card__cover"><span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"></use></svg></span></span>
+                <span class="hs-card__text">
+                  <span class="hs-card__title">Signals</span>
+                  <span class="hs-card__artist">Northbound</span>
+                </span>
+              </div>
+              <div class="hs-card">
+                <a class="hs-card__link" href="#" aria-label="Slow Tide"></a>
+                <span class="hs-card__cover"><span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"></use></svg></span></span>
+                <span class="hs-card__text">
+                  <span class="hs-card__title">Slow Tide</span>
+                  <span class="hs-card__artist">Harbour</span>
+                </span>
+              </div>
+              <div class="hs-card">
+                <a class="hs-card__link" href="#" aria-label="Salt Air"></a>
+                <span class="hs-card__cover"><span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"></use></svg></span></span>
+                <span class="hs-card__text">
+                  <span class="hs-card__title">Salt Air</span>
+                  <span class="hs-card__artist">Northbound</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hs-shell__player">
+          <div class="hs-player hs-player--idle">
+            <div class="hs-player__now-playing">
+              <span class="hs-player__cover">
+                <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"></use></svg>
+              </span>
+              <span class="hs-player__meta">
+                <span class="hs-player__title-row"><span class="hs-player__title">Nothing playing</span></span>
+              </span>
+            </div>
+            <div class="hs-player__transport">
+              <div class="hs-transport">
+                <button class="hs-play-button" type="button" aria-label="Play" aria-disabled="true">
+                  <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"></use></svg>
+                </button>
+              </div>
+            </div>
+            <div class="hs-player__end"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Phone drawer over the scrim</h3>
+  <div style="position: relative; transform: translateZ(0); height: 420px; overflow: hidden; border-radius: 12px; margin-bottom: 24px; background: var(--hs-view-bg);">
+    <div class="hs-scrim hs-scrim--drawer"></div>
+    <div class="hs-drawer">
+      <div class="hs-sidebar hs-sidebar--drawer">
+        <span class="hs-lockup">
+          <img src="../identity/mark/mark-symbolic.svg" alt="">
+          Hearthsound
+        </span>
+        <label class="hs-field hs-field--search hs-search-field">
+          <svg class="hs-icon hs-field__lead" aria-hidden="true"><use href="../dist/icons.svg#adwaita-search"></use></svg>
+          <input class="hs-field__input" type="search" placeholder="Song, album or artist" aria-label="Search">
+        </label>
+        <h2 class="hs-nav__heading">Library</h2>
+        <a class="hs-nav-item hs-nav-item--current" href="#" aria-current="page">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-home"></use></svg>
+          Home
+        </a>
+        <a class="hs-nav-item" href="#">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"></use></svg>
+          Songs
+        </a>
+        <a class="hs-nav-item" href="#">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"></use></svg>
+          Albums
+        </a>
+        <div class="hs-sidebar__spacer"></div>
+        <a class="hs-nav-item" href="#">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-settings"></use></svg>
+          Administration
+        </a>
+        <button class="hs-account" type="button" aria-expanded="false" aria-haspopup="menu" aria-label="Account, Echo">
+          <span class="hs-avatar" aria-hidden="true">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-account"></use></svg>
+          </span>
+          <span class="hs-account__name">Echo</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Plain onboarding frame (sign-in and setup)</h3>
+  <div style="border-radius: 12px; overflow: hidden; margin-bottom: 24px; background: var(--hs-view-bg);">
+    <div class="hs-onboarding" style="min-height: 460px;">
+      <div class="hs-onboarding__top">
+        <span class="hs-lockup">
+          <img src="../identity/mark/mark-symbolic.svg" alt="">
+          Hearthsound
+        </span>
+      </div>
+      <div class="hs-onboarding__body">
+        <form class="hs-signin">
+          <h2 class="hs-title-2" style="margin: 0;">Sign in</h2>
+          <div class="hs-form-field">
+            <label class="hs-form-field__label" for="spec-shell-user">Username</label>
+            <div class="hs-field"><input class="hs-field__input" id="spec-shell-user"></div>
+          </div>
+          <div class="hs-form-field">
+            <label class="hs-form-field__label" for="spec-shell-pass">Password</label>
+            <div class="hs-field"><input class="hs-field__input" id="spec-shell-pass" type="password" value="hunter22"></div>
+          </div>
+          <button class="hs-button hs-button--suggested" type="button">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <h3>Split onboarding frame (sign-in above 720 px)</h3>
+  <div style="border-radius: 12px; overflow: hidden; margin-bottom: 24px; background: var(--hs-view-bg);">
+    <div class="hs-onboarding hs-onboarding--split" style="min-height: 460px;">
+      <div class="hs-onboarding__brand">
+        <span class="hs-lockup hs-lockup--large">
+          <img src="../identity/mark/mark-symbolic.svg" alt="">
+          Hearthsound
+        </span>
+      </div>
+      <div class="hs-onboarding__main">
+        <form class="hs-signin">
+          <h2 class="hs-title-2" style="margin: 0;">Sign in</h2>
+          <div class="hs-form-field">
+            <label class="hs-form-field__label" for="spec-shell-user2">Username</label>
+            <div class="hs-field"><input class="hs-field__input" id="spec-shell-user2"></div>
+          </div>
+          <div class="hs-form-field">
+            <label class="hs-form-field__label" for="spec-shell-pass2">Password</label>
+            <div class="hs-field"><input class="hs-field__input" id="spec-shell-pass2" type="password" value="hunter22"></div>
+          </div>
+          <button class="hs-button hs-button--suggested" type="button">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <h3>Setup frame with stepper and footer</h3>
+  <div style="border-radius: 12px; overflow: hidden; margin-bottom: 24px; background: var(--hs-view-bg);">
+    <div class="hs-onboarding" style="min-height: 420px;">
+      <div class="hs-onboarding__top">
+        <span class="hs-lockup">
+          <img src="../identity/mark/mark-symbolic.svg" alt="">
+          Hearthsound
+        </span>
+      </div>
+      <div class="hs-onboarding__body">
+        <div class="hs-setup">
+          <ol class="hs-stepper">
+            <li class="hs-step hs-step--done"><span class="hs-step__marker">1</span><span>Administrator</span></li>
+            <li class="hs-step__connector"></li>
+            <li class="hs-step" aria-current="step"><span class="hs-step__marker">2</span><span>Music folders</span></li>
+            <li class="hs-step__connector"></li>
+            <li class="hs-step"><span class="hs-step__marker">3</span><span>Plugins</span></li>
+          </ol>
+          <div class="hs-form">
+            <div class="hs-form-field">
+              <label class="hs-form-field__label" for="spec-shell-folder">Folder</label>
+              <div class="hs-field"><input class="hs-field__input" id="spec-shell-folder" value="/music"></div>
+              <span class="hs-form-field__hint">Where your music files live.</span>
+            </div>
+          </div>
+          <div class="hs-setup__actions">
+            <button class="hs-button" type="button">Back</button>
+            <button class="hs-button hs-button--suggested" type="button">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Booting frame</h3>
+  <div style="border-radius: 12px; overflow: hidden; background: var(--hs-view-bg);">
+    <div class="hs-onboarding" style="min-height: 240px;">
+      <div class="hs-onboarding__top">
+        <span class="hs-lockup">
+          <img src="../identity/mark/mark-symbolic.svg" alt="">
+          Hearthsound
+        </span>
+      </div>
+      <div class="hs-onboarding__body">
+        <div class="hs-booting">
+          <span class="hs-spinner hs-spinner--48" role="status" aria-label="Loading"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

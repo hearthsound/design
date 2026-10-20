@@ -1,0 +1,64 @@
+<section>
+  <h2>Status Pages</h2>
+
+  <h3>Load failure (o03, role alert)</h3>
+  <div style="display: flex; height: 340px; background: var(--hs-view-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-status-page" role="alert">
+      <svg class="hs-icon hs-status-page__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"></use></svg>
+      <h2 class="hs-status-page__title">Could Not Load This Page</h2>
+      <p class="hs-status-page__text">The server did not answer. Try again in a moment.</p>
+      <button class="hs-button hs-status-page__action" type="button">Retry</button>
+    </div>
+  </div>
+
+  <h3>Page Not Found (p27)</h3>
+  <div style="display: flex; height: 340px; background: var(--hs-view-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-status-page">
+      <svg class="hs-icon hs-status-page__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-search"></use></svg>
+      <h2 class="hs-status-page__title">Page Not Found</h2>
+      <p class="hs-status-page__text">This address does not match any page.</p>
+      <button class="hs-button hs-status-page__action" type="button">Go Home</button>
+    </div>
+  </div>
+
+  <h3>Not Allowed (p27)</h3>
+  <div style="display: flex; height: 340px; background: var(--hs-view-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-status-page">
+      <svg class="hs-icon hs-status-page__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-lock"></use></svg>
+      <h2 class="hs-status-page__title">Not Allowed</h2>
+      <p class="hs-status-page__text">This page is for administrators.</p>
+      <button class="hs-button hs-status-page__action" type="button">Go Home</button>
+    </div>
+  </div>
+
+  <h3>Empty library (p08e)</h3>
+  <div style="display: flex; height: 360px; background: var(--hs-view-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-status-page">
+      <svg class="hs-icon hs-status-page__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"></use></svg>
+      <h2 class="hs-status-page__title">No Songs Yet</h2>
+      <p class="hs-status-page__text">Songs you like, save, add to a playlist or upload show up here.</p>
+      <button class="hs-button hs-status-page__action" type="button">
+        <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#custom-upload"></use></svg>
+        Upload Songs
+      </button>
+    </div>
+  </div>
+
+  <h3>Nothing Liked Yet (p07c, no button)</h3>
+  <div style="display: flex; height: 320px; background: var(--hs-view-bg); border-radius: 12px; margin-bottom: 24px;">
+    <div class="hs-status-page">
+      <svg class="hs-icon hs-status-page__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-like"></use></svg>
+      <h2 class="hs-status-page__title">Nothing Liked Yet</h2>
+      <p class="hs-status-page__text">Use the heart on a song, album or artist to keep it here.</p>
+    </div>
+  </div>
+
+  <h3>Inline playlist empty (p17)</h3>
+  <div style="display: flex; background: var(--hs-view-bg); border-radius: 12px;">
+    <div class="hs-status-page hs-status-page--inline">
+      <svg class="hs-icon hs-status-page__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-playlist"></use></svg>
+      <h2 class="hs-status-page__title">This Playlist Is Empty</h2>
+      <p class="hs-status-page__text">Add songs with "Add to Playlist" in any song's menu.</p>
+    </div>
+  </div>
+</section>

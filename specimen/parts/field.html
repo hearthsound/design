@@ -1,0 +1,138 @@
+<h2 class="hs-title-4">k03 Text fields and search</h2>
+<p class="hs-caption">Tonal 36 px field, pill search, password reveal, clear action, invalid and disabled. Focus keeps the grey surface; the caret carries it. Hover, focus and keyboard states are live.</p>
+
+<h3 class="hs-heading">Text field</h3>
+<div style="display:flex; flex-direction:column; gap:12px; max-width:360px">
+  <div class="hs-field">
+    <input class="hs-field__input" type="text" placeholder="Song, album or artist" aria-label="Search">
+  </div>
+  <div class="hs-field">
+    <input class="hs-field__input" type="text" value="https://music.example.org" aria-label="Server address">
+  </div>
+  <div class="hs-field hs-field--invalid">
+    <input class="hs-field__input" type="text" value="music.example" aria-label="Server address" aria-invalid="true" aria-describedby="spec-field-error">
+  </div>
+  <p class="hs-form-field__error" id="spec-field-error" role="alert"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-error"/></svg>The address is not reachable.</p>
+  <div class="hs-field">
+    <input class="hs-field__input" type="text" value="Locked value" aria-label="Locked value" disabled>
+  </div>
+</div>
+
+<h3 class="hs-heading">Password field</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <div class="hs-field" style="max-width:260px">
+    <input class="hs-field__input" type="password" value="correct-horse" aria-label="Password">
+    <button class="hs-field__action" type="button" aria-label="Reveal Password" aria-pressed="false"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-reveal"/></svg></button>
+  </div>
+  <div class="hs-field" style="max-width:260px">
+    <input class="hs-field__input" type="text" value="correct-horse" aria-label="Password">
+    <button class="hs-field__action" type="button" aria-label="Reveal Password" aria-pressed="true"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-reveal"/></svg></button>
+  </div>
+</div>
+
+<h3 class="hs-heading">Search field (pill) and clear action</h3>
+<div style="display:flex; flex-direction:column; gap:12px; max-width:420px">
+  <div class="hs-field hs-field--search">
+    <svg class="hs-icon hs-field__lead"><use href="../dist/icons.svg#adwaita-search"/></svg>
+    <input class="hs-field__input" type="search" placeholder="Song, album or artist" aria-label="Search">
+  </div>
+  <div class="hs-field hs-field--search">
+    <svg class="hs-icon hs-field__lead"><use href="../dist/icons.svg#adwaita-search"/></svg>
+    <input class="hs-field__input" type="search" value="low ro" aria-label="Search">
+    <button class="hs-field__action" type="button" aria-label="Clear"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-close"/></svg></button>
+  </div>
+  <div class="hs-field hs-field--search hs-field--invalid">
+    <svg class="hs-icon hs-field__lead"><use href="../dist/icons.svg#adwaita-search"/></svg>
+    <input class="hs-field__input" type="search" value="low ro" aria-label="Search" aria-invalid="true">
+  </div>
+</div>
+
+<h3 class="hs-heading">Sidebar search field (l14)</h3>
+<div style="width:220px">
+  <div class="hs-field hs-field--search hs-search-field">
+    <svg class="hs-icon hs-field__lead"><use href="../dist/icons.svg#adwaita-search"/></svg>
+    <input class="hs-field__input" type="search" placeholder="Song, album or artist" aria-label="Search">
+    <button class="hs-field__action" type="button" aria-label="Clear"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-close"/></svg></button>
+  </div>
+</div>
+
+<h2 class="hs-title-4">k04 Number entry</h2>
+<p class="hs-caption">Tabular value at the left, optional unit, then minus and plus. Step buttons are not tab stops; at a limit the step is disabled at 40%.</p>
+
+<div style="display:flex; flex-direction:column; gap:12px; max-width:320px">
+  <div class="hs-field hs-field--number" role="spinbutton" tabindex="0" aria-valuenow="8" aria-valuemin="1" aria-valuemax="32" aria-valuetext="8 transcodes">
+    <span class="hs-field__value">8</span>
+    <span class="hs-field__unit">transcodes</span>
+    <button class="hs-field__step" type="button" aria-label="Decrease"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-remove"/></svg></button>
+    <button class="hs-field__step" type="button" aria-label="Increase"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-add"/></svg></button>
+  </div>
+  <div class="hs-field hs-field--number" role="spinbutton" tabindex="0" aria-valuenow="512" aria-valuemin="512" aria-valuemax="4096" aria-valuetext="512 megabytes">
+    <span class="hs-field__value">512</span>
+    <span class="hs-field__unit">MB</span>
+    <button class="hs-field__step" type="button" aria-label="Decrease" aria-disabled="true" disabled><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-remove"/></svg></button>
+    <button class="hs-field__step" type="button" aria-label="Increase"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-add"/></svg></button>
+  </div>
+</div>
+
+<h2 class="hs-title-4">k04b Textarea</h2>
+<div style="max-width:420px">
+  <div class="hs-field hs-field--textarea">
+    <textarea class="hs-field__input" aria-label="Description" placeholder="Describe the playlist">Three fixed lines.
+Longer text scrolls inside the field.
+Enter adds a line.</textarea>
+  </div>
+</div>
+
+<h2 class="hs-title-4">k05 Drop-down trigger</h2>
+<p class="hs-caption">The closed trigger is the tonal field with a muted chevron; open turns the chevron and takes the hover tone. The list and its options are hs-listbox and hs-option (menu.css).</p>
+
+<div style="display:flex; flex-direction:column; gap:12px; max-width:320px">
+  <button class="hs-select" type="button" aria-haspopup="listbox" aria-expanded="false">
+    <span class="hs-field__value">Opus</span>
+    <svg class="hs-icon"><use href="../dist/icons.svg#adwaita-expand"/></svg>
+  </button>
+  <button class="hs-select" type="button" aria-haspopup="listbox" aria-expanded="true">
+    <span class="hs-field__value">Opus</span>
+    <svg class="hs-icon"><use href="../dist/icons.svg#adwaita-expand"/></svg>
+  </button>
+  <button class="hs-select" type="button" aria-haspopup="listbox" aria-expanded="false" disabled>
+    <span class="hs-field__value">Opus</span>
+    <svg class="hs-icon"><use href="../dist/icons.svg#adwaita-expand"/></svg>
+  </button>
+</div>
+
+<h2 class="hs-title-4">k32 Form field</h2>
+<p class="hs-caption">Label above, "Optional" marked, hint under the field, error in its place with the error glyph, and the pinned lock line. The label turns accent while its field has focus.</p>
+
+<form class="hs-form">
+  <div class="hs-form-field">
+    <label class="hs-form-field__label" for="spec-username">Username</label>
+    <div class="hs-field">
+      <input class="hs-field__input" id="spec-username" type="text" value="ada" aria-describedby="spec-username-hint">
+    </div>
+    <span class="hs-form-field__hint" id="spec-username-hint">The name you sign in with.</span>
+  </div>
+  <div class="hs-form-field">
+    <label class="hs-form-field__label" for="spec-nickname">Nickname<span class="hs-form-field__optional">Optional</span></label>
+    <div class="hs-field">
+      <input class="hs-field__input" id="spec-nickname" type="text" placeholder="Shown to other listeners">
+    </div>
+  </div>
+  <div class="hs-form-field">
+    <label class="hs-form-field__label" for="spec-password">Password</label>
+    <div class="hs-field hs-field--invalid">
+      <input class="hs-field__input" id="spec-password" type="password" value="short" aria-invalid="true" aria-describedby="spec-password-error">
+      <button class="hs-field__action" type="button" aria-label="Reveal Password" aria-pressed="false"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-reveal"/></svg></button>
+    </div>
+    <p class="hs-form-field__error" id="spec-password-error" role="alert"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-error"/></svg>Use at least 12 characters.</p>
+  </div>
+  <div class="hs-form-field">
+    <span class="hs-form-field__label">Public address</span>
+    <span class="hs-caption">https://music.example.org</span>
+    <span class="hs-form-field__pinned"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-lock"/></svg>Set in the configuration file</span>
+  </div>
+  <div class="hs-form__footer">
+    <button class="hs-button" type="button">Cancel</button>
+    <button class="hs-button hs-button--suggested" type="button">Save Changes</button>
+  </div>
+</form>

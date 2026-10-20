@@ -1,0 +1,92 @@
+/*
+ * k08 C - seek and volume sliders: thick acid on grey, no thumb at rest.
+ *
+ * Markup: <div class="hs-slider" role="slider" tabindex="0" aria-label="Seek"
+ * aria-valuetext="..."><span class="hs-slider__track"></span>
+ * <span class="hs-slider__buffer" style="width:..."></span>
+ * <span class="hs-slider__elapsed" style="width:..."></span>
+ * <span class="hs-slider__thumb" style="left:..."></span></div>.
+ * The client writes the buffer, elapsed and thumb lengths; the package only draws them.
+ *
+ * ACCEPTED EXCEPTION (k08, foundations.md 12.1 item 2): the light elapsed fill measures
+ * 1.4:1 against the page; the 8 px track and the filled length carry the position.
+ */
+
+.hs-slider {
+  position: relative;
+  flex: 1;
+  height: 24px;
+  min-width: 60px;
+}
+
+.hs-slider__track,
+.hs-slider__buffer,
+.hs-slider__elapsed {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: var(--hs-radius-full);
+  transition:
+    height var(--hs-duration-hover) var(--hs-ease),
+    margin var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-slider__track {
+  right: 0;
+  background: var(--hs-slider-track);
+}
+
+.hs-slider__buffer {
+  background: var(--hs-slider-buffer);
+}
+
+.hs-slider__elapsed {
+  background: var(--hs-accent-bg);
+}
+
+/* Hover and drag thicken track, buffer and elapsed to 12 px. */
+.hs-slider:hover .hs-slider__track,
+.hs-slider:hover .hs-slider__buffer,
+.hs-slider:hover .hs-slider__elapsed,
+.hs-slider:active .hs-slider__track,
+.hs-slider:active .hs-slider__buffer,
+.hs-slider:active .hs-slider__elapsed {
+  height: 12px;
+  margin-top: -6px;
+}
+
+/* No thumb except on keyboard focus. */
+.hs-slider__thumb {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--hs-accent-bg);
+  opacity: 0;
+  box-shadow: var(--hs-focus-shadow), 0 1px 3px rgb(0 0 0 / 18%);
+  transition: opacity var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-slider:focus-visible {
+  outline: none;
+}
+
+.hs-slider:focus-visible .hs-slider__thumb {
+  opacity: 1;
+}
+
+/* o02 idle: the whole control is inert, no thumb. */
+.hs-slider:disabled,
+.hs-slider[aria-disabled='true'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hs-slider:disabled .hs-slider__thumb,
+.hs-slider[aria-disabled='true'] .hs-slider__thumb {
+  opacity: 0;
+}

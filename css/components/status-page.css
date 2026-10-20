@@ -1,0 +1,48 @@
+/*
+ * k22 A - status page: centred in the content area, biased slightly upward by the
+ * 90 px bottom padding. Used by the o03 load failure, the p27 system states and the
+ * p08e empty library views. The playlist empty state uses the inline variant (p17).
+ * The title is a heading, the icon is aria-hidden, and a failure sets role="alert".
+ */
+
+.hs-status-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 24px 24px 90px;
+  box-sizing: border-box;
+  color: var(--hs-fg);
+}
+
+.hs-status-page__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--hs-fg-muted);
+  opacity: 0.8;
+}
+
+.hs-status-page__title {
+  margin: 6px 0 0;
+  font: 750 23px/1.2 var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+.hs-status-page__text {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--hs-fg-muted);
+}
+
+.hs-status-page__action {
+  margin-top: 8px;
+}
+
+/* p17: the inline empty state under a playlist hero keeps the page compact. */
+.hs-status-page--inline {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}

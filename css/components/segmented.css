@@ -1,0 +1,64 @@
+/*
+ * k23 A - segmented control. Tabs have exactly two visual states, selected and
+ * unselected; hover and keyboard focus use the shared treatments and are never drawn as
+ * tab states. p20-r1: the now-playing switch is a text segmented control
+ * ("Lyrics" / "Queue").
+ *
+ * Markup: <div class="hs-segmented" role="tablist" aria-label="...">
+ * <button class="hs-segmented__tab hs-segmented__tab--selected" role="tab"
+ * aria-selected="true">Lyrics</button>...</div>.
+ */
+
+.hs-segmented {
+  display: flex;
+  gap: 0;
+  margin: 0 14px 12px;
+  padding: 3px;
+  background: var(--hs-control-tone);
+  border-radius: var(--hs-radius-full);
+  width: max-content;
+  max-width: calc(100% - 28px);
+  overflow-x: auto;
+}
+
+/* Inside the now-playing panel: zero margin, so the track may take the full width. */
+.hs-segmented--flush {
+  margin: 0;
+  max-width: 100%;
+}
+
+.hs-segmented__tab {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  height: 32px;
+  padding: 0 14px;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-full);
+  background: transparent;
+  font: 500 14px var(--hs-font-body);
+  color: var(--hs-fg);
+  white-space: nowrap;
+  cursor: default;
+  appearance: none;
+}
+
+.hs-segmented__tab--selected,
+.hs-segmented__tab[aria-selected='true'] {
+  background: var(--hs-segment-selected-bg);
+  box-shadow: var(--hs-elevation-1);
+  font-weight: 600;
+}
+
+.hs-segmented__tab:hover:not(.hs-segmented__tab--selected):not([aria-selected='true']) {
+  background: color-mix(in srgb, var(--hs-fg) 10%, transparent);
+}
+
+.hs-segmented__tab:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  font-weight: 600;
+  box-shadow: var(--hs-focus-shadow);
+}

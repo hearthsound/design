@@ -1,0 +1,230 @@
+/*
+ * k25 A - page header: a 72 px sticky row on the view background (never a separate bar
+ * surface), the page title as h1, flat icon actions at the right, and the l03 back
+ * button. On phones the drawer menu button leads top-level pages (layouts.md 1.2) and the
+ * back button replaces it on drill-down pages. The hero below is the l09 detail hero
+ * (p15 album, p16-r1 artist, p17 playlist).
+ */
+
+.hs-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 72px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  background: var(--hs-view-bg);
+  color: var(--hs-fg);
+}
+
+.hs-page-header__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font: 750 var(--hs-type-title-2-size)/1.1 var(--hs-font-display);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hs-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* k25 A: the hairline appears only once the page is scrolled. */
+.hs-page-header--scrolled,
+.hs-page-header[data-scrolled] {
+  box-shadow: 0 1px 0 var(--hs-separator);
+}
+
+/* l03: a flat 36 px icon button leading the header, pulled to the margin. */
+.hs-back {
+  margin-left: -8px;
+}
+
+/* l01-r1: the phone drawer trigger leads top-level pages only. */
+.hs-page-header__menu {
+  display: none;
+  margin-left: -8px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Phone (l07): 14 px header padding; icon actions stay icon-only      */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-page-header {
+    padding: 0 14px;
+  }
+
+  .hs-page-header__menu {
+    display: inline-flex;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* l09, p15, p16-r1, p17 - detail hero                                 */
+/* ------------------------------------------------------------------ */
+
+.hs-hero {
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  padding: 8px 32px 26px;
+  box-sizing: border-box;
+}
+
+.hs-hero__art {
+  display: block;
+  flex: none;
+  width: 232px;
+  height: 232px;
+  border-radius: var(--hs-radius-art);
+  overflow: hidden;
+  background: var(--hs-art-placeholder-bg);
+  box-shadow: var(--hs-art-shadow);
+}
+
+.hs-hero__art > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* f15c: artist portraits are round. */
+.hs-hero__art--round {
+  border-radius: var(--hs-radius-artist);
+}
+
+.hs-hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.hs-hero__text > h1 {
+  margin: 0;
+  font: 750 var(--hs-type-title-1-size)/1.1 var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+.hs-hero__by {
+  margin: 0;
+  font-weight: 600;
+}
+
+.hs-hero__meta {
+  margin: 0;
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+/* p16-r1: the biography is muted, clamped to three lines, with Show more / Show less
+ * in place. A visually hidden checkbox carries the expanded state so the text stays
+ * visible while collapsed; the label is the disclosure control. */
+.hs-hero__bio {
+  position: relative;
+  max-width: 62ch;
+  margin: 4px 0 0;
+  color: var(--hs-fg-muted);
+}
+
+.hs-hero__bio > p {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.hs-hero__bio-toggle {
+  position: absolute; /* markup also carries .hs-visually-hidden */
+}
+
+.hs-hero__bio-toggle:checked ~ p {
+  display: block;
+  overflow: visible;
+}
+
+.hs-hero__more {
+  display: inline-block;
+  width: max-content;
+  margin-top: 4px;
+  cursor: default;
+}
+
+.hs-hero__more-open {
+  display: none;
+}
+
+.hs-hero__bio-toggle:checked ~ .hs-hero__more .hs-hero__more-open {
+  display: inline;
+}
+
+.hs-hero__bio-toggle:checked ~ .hs-hero__more .hs-hero__more-closed {
+  display: none;
+}
+
+.hs-hero__bio-toggle:focus-visible ~ .hs-hero__more {
+  outline: none;
+  background: var(--hs-accent-tint);
+}
+
+.hs-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.hs-hero__actions .hs-button--icon {
+  width: 48px;
+  height: 48px;
+}
+
+.hs-hero__actions .hs-button--icon .hs-icon {
+  --hs-icon-size: 20px;
+}
+
+/* A pressed like toggle stays transparent with the accent glyph (k17-r3). */
+.hs-hero__actions .hs-button--flat.hs-button--on,
+.hs-hero__actions .hs-button--flat[aria-pressed='true'] {
+  background: transparent;
+  color: var(--hs-accent-text);
+}
+
+@media (max-width: 1280px) {
+  .hs-hero {
+    padding: 8px 24px 22px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hs-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 4px 18px 18px;
+  }
+
+  .hs-hero__art {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-hero__art {
+    transition: none;
+  }
+}

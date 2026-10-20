@@ -1,0 +1,252 @@
+<section>
+  <h2 class="hs-title-3">k17-r3 Song menu</h2>
+  <p class="hs-caption">Like and dislike at the left, 1-5 stars at the right, then the actions. "More Actions" opens it.</p>
+  <div class="hs-menu hs-song-menu" role="menu" aria-label="Song actions">
+    <div class="hs-song-menu__feedback-line">
+      <span>
+        <button class="hs-button hs-button--flat hs-button--icon hs-button--on" type="button" aria-label="Like" aria-pressed="true">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-like"/></svg>
+        </button>
+        <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Dislike" aria-pressed="false">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#custom-dislike-outline"/></svg>
+        </button>
+      </span>
+      <span class="hs-stars" role="radiogroup" aria-label="Rating">
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="false" aria-label="1 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="false" aria-label="2 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="true" aria-label="3 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star" type="button" role="radio" aria-checked="false" aria-label="4 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating-outline"/></svg>
+        </button>
+        <button class="hs-star" type="button" role="radio" aria-checked="false" aria-label="5 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating-outline"/></svg>
+        </button>
+      </span>
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-queue"/></svg>
+      <span class="hs-menu__label">Add to Queue</span>
+    </div>
+    <div class="hs-menu__item" role="menuitem" tabindex="0" aria-haspopup="menu" aria-expanded="false">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-playlist"/></svg>
+      <span class="hs-menu__label">Add to Playlist</span>
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+    </div>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg>
+      <span class="hs-menu__label">Go to Album</span>
+    </div>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-artist"/></svg>
+      <span class="hs-menu__label">Go to Artist</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">k17-r3 Now-playing menu and k18 Add-to-playlist submenu</h2>
+  <p class="hs-caption">The rating line comes first; the submenu cascades beside the item (Right opens, Left or Escape closes one level).</p>
+  <div class="hs-menu hs-song-menu" role="menu" aria-label="Song actions">
+    <div class="hs-song-menu__rating-line">
+      <span class="hs-menu__label">Rating</span>
+      <span class="hs-stars" role="radiogroup" aria-label="Rating">
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="false" aria-label="1 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="false" aria-label="2 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="false" aria-label="3 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star hs-star--on" type="button" role="radio" aria-checked="false" aria-label="4 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating"/></svg>
+        </button>
+        <button class="hs-star" type="button" role="radio" aria-checked="false" aria-label="5 of 5">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-rating-outline"/></svg>
+        </button>
+      </span>
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0" aria-haspopup="menu" aria-expanded="true">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-playlist"/></svg>
+      <span class="hs-menu__label">Add to Playlist</span>
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+      <div class="hs-submenu" role="menu" aria-label="Add to Playlist">
+        <div class="hs-menu__item" role="menuitem" tabindex="0">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-add"/></svg>
+          <span class="hs-menu__label">New playlist</span>
+        </div>
+        <hr>
+        <div class="hs-menu__item" role="menuitem" tabindex="0">
+          <span class="hs-menu__cover">
+            <span class="hs-mosaic hs-mosaic--2">
+              <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+              <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+            </span>
+          </span>
+          <span class="hs-menu__label">Evening Drive</span>
+        </div>
+        <div class="hs-menu__item" role="menuitem" tabindex="0">
+          <span class="hs-menu__cover">
+            <span class="hs-mosaic hs-mosaic--1">
+              <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+            </span>
+          </span>
+          <span class="hs-menu__label">Slow Mornings</span>
+        </div>
+      </div>
+    </div>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg>
+      <span class="hs-menu__label">Go to Album</span>
+    </div>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-artist"/></svg>
+      <span class="hs-menu__label">Go to Artist</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">k05 / k18 popover menu: check items and a separator</h2>
+  <div class="hs-menu" role="menu" aria-label="Sort">
+    <div class="hs-menu__item" role="menuitemradio" aria-checked="true" tabindex="0">
+      <span class="hs-menu__label">Recently Added</span>
+      <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+    </div>
+    <div class="hs-menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
+      <span class="hs-menu__label">Title</span>
+      <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+    </div>
+    <div class="hs-menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
+      <span class="hs-menu__label">Artist</span>
+      <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0" aria-haspopup="menu" aria-expanded="false">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-sort"/></svg>
+      <span class="hs-menu__label">Sort Direction</span>
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+    </div>
+  </div>
+
+  <h3 class="hs-heading">Submenu with no playlists</h3>
+  <div class="hs-menu" role="menu" aria-label="Add to Playlist">
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-add"/></svg>
+      <span class="hs-menu__label">New playlist</span>
+    </div>
+    <hr>
+    <div class="hs-menu__empty">No playlists yet</div>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">k26 / o01 Account row and account menu</h2>
+  <button class="hs-account" type="button" aria-haspopup="menu" aria-expanded="true">
+    <span class="hs-avatar" aria-hidden="true">
+      <svg class="hs-icon"><use href="../dist/icons.svg#adwaita-account"/></svg>
+    </span>
+    <span class="hs-account__name">Ada Lovelace</span>
+  </button>
+
+  <div class="hs-menu hs-account-menu" role="menu" aria-label="Account">
+    <div class="hs-account-menu__header">
+      <span class="hs-avatar" aria-hidden="true">
+        <svg class="hs-icon"><use href="../dist/icons.svg#adwaita-account"/></svg>
+      </span>
+      <span class="hs-account-menu__who">
+        <span>Ada Lovelace</span>
+        <span>ada</span>
+      </span>
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-home"/></svg>
+      <span class="hs-menu__label">Customize Home</span>
+    </div>
+    <div class="hs-menu__item" role="menuitem" tabindex="0" aria-haspopup="menu" aria-expanded="true">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-dark-mode"/></svg>
+      <span class="hs-menu__label">Appearance</span>
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+      <div class="hs-submenu" role="menu" aria-label="Appearance">
+        <div class="hs-menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
+          <span class="hs-menu__label">System</span>
+          <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+        </div>
+        <div class="hs-menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
+          <span class="hs-menu__label">Light</span>
+          <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+        </div>
+        <div class="hs-menu__item" role="menuitemradio" aria-checked="true" tabindex="0">
+          <span class="hs-menu__label">Dark</span>
+          <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-sign-out"/></svg>
+      <span class="hs-menu__label">Sign out</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">k18 Phone: the menu becomes the playlist list</h2>
+  <p class="hs-caption">A header row with the back action replaces the song menu on phones.</p>
+  <div class="hs-menu hs-song-menu" role="menu" aria-label="Add to Playlist">
+    <div class="hs-submenu__header">
+      <button class="hs-submenu__back" type="button" aria-label="Back">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-back"/></svg>
+      </button>
+      Add to playlist
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-add"/></svg>
+      <span class="hs-menu__label">New playlist</span>
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitem" tabindex="0">
+      <span class="hs-menu__cover">
+        <span class="hs-mosaic hs-mosaic--2">
+          <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+          <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+        </span>
+      </span>
+      <span class="hs-menu__label">Evening Drive</span>
+    </div>
+  </div>
+
+  <h3 class="hs-heading">Phone: the Appearance submenu becomes the menu</h3>
+  <div class="hs-menu hs-account-menu" role="menu" aria-label="Appearance">
+    <div class="hs-submenu__header">
+      <button class="hs-submenu__back" type="button" aria-label="Back">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-back"/></svg>
+      </button>
+      Appearance
+    </div>
+    <hr>
+    <div class="hs-menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
+      <span class="hs-menu__label">System</span>
+      <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+    </div>
+    <div class="hs-menu__item" role="menuitemradio" aria-checked="false" tabindex="0">
+      <span class="hs-menu__label">Light</span>
+      <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+    </div>
+    <div class="hs-menu__item" role="menuitemradio" aria-checked="true" tabindex="0">
+      <span class="hs-menu__label">Dark</span>
+      <svg class="hs-icon hs-menu__check" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+    </div>
+  </div>
+</section>

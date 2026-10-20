@@ -1,0 +1,296 @@
+/*
+ * k03 text fields and search (k03 C tonal field and pill search, k03f B focused fields stay
+ * grey), k04 A number entry, k04b C textarea, k05 A drop-down trigger, k32 B form field and
+ * the l14 sidebar search.
+ *
+ * Text-type fields (text, search, number, password, textarea) never change their grey rest
+ * surface on focus and carry no focus shadow (k03f). Focus is shown by the caret in
+ * --hs-accent-text and, in a form field, by the accent label.
+ */
+
+/* ------------------------------------------------------------------ */
+/* k03 - anatomy                                                       */
+/* ------------------------------------------------------------------ */
+
+.hs-field,
+.hs-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 6px 0 12px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: var(--hs-radius-control);
+  font: 400 14px var(--hs-font-body);
+  color: var(--hs-fg);
+  background: var(--hs-control-tone);
+  transition:
+    background var(--hs-duration-hover) var(--hs-ease),
+    box-shadow var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-field__lead {
+  --hs-icon-size: 16px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-field__value {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.hs-field__input {
+  all: unset;
+  flex: 1;
+  min-width: 0;
+  caret-color: var(--hs-accent-text);
+}
+
+.hs-field__input::placeholder {
+  color: var(--hs-fg-muted);
+}
+
+/* Inner actions: reveal, clear and the number steps. 28 px square, 14 px glyphs, muted. */
+.hs-field__action,
+.hs-field__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--hs-fg-muted);
+  cursor: default;
+  appearance: none;
+  transition:
+    background var(--hs-duration-hover) var(--hs-ease),
+    color var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-field__action .hs-icon,
+.hs-field__step .hs-icon {
+  --hs-icon-size: 14px;
+}
+
+.hs-field__action:hover,
+.hs-field__step:hover {
+  background: var(--hs-control-tone);
+  color: var(--hs-fg);
+}
+
+/* Password reveal while the password is shown: the k01 toggle-on tone. */
+.hs-field__action[aria-pressed='true'] {
+  color: var(--hs-fg);
+  background: color-mix(in srgb, var(--hs-fg) 24%, transparent);
+}
+
+.hs-field__action:disabled,
+.hs-field__action[aria-disabled='true'],
+.hs-field__step:disabled,
+.hs-field__step[aria-disabled='true'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Search: fully round, tighter padding at the leading edge, round inner actions. */
+.hs-field--search {
+  border-radius: var(--hs-radius-full);
+  padding-left: 14px;
+  padding-right: 4px;
+}
+
+.hs-field--search .hs-field__action {
+  border-radius: var(--hs-radius-full);
+}
+
+/* ------------------------------------------------------------------ */
+/* k03 - states                                                        */
+/* ------------------------------------------------------------------ */
+
+:is(.hs-field, .hs-select):hover:not(:focus-within):not(.hs-field--invalid):not([aria-invalid='true']) {
+  background: color-mix(in srgb, var(--hs-fg) 13%, transparent);
+}
+
+/* k03f B: a focused field keeps the grey surface and no shadow. */
+:is(.hs-field, .hs-select):focus-within {
+  background: var(--hs-control-tone);
+  box-shadow: none;
+}
+
+/* Declared after focus: the invalid tint is not a focus treatment and stays while the
+ * field is focused or hovered. The doubled class matches the focus rule's specificity. */
+.hs-field.hs-field--invalid,
+.hs-field[aria-invalid='true'] {
+  background: color-mix(in srgb, var(--hs-error) 12%, transparent);
+}
+
+.hs-field--disabled,
+.hs-field[aria-disabled='true'],
+.hs-field:has(.hs-field__input:disabled),
+.hs-select:disabled,
+.hs-select[aria-disabled='true'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* k04 - number entry: minus and plus at the end                       */
+/* ------------------------------------------------------------------ */
+
+.hs-field--number {
+  font-variant-numeric: tabular-nums;
+}
+
+.hs-field__unit {
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+/* ------------------------------------------------------------------ */
+/* k04b - textarea: fixed three lines, scrolls                          */
+/* ------------------------------------------------------------------ */
+
+.hs-field--textarea {
+  height: 84px;
+  align-items: stretch;
+  padding: 9px 18px 9px 12px;
+  line-height: 22px;
+  overflow: auto;
+}
+
+.hs-field--textarea .hs-field__input {
+  white-space: pre-wrap;
+  resize: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* k05 - drop-down trigger                                             */
+/* ------------------------------------------------------------------ */
+
+/* k05 A: a tonal field with a trailing 14 px chevron; the open trigger sits at the hover
+ * tone and the chevron turns over. The list and its options are hs-listbox / hs-option
+ * in menu.css. The trigger is a button named by its visible label plus the current
+ * value, with aria-haspopup="listbox" and aria-expanded. */
+.hs-select {
+  margin: 0;
+  border: 0;
+  padding-right: 10px;
+  text-align: left;
+  cursor: default;
+  appearance: none;
+}
+
+.hs-select .hs-icon:last-child {
+  --hs-icon-size: 14px;
+  color: var(--hs-fg-muted);
+  transition: transform var(--hs-duration-popover) var(--hs-ease);
+}
+
+.hs-select[aria-expanded='true'] .hs-icon:last-child {
+  transform: rotate(180deg);
+}
+
+.hs-select[aria-expanded='true'] {
+  background: color-mix(in srgb, var(--hs-fg) 13%, transparent);
+}
+
+/* ------------------------------------------------------------------ */
+/* l14 - sidebar search field                                          */
+/* ------------------------------------------------------------------ */
+
+/* The sidebar field is the same pill at 34 px, with 2 px side margins and 8 px below the
+ * lockup. Markup carries both .hs-field--search and .hs-search-field. */
+.hs-search-field {
+  margin: 0 2px 8px;
+  width: auto;
+  height: 34px;
+}
+
+/* p18 board: the results page puts the search pill in the page header at 40 px. */
+.hs-page-header .hs-field--search {
+  height: 40px;
+}
+
+/* ------------------------------------------------------------------ */
+/* k32 - form field                                                    */
+/* ------------------------------------------------------------------ */
+
+.hs-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 560px;
+}
+
+.hs-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hs-form-field__label {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font: 500 13px var(--hs-font-body);
+  color: var(--hs-fg-muted);
+}
+
+/* The label turns accent while its field holds focus. */
+.hs-form-field:focus-within > .hs-form-field__label {
+  color: var(--hs-accent-text);
+}
+
+.hs-form-field__optional {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-form-field__hint {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-form-field__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--hs-error);
+}
+
+.hs-form-field__error .hs-icon {
+  --hs-icon-size: 14px;
+}
+
+/* p26c: a row pinned by the configuration file or the environment shows its value with
+ * this muted lock line instead of a control. */
+.hs-form-field__pinned {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-form-field__pinned .hs-icon {
+  --hs-icon-size: 12px;
+}
+
+/* k32 B: footer buttons right-aligned (the form's own buttons, not the dialog footer). */
+.hs-form__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}

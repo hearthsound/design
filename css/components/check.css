@@ -1,0 +1,202 @@
+/*
+ * k06 checkbox and radio (k06 C: outline at rest, bright accent when on) and
+ * k07-r2 switch (light: white shadowed knob; dark: dark knob on yellow).
+ *
+ * Markup: <label class="hs-choice"><input type="checkbox" class="hs-choice__input">
+ * <span class="hs-choice__box"><svg class="hs-icon hs-choice__check">...</svg></span>Label
+ * </label>. The native input is the control; the box is its face. A radio row adds
+ * .hs-choice--radio and an 8 px .hs-choice__dot instead of the check; an on box adds
+ * .hs-choice__box--on.
+ *
+ * ACCEPTED EXCEPTION (k07-r2, foundations.md 12.1 item 1): the light on state of the
+ * switch has no 3:1 pair.
+ */
+
+/* ------------------------------------------------------------------ */
+/* k06 - checkbox and radio                                            */
+/* ------------------------------------------------------------------ */
+
+.hs-choice {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  padding: 0 10px 0 6px;
+  border-radius: var(--hs-radius-control);
+  font: 14px var(--hs-font-body);
+  color: var(--hs-fg);
+  cursor: default;
+  user-select: none;
+  transition:
+    background var(--hs-duration-hover) var(--hs-ease),
+    color var(--hs-duration-hover) var(--hs-ease);
+}
+
+/* The native control keeps its semantics and keyboard behaviour; the box draws it. */
+.hs-choice__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hs-choice__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px var(--hs-fg-muted);
+  transition:
+    background var(--hs-duration-hover) var(--hs-ease),
+    box-shadow var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-choice--radio .hs-choice__box {
+  border-radius: 50%;
+}
+
+/* The check mark is drawn by the box, so it only shows when on. Mixed uses the same slot
+ * with adwaita/remove (k06). */
+.hs-choice__check {
+  --hs-icon-size: 14px;
+  display: none;
+}
+
+.hs-choice__box .hs-choice__dot {
+  display: none;
+}
+
+.hs-choice__box--on {
+  box-shadow: none;
+  background: var(--hs-accent-bg);
+  color: var(--hs-accent-fg);
+}
+
+.hs-choice__box--on .hs-choice__check {
+  display: inline-block;
+}
+
+.hs-choice__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hs-accent-fg);
+}
+
+.hs-choice__box--on .hs-choice__dot {
+  display: block;
+}
+
+.hs-choice:hover .hs-choice__box:not(.hs-choice__box--on) {
+  box-shadow: inset 0 0 0 2px var(--hs-fg);
+  background: var(--hs-control-tone);
+}
+
+.hs-choice:active .hs-choice__box:not(.hs-choice__box--on) {
+  box-shadow: inset 0 0 0 2px var(--hs-fg);
+  background: color-mix(in srgb, var(--hs-fg) 18%, transparent);
+}
+
+.hs-choice:hover .hs-choice__box--on {
+  background: color-mix(in srgb, var(--hs-accent-bg) 90%, #000);
+}
+
+.hs-choice:active .hs-choice__box--on {
+  background: color-mix(in srgb, var(--hs-accent-bg) 80%, #000);
+}
+
+/* f13-r3: the row takes the tint, the label the accent colour at weight 600. */
+.hs-choice:focus-visible,
+.hs-choice:has(.hs-choice__input:focus-visible),
+.hs-choice:has(.hs-switch:focus-visible) {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  font-weight: 600;
+  box-shadow: var(--hs-focus-shadow);
+}
+
+.hs-choice--disabled,
+.hs-choice[aria-disabled='true'],
+.hs-choice:has(.hs-choice__input:disabled),
+.hs-choice:has(.hs-switch:disabled) {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* k07-r2 - switch                                                     */
+/* ------------------------------------------------------------------ */
+
+.hs-switch {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 44px;
+  height: 24px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: var(--hs-switch-off);
+  cursor: default;
+  appearance: none;
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--hs-switch-knob);
+  box-shadow: var(--hs-switch-knob-shadow);
+  transition:
+    left var(--hs-duration-press) var(--hs-ease),
+    width var(--hs-duration-press) var(--hs-ease),
+    background var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-switch--on,
+.hs-switch[aria-checked='true'] {
+  background: var(--hs-accent-bg);
+}
+
+.hs-switch--on::after,
+.hs-switch[aria-checked='true']::after {
+  left: 23px;
+  background: var(--hs-switch-knob-on);
+}
+
+/* The switch lives in a k11-r1 row, so hover and press come from the row. */
+.hs-choice:hover .hs-switch:not(.hs-switch--on):not([aria-checked='true']) {
+  background: color-mix(in srgb, var(--hs-fg) 62%, var(--hs-view-bg));
+}
+
+.hs-choice:hover .hs-switch--on,
+.hs-choice:hover .hs-switch[aria-checked='true'],
+.hs-choice:active .hs-switch--on,
+.hs-choice:active .hs-switch[aria-checked='true'] {
+  background: color-mix(in srgb, var(--hs-accent-bg) 90%, #000);
+}
+
+/* Press: the knob stretches to 22 px; the on knob's left position follows. */
+.hs-choice:active .hs-switch::after {
+  width: 22px;
+}
+
+.hs-choice:active .hs-switch--on::after,
+.hs-choice:active .hs-switch[aria-checked='true']::after {
+  left: 19px;
+}

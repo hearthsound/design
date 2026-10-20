@@ -1,0 +1,257 @@
+/*
+ * Admin area composition (l10, p05, p24-r3, p26, p26b).
+ * The admin pages reuse the k28 row groups (list.css) and the k13 cards (card.css);
+ * this file adds only the admin-specific pieces: the Overview grid, the instance-dialog
+ * import-root rows, the plugin permission list, the storage bar with its legend, and
+ * the acquisition row spacing.
+ *
+ * plugin-approval-interim: the Install confirmation (340 px dialog with the permission
+ * list, Cancel and a suggested Install) and the File-tab permission list are built but
+ * stay switched off until the core reports permissions for uninstalled plugins. Until
+ * then no permission list shows before install. No CSS state is added for the switch.
+ */
+
+/* ------------------------------------------------------------------ */
+/* l10 B - Overview: a card grid; the cards themselves are card.css    */
+/* ------------------------------------------------------------------ */
+
+.hs-admin-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .hs-admin-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* p05 - instance dialog import-root rows                              */
+/* ------------------------------------------------------------------ */
+
+/* A grey group inside the Files section of the 640 px instance dialog. */
+.hs-import-roots {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--hs-radius-card);
+  overflow: hidden;
+  background: var(--hs-group-bg);
+  box-shadow: var(--hs-group-shadow);
+}
+
+.hs-import-root {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+.hs-import-roots .hs-import-root + .hs-import-root {
+  box-shadow: inset 0 1px 0 var(--hs-separator);
+}
+
+.hs-import-roots > .hs-setting-row {
+  box-shadow: inset 0 1px 0 var(--hs-separator);
+}
+
+.hs-import-root__id {
+  flex: none;
+  width: 110px;
+}
+
+.hs-import-root__path {
+  flex: 1;
+  min-width: 0;
+}
+
+.hs-import-root__path .hs-field__value {
+  font: 12.5px var(--hs-font-mono);
+}
+
+.hs-import-root__mode {
+  flex: none;
+  width: 96px;
+}
+
+.hs-import-roots__hint {
+  margin: 6px 0 0;
+  color: var(--hs-fg-muted);
+  font-size: 12.5px;
+}
+
+/* Phones: the path takes the full first line; Id and Mode share the second. */
+@media (max-width: 720px) {
+  .hs-import-root {
+    flex-wrap: wrap;
+  }
+
+  .hs-import-root__path {
+    flex-basis: 100%;
+    order: -1;
+  }
+
+  .hs-import-root__id,
+  .hs-import-root__mode {
+    width: calc(50% - 4px);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* p24-r3 - plugin permission list                                     */
+/* ------------------------------------------------------------------ */
+
+.hs-permission-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.hs-permission-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.hs-permission-row__scope {
+  flex: none;
+  min-width: 64px;
+  font: 12px var(--hs-font-mono);
+  color: var(--hs-fg);
+}
+
+.hs-permission-row__detail {
+  flex: 1;
+  min-width: 0;
+  color: var(--hs-fg-muted);
+}
+
+.hs-permission-row .hs-pill {
+  flex: none;
+  margin-left: auto;
+}
+
+@media (max-width: 720px) {
+  .hs-permission-row {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+
+  .hs-permission-row__detail {
+    flex-basis: 100%;
+    order: 3;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* p26 - storage usage bar and legend                                  */
+/* ------------------------------------------------------------------ */
+
+.hs-storage-usage {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+  padding: 18px;
+  border-radius: var(--hs-radius-card);
+  background: var(--hs-group-bg);
+  box-shadow: var(--hs-group-shadow);
+}
+
+.hs-storage-bar {
+  display: flex;
+  height: 14px;
+  border-radius: var(--hs-radius-full);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--hs-fg) 12%, transparent);
+}
+
+.hs-storage-bar > i {
+  display: block;
+  height: 100%;
+}
+
+.hs-storage-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.hs-storage-legend__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.hs-storage-legend__swatch {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-top: 3px;
+  border-radius: 3px;
+}
+
+.hs-storage-legend__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hs-storage-pinned {
+  margin: 0;
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+/* p26: Library acid, Cache acid at 55% over the view, Folders muted, the rest free. */
+.hs-storage-bar__library,
+.hs-storage-legend__swatch--library {
+  background: var(--hs-accent-bg);
+}
+
+.hs-storage-bar__cache,
+.hs-storage-legend__swatch--cache {
+  background: color-mix(in srgb, var(--hs-accent-bg) 55%, var(--hs-view-bg));
+}
+
+.hs-storage-bar__folders,
+.hs-storage-legend__swatch--folders {
+  background: var(--hs-fg-muted);
+}
+
+.hs-storage-bar__free,
+.hs-storage-legend__swatch--free {
+  background: color-mix(in srgb, var(--hs-fg) 12%, transparent);
+}
+
+/* ------------------------------------------------------------------ */
+/* p26b - acquisition rows                                             */
+/* ------------------------------------------------------------------ */
+
+.hs-setting-row--acquisition {
+  align-items: flex-start;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.hs-setting-row--acquisition .hs-setting-row__text {
+  gap: 3px;
+}
+
+.hs-setting-row--acquisition .hs-setting-row__subtitle {
+  font-size: 13px;
+}
+
+.hs-setting-row--acquisition .hs-pill {
+  flex: none;
+}
+
+/* Phones: the summary wraps and the menu stays a flat icon button. */
+@media (max-width: 720px) {
+  .hs-setting-row--acquisition .hs-setting-row__subtitle {
+    white-space: normal;
+  }
+}

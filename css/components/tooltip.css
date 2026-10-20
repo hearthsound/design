@@ -1,0 +1,29 @@
+/*
+ * k27 C - tooltip: ink in light, popover in dark, matching the toast (k20-r3 D).
+ *
+ * Markup: <span class="hs-tooltip" role="tooltip" id="...">Text</span> placed below its
+ * control, with the control carrying aria-describedby and the same text as its name.
+ * The tooltip is never focusable and ignores pointer events.
+ *
+ * Behaviour is the client's (b04):
+ *   - hover: shown after an 800 ms pause;
+ *   - keyboard focus: shown at once (and hidden on blur);
+ *   - touch: shown after a 500 ms long-press, hidden 1.5 s after the finger lifts;
+ *   - Escape hides it;
+ *   - the placement is below the control.
+ * Uses: the "Failed" pill in the player, mini player, now playing and queue rows carries
+ * the failure reason as its tooltip (o07).
+ */
+
+.hs-tooltip {
+  position: absolute;
+  z-index: 20;
+  padding: 6px 10px;
+  border-radius: var(--hs-radius-control);
+  font: 500 13px var(--hs-font-body);
+  white-space: nowrap;
+  pointer-events: none;
+  background: var(--hs-tooltip-bg);
+  color: var(--hs-tooltip-fg);
+  box-shadow: var(--hs-tooltip-shadow);
+}

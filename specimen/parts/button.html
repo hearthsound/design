@@ -1,0 +1,81 @@
+<h2 class="hs-title-4">k01 Buttons</h2>
+<p class="hs-caption">Tonal, flat, suggested, destructive; large, pill, circular, icon, menu, split arrow, toggle on, disabled and busy. Hover, press and keyboard focus are live.</p>
+
+<h3 class="hs-heading">Tonal and states</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <button class="hs-button" type="button">Play all</button>
+  <button class="hs-button" type="button" aria-pressed="true">Shuffle On</button>
+  <button class="hs-button" type="button" disabled>Disabled</button>
+  <button class="hs-button" type="button" aria-disabled="true">Aria disabled</button>
+  <button class="hs-button" type="button" aria-busy="true"><span>Save</span><span class="hs-spinner"></span></button>
+</div>
+
+<h3 class="hs-heading">Fills and shapes</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <button class="hs-button hs-button--flat" type="button">Flat</button>
+  <button class="hs-button hs-button--suggested" type="button">Save Changes</button>
+  <button class="hs-button hs-button--destructive" type="button">Delete Playlist</button>
+  <button class="hs-button hs-button--large hs-button--suggested" type="button">Sign in</button>
+  <button class="hs-button hs-button--large" type="button">Cancel</button>
+  <button class="hs-button hs-button--pill" type="button">Pill</button>
+  <button class="hs-button hs-button--circular" type="button" aria-label="More"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-more"/></svg></button>
+  <button class="hs-button hs-button--icon" type="button" aria-label="Sort"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-sort"/></svg></button>
+  <button class="hs-button hs-button--icon hs-button--flat" type="button" aria-label="Search"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-search"/></svg></button>
+  <button class="hs-button" type="button" disabled><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-play"/></svg>Disabled with icon</button>
+</div>
+
+<h3 class="hs-heading">Menu button</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <button class="hs-button hs-button--menu" type="button" aria-haspopup="menu" aria-expanded="false">Sort<svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-expand"/></svg></button>
+  <button class="hs-button hs-button--menu" type="button" aria-haspopup="menu" aria-expanded="true">Sort<svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-expand"/></svg></button>
+</div>
+
+<h3 class="hs-heading">Split button</h3>
+<div class="hs-button-group">
+  <button class="hs-button hs-button--suggested" type="button"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-play"/></svg>Play</button>
+  <button class="hs-button hs-button--suggested hs-button--split-arrow" type="button" aria-label="More options for Play"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-expand"/></svg></button>
+</div>
+
+<h3 class="hs-heading">Linked group of toggles</h3>
+<div class="hs-button-group" role="group" aria-label="Playback speed">
+  <button class="hs-button" type="button" aria-pressed="false">Slow</button>
+  <button class="hs-button" type="button" aria-pressed="true">Normal</button>
+  <button class="hs-button" type="button" aria-pressed="false">Fast</button>
+</div>
+
+<h3 class="hs-heading">Header button</h3>
+<div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+  <button class="hs-button hs-button--header hs-button--suggested" type="button" aria-label="Add Plugins"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-add"/></svg><span class="hs-button__label">Add Plugins</span></button>
+  <button class="hs-button hs-button--header" type="button" aria-label="New Playlist"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-add"/></svg><span class="hs-button__label">New Playlist</span></button>
+</div>
+<p class="hs-caption">The label is hidden below 721 px; the button becomes a 36 px icon button.</p>
+
+<h2 class="hs-title-4">k02 Transport and play/pause</h2>
+<p class="hs-caption">Player bar sizes: 36 px flat round previous and next with 16 px glyphs, 44 px disc with a 20 px glyph.</p>
+
+<div class="hs-transport">
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Shuffle Off" aria-pressed="false"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-shuffle"/></svg></button>
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Previous"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-previous"/></svg></button>
+  <button class="hs-play-button" type="button" aria-label="Play"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-play"/></svg></button>
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Next"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-next"/></svg></button>
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Repeat Off" aria-pressed="false"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-repeat"/></svg></button>
+</div>
+
+<h3 class="hs-heading">Pause, fetching and retry</h3>
+<div style="display:flex; flex-wrap:wrap; gap:16px; align-items:center">
+  <div class="hs-transport" aria-label="Playing">
+    <button class="hs-play-button" type="button" aria-label="Pause"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-pause"/></svg></button>
+    <button class="hs-play-button" type="button" aria-label="Pause" aria-busy="true"><span class="hs-spinner"></span></button>
+    <button class="hs-play-button" type="button" aria-label="Retry"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-refresh"/></svg></button>
+    <button class="hs-play-button" type="button" aria-label="Play" disabled><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-play"/></svg></button>
+  </div>
+</div>
+
+<h3 class="hs-heading">Now-playing view</h3>
+<div class="hs-transport hs-transport--large">
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Previous"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-previous"/></svg></button>
+  <button class="hs-play-button hs-play-button--large" type="button" aria-label="Pause"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-pause"/></svg></button>
+  <button class="hs-play-button hs-play-button--large" type="button" aria-label="Pause" aria-busy="true"><span class="hs-spinner"></span></button>
+  <button class="hs-play-button hs-play-button--large" type="button" aria-label="Retry"><svg class="hs-icon"><use href="../dist/icons.svg#adwaita-refresh"/></svg></button>
+  <button class="hs-button hs-button--flat hs-button--circular" type="button" aria-label="Next"><svg class="hs-icon hs-button__icon"><use href="../dist/icons.svg#adwaita-next"/></svg></button>
+</div>

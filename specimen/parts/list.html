@@ -1,0 +1,233 @@
+<section>
+  <h2 class="hs-title-3">k11-r1 Boxed lists and settings rows</h2>
+
+  <div class="hs-settings-group" role="list" aria-label="Playback">
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--interactive" role="listitem" tabindex="0" data-setting="playback.transcoding">
+      <span class="hs-setting-row__text">
+        <span>Transcoding</span>
+        <span class="hs-setting-row__subtitle">Convert lossless audio to the streaming bitrate.</span>
+      </span>
+      <button class="hs-switch" type="button" role="switch" aria-checked="true">
+        <span class="hs-visually-hidden">Transcoding</span>
+      </button>
+    </div>
+    <div class="hs-setting-row hs-setting-row--interactive" role="listitem" tabindex="0" data-setting="library.scan_interval">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-refresh"/></svg>
+      <span class="hs-setting-row__text">
+        <span>Scan interval</span>
+      </span>
+      <span class="hs-setting-row__value">Every 6 hours</span>
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-expand"/></svg>
+    </div>
+    <div class="hs-setting-row hs-setting-row--property" role="listitem">
+      <span class="hs-setting-row__text">
+        <span class="hs-setting-row__key">Version</span>
+        <span class="hs-setting-row__value">0.4.2</span>
+      </span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line" role="listitem" data-setting="library.music_folder">
+      <span class="hs-setting-row__text">
+        <span>Music folder</span>
+        <span class="hs-setting-row__subtitle">/srv/media/music</span>
+        <span class="hs-setting-row__subtitle">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-lock"/></svg>
+          Set in the configuration file
+        </span>
+      </span>
+      <span class="hs-setting-row__value">Enabled</span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--expander hs-setting-row--interactive" role="listitem" tabindex="0" aria-expanded="true">
+      <span class="hs-setting-row__text">
+        <span>Advanced</span>
+        <span class="hs-setting-row__subtitle">Streaming, caching and indexing.</span>
+      </span>
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-expand"/></svg>
+    </div>
+    <div class="hs-setting-row hs-setting-row--nested hs-setting-row--interactive" role="listitem" tabindex="0">
+      <span class="hs-setting-row__text">
+        <span>Cache size</span>
+        <span class="hs-setting-row__subtitle">Space kept for album art.</span>
+      </span>
+      <span class="hs-setting-row__value">512 MB</span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--button hs-setting-row--interactive" role="listitem" tabindex="0">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-add"/></svg>
+      <span>Add music folder</span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--interactive" role="listitem" aria-disabled="true">
+      <span class="hs-setting-row__text">
+        <span>Download provider</span>
+        <span class="hs-setting-row__subtitle">Disabled until a provider is installed.</span>
+      </span>
+      <span class="hs-setting-row__value">Not installed</span>
+    </div>
+  </div>
+
+  <h3 class="hs-heading">Compact admin density</h3>
+  <div class="hs-settings-group" role="list" aria-label="Users">
+    <div class="hs-setting-row hs-setting-row--compact hs-setting-row--interactive" role="listitem" tabindex="0">
+      <span class="hs-setting-row__text">
+        <span>Ada Lovelace</span>
+      </span>
+      <span class="hs-pill hs-pill--success">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+        Administrator
+      </span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--compact hs-setting-row--interactive" role="listitem" tabindex="0">
+      <span class="hs-setting-row__text">
+        <span>Grace Hopper</span>
+      </span>
+      <span class="hs-pill hs-pill--neutral">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-account"/></svg>
+        Listener
+      </span>
+    </div>
+  </div>
+
+  <h3 class="hs-heading">k28 admin row: second line, state pill and actions</h3>
+  <div class="hs-settings-group" role="list" aria-label="Metadata instances">
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--interactive" role="listitem" tabindex="0">
+      <span class="hs-setting-row__text">
+        <span>Metadata service</span>
+        <span class="hs-setting-row__subtitle">Last answered 2 minutes ago</span>
+      </span>
+      <span class="hs-pill hs-pill--success">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+        Healthy
+      </span>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions" aria-haspopup="menu" aria-expanded="false">
+        <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"/></svg>
+      </button>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-setting-row--interactive" role="listitem" tabindex="0">
+      <span class="hs-setting-row__text">
+        <span>Acoustic lookup</span>
+        <span class="hs-setting-row__subtitle">No answer since the last restart</span>
+      </span>
+      <span class="hs-pill hs-pill--warning">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"/></svg>
+        Unreachable
+      </span>
+      <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions" aria-haspopup="menu" aria-expanded="false">
+        <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">k28 Admin tables</h2>
+  <div class="hs-table__scroll">
+    <table class="hs-table">
+      <thead>
+        <tr>
+          <th aria-sort="ascending">
+            <button class="hs-sort-button" type="button">
+              Name
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-collapse"/></svg>
+            </button>
+          </th>
+          <th>Path</th>
+          <th class="hs-table__cell--numeric">Songs</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Music</td>
+          <td>/srv/media/music</td>
+          <td class="hs-table__cell--numeric">4 812</td>
+          <td>
+            <span class="hs-pill hs-pill--success">
+              <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+              Scanned
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td>Incoming</td>
+          <td>/srv/media/incoming</td>
+          <td class="hs-table__cell--numeric">37</td>
+          <td>
+            <span class="hs-pill hs-pill--accent">
+              <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-refresh"/></svg>
+              Scanning 64%
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">k30 Reorderable list</h2>
+  <p class="hs-caption">Reorder mode: entered from the list menu; the grip appears on every row.</p>
+  <div class="hs-reorder-list hs-reorder-list--reordering" role="list" aria-label="Instances of metadata">
+    <div class="hs-settings-group">
+      <div class="hs-setting-row" role="listitem">
+        <svg class="hs-icon hs-reorder-handle" aria-hidden="true"><use href="../dist/icons.svg#adwaita-drag"/></svg>
+        <span class="hs-setting-row__number">1</span>
+        <span class="hs-setting-row__text">
+          <span>MusicBrainz</span>
+          <span class="hs-setting-row__subtitle hs-setting-row__subtitle--mono">musicbrainz</span>
+        </span>
+        <span class="hs-pill hs-pill--success">
+          <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+          Healthy
+        </span>
+      </div>
+      <div class="hs-reorder-slot" aria-hidden="true"></div>
+      <div class="hs-setting-row hs-setting-row--lifted" role="listitem">
+        <svg class="hs-icon hs-reorder-handle" aria-hidden="true"><use href="../dist/icons.svg#adwaita-drag"/></svg>
+        <span class="hs-setting-row__number">2</span>
+        <span class="hs-setting-row__text">
+          <span>ListenBrainz</span>
+          <span class="hs-setting-row__subtitle hs-setting-row__subtitle--mono">listenbrainz</span>
+        </span>
+        <span class="hs-pill hs-pill--success">
+          <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+          Healthy
+        </span>
+      </div>
+      <div class="hs-setting-row hs-setting-row--grabbed" role="listitem">
+        <svg class="hs-icon hs-reorder-handle" aria-hidden="true"><use href="../dist/icons.svg#adwaita-drag"/></svg>
+        <span class="hs-setting-row__number">3</span>
+        <span class="hs-setting-row__text">
+          <span>AcoustID</span>
+          <span class="hs-setting-row__subtitle hs-setting-row__subtitle--mono">acoustid</span>
+        </span>
+        <span class="hs-pill hs-pill--warning">
+          <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"/></svg>
+          Unreachable
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <p class="hs-caption">Always-handles variant (setup Order, Customize Home, admin Layers): no Reorder mode.</p>
+  <div class="hs-reorder-list hs-reorder-list--handles" role="list" aria-label="Layers">
+    <div class="hs-settings-group">
+      <div class="hs-setting-row" role="listitem">
+        <svg class="hs-icon hs-reorder-handle" aria-hidden="true"><use href="../dist/icons.svg#adwaita-drag"/></svg>
+        <span class="hs-setting-row__number">1</span>
+        <span class="hs-setting-row__text">
+          <span>Metadata</span>
+          <span class="hs-setting-row__subtitle hs-setting-row__subtitle--mono">metadata</span>
+        </span>
+        <span class="hs-pill hs-pill--success">
+          <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+          Healthy
+        </span>
+        <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Remove">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-delete"/></svg>
+        </button>
+      </div>
+      <div class="hs-setting-row hs-setting-row--button hs-setting-row--interactive" role="listitem" tabindex="0">
+        <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-add"/></svg>
+        <span>Add instance</span>
+      </div>
+    </div>
+  </div>
+</section>

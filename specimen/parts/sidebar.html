@@ -1,0 +1,82 @@
+<section>
+  <h2>Sidebar and Account</h2>
+
+  <h3>Library sidebar, account menu open</h3>
+  <div style="height: 640px; border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
+    <div class="hs-sidebar">
+      <span class="hs-lockup">
+        <img src="../identity/mark/mark-symbolic.svg" alt="">
+        Hearthsound
+      </span>
+
+      <label class="hs-field hs-field--search hs-search-field">
+        <svg class="hs-icon hs-field__lead" aria-hidden="true"><use href="../dist/icons.svg#adwaita-search"></use></svg>
+        <input class="hs-field__input" type="search" placeholder="Song, album or artist" aria-label="Search" value="signal">
+        <button class="hs-field__action" type="button" aria-label="Clear">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-close"></use></svg>
+        </button>
+      </label>
+
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-home"></use></svg>
+        Home
+      </a>
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-queue"></use></svg>
+        Queue
+      </a>
+
+      <h2 class="hs-nav__heading">Library</h2>
+      <a class="hs-nav-item hs-nav-item--current" href="#" aria-current="page">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"></use></svg>
+        Songs
+      </a>
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"></use></svg>
+        Albums
+      </a>
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-artist"></use></svg>
+        Artists
+      </a>
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-like"></use></svg>
+        Liked
+      </a>
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-playlist"></use></svg>
+        Playlists
+        <span class="hs-count-badge">12</span>
+      </a>
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#custom-upload"></use></svg>
+        Uploads
+      </a>
+
+      <div class="hs-sidebar__spacer"></div>
+
+      <a class="hs-nav-item" href="#">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-settings"></use></svg>
+        Administration
+      </a>
+
+      <button class="hs-account" type="button" aria-expanded="true" aria-haspopup="menu" aria-label="Account, Echo">
+        <span class="hs-avatar" aria-hidden="true">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-account"></use></svg>
+        </span>
+        <span class="hs-account__name">Echo</span>
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+      </button>
+    </div>
+  </div>
+
+  <h3>Account row, menu closed</h3>
+  <div style="max-width: 260px; padding: 8px; background: var(--hs-sidebar-bg); border-radius: 12px;">
+    <button class="hs-account" type="button" aria-expanded="false" aria-haspopup="menu" aria-label="Account, Echo">
+      <span class="hs-avatar" aria-hidden="true">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-account"></use></svg>
+      </span>
+      <span class="hs-account__name">Echo</span>
+    </button>
+  </div>
+</section>

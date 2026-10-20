@@ -1,0 +1,150 @@
+<section>
+  <h2>Page Header and Detail Hero</h2>
+
+  <h3>Top-level header with actions</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
+    <div class="hs-page-header">
+      <button class="hs-button hs-button--flat hs-button--icon hs-page-header__menu" type="button" aria-label="Open Navigation">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-menu"></use></svg>
+      </button>
+      <h1 class="hs-page-header__title">Songs</h1>
+      <div class="hs-page-actions">
+        <button class="hs-button hs-button--suggested hs-button--header" type="button">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"></use></svg>
+          <span class="hs-button__label">Play</span>
+        </button>
+        <button class="hs-button hs-button--header" type="button">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-shuffle"></use></svg>
+          <span class="hs-button__label">Shuffle</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Scrolled header (hairline)</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
+    <div class="hs-page-header hs-page-header--scrolled">
+      <h1 class="hs-page-header__title">Playlists</h1>
+      <div class="hs-page-actions">
+        <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Sort">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-sort"></use></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Drill-down header (back button)</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
+    <div class="hs-page-header">
+      <button class="hs-button hs-button--flat hs-button--icon hs-back" type="button" aria-label="Back">
+        <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-back"></use></svg>
+      </button>
+      <div class="hs-page-actions">
+        <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+          <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Album hero</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
+    <div class="hs-hero">
+      <div class="hs-hero__art">
+        <img src="../identity/icons/app-icon-light-512.png" alt="">
+      </div>
+      <div class="hs-hero__text">
+        <h1>Signals</h1>
+        <p class="hs-hero__by">Northbound</p>
+        <p class="hs-hero__meta">2024 - 10 songs - 42 min</p>
+        <div class="hs-hero__actions">
+          <button class="hs-play-button hs-play-button--large" type="button" aria-label="Play">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Shuffle">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-shuffle"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Like" aria-pressed="true">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-like"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Artist hero (round art, biography clamp and Show more)</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
+    <div class="hs-hero">
+      <div class="hs-hero__art hs-hero__art--round">
+        <img src="../identity/icons/app-icon-light-512.png" alt="">
+      </div>
+      <div class="hs-hero__text">
+        <h1>Northbound</h1>
+        <div class="hs-hero__bio">
+          <input class="hs-visually-hidden hs-hero__bio-toggle" type="checkbox" id="spec-artist-bio">
+          <p>Northbound is a four-piece from the coast whose slow, layered songs move between folk and ambient music. The band records in a converted boathouse and releases on its own label.</p>
+          <label class="hs-link hs-hero__more" for="spec-artist-bio">
+            <span class="hs-hero__more-closed">Show more</span>
+            <span class="hs-hero__more-open">Show less</span>
+          </label>
+        </div>
+        <div class="hs-hero__actions">
+          <button class="hs-play-button hs-play-button--large" type="button" aria-label="Play">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Shuffle">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-shuffle"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Biography expanded (Show less)</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+    <div class="hs-hero__bio" style="max-width: none;">
+      <input class="hs-visually-hidden hs-hero__bio-toggle" type="checkbox" id="spec-artist-bio-open" checked>
+      <p>Northbound is a four-piece from the coast whose slow, layered songs move between folk and ambient music. The band records in a converted boathouse and releases on its own label. Their third album was written over two winters and mixed in a single week.</p>
+      <label class="hs-link hs-hero__more" for="spec-artist-bio-open">
+        <span class="hs-hero__more-closed">Show more</span>
+        <span class="hs-hero__more-open">Show less</span>
+      </label>
+    </div>
+  </div>
+
+  <h3>Playlist hero (mosaic, no like toggle, Reorder Done placement)</h3>
+  <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden;">
+    <div class="hs-hero">
+      <div class="hs-hero__art">
+        <div class="hs-mosaic hs-mosaic--4">
+          <img src="../identity/icons/app-icon-light-512.png" alt="">
+          <img src="../identity/icons/app-icon-dark-512.png" alt="">
+          <img src="../identity/icons/app-icon-light-180.png" alt="">
+          <img src="../identity/icons/app-icon-dark-180.png" alt="">
+        </div>
+      </div>
+      <div class="hs-hero__text">
+        <h1>Road Trip</h1>
+        <p class="hs-hero__meta">18 songs - 1 hr 12 min</p>
+        <div class="hs-hero__actions">
+          <button class="hs-play-button hs-play-button--large" type="button" aria-label="Play">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="Shuffle">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-shuffle"></use></svg>
+          </button>
+          <button class="hs-button hs-button--flat hs-button--icon" type="button" aria-label="More Actions">
+            <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-more"></use></svg>
+          </button>
+          <button class="hs-button hs-button--suggested" type="button">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

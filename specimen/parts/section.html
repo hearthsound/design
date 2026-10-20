@@ -1,0 +1,130 @@
+<section>
+  <h2 class="hs-title-3">k33 Section header</h2>
+  <p class="hs-caption">The title is the link, followed by the muted arrow and a visually hidden "See all" name. The static variant is a plain heading.</p>
+  <div class="hs-section-header">
+    <h2 class="hs-section-header__title">
+      <a class="hs-section-header__link" href="#recently-added">
+        Recently Added
+        <svg class="hs-icon hs-section-header__arrow" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+        <span class="hs-visually-hidden">See all Recently Added</span>
+      </a>
+    </h2>
+  </div>
+
+  <h3 class="hs-heading">Static variant</h3>
+  <div class="hs-section-header">
+    <h2 class="hs-section-header__title">Songs</h2>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">l13 Home shelves</h2>
+  <p class="hs-caption">One sideways-scrolling row per section; desktop header carries the scroll buttons, phones swipe.</p>
+  <div class="hs-home">
+    <section class="hs-home-section" aria-label="Recently Added">
+      <div class="hs-section-header">
+        <h2 class="hs-section-header__title">
+          <a class="hs-section-header__link" href="#recently-added">
+            Recently Added
+            <svg class="hs-icon hs-section-header__arrow" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+            <span class="hs-visually-hidden">See all Recently Added</span>
+          </a>
+        </h2>
+        <button class="hs-button hs-button--flat hs-button--icon hs-shelf__button" type="button" aria-label="Scroll Left">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-back"/></svg>
+        </button>
+        <button class="hs-button hs-button--flat hs-button--icon hs-shelf__button" type="button" aria-label="Scroll Right">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+        </button>
+      </div>
+      <div class="hs-shelf">
+        <div class="hs-card hs-card--album">
+          <a class="hs-card__link" href="#blue-hour"><span class="hs-visually-hidden">Blue Hour, Marlowe Fenn</span></a>
+          <span class="hs-card__cover">
+            <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+            <button class="hs-play-button hs-card__play" type="button" aria-label="Play Blue Hour">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"/></svg>
+            </button>
+          </span>
+          <span class="hs-card__text">
+            <span class="hs-card__title">Blue Hour</span>
+            <span class="hs-card__artist">Marlowe Fenn</span>
+          </span>
+        </div>
+        <div class="hs-card hs-card--album">
+          <a class="hs-card__link" href="#harbour"><span class="hs-visually-hidden">Harbour Lights, Marlowe Fenn</span></a>
+          <span class="hs-card__cover">
+            <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+            <button class="hs-play-button hs-card__play" type="button" aria-label="Play Harbour Lights">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"/></svg>
+            </button>
+          </span>
+          <span class="hs-card__text">
+            <span class="hs-card__title">Harbour Lights</span>
+            <span class="hs-card__artist">Marlowe Fenn</span>
+          </span>
+        </div>
+        <div class="hs-card hs-card--playlist">
+          <a class="hs-card__link" href="#evening"><span class="hs-visually-hidden">Evening Drive, 12 songs</span></a>
+          <span class="hs-card__cover">
+            <span class="hs-mosaic hs-mosaic--2">
+              <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+              <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-album"/></svg></span>
+            </span>
+            <button class="hs-play-button hs-card__play" type="button" aria-label="Play Evening Drive">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"/></svg>
+            </button>
+          </span>
+          <span class="hs-card__text">
+            <span class="hs-card__title">Evening Drive</span>
+            <span class="hs-card__artist">12 songs</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="hs-home-section" aria-label="Liked Artists">
+      <div class="hs-section-header">
+        <h2 class="hs-section-header__title">
+          <a class="hs-section-header__link" href="#liked-artists">
+            Liked Artists
+            <svg class="hs-icon hs-section-header__arrow" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+            <span class="hs-visually-hidden">See all Liked Artists</span>
+          </a>
+        </h2>
+        <button class="hs-button hs-button--flat hs-button--icon hs-shelf__button" type="button" aria-label="Scroll Left">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-back"/></svg>
+        </button>
+        <button class="hs-button hs-button--flat hs-button--icon hs-shelf__button" type="button" aria-label="Scroll Right">
+          <svg class="hs-icon hs-button__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-forward"/></svg>
+        </button>
+      </div>
+      <div class="hs-shelf">
+        <div class="hs-card hs-card--artist">
+          <a class="hs-card__link" href="#marlowe"><span class="hs-visually-hidden">Marlowe Fenn</span></a>
+          <span class="hs-card__cover">
+            <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-artist"/></svg></span>
+            <button class="hs-play-button hs-card__play" type="button" aria-label="Play Marlowe Fenn">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"/></svg>
+            </button>
+          </span>
+          <span class="hs-card__text">
+            <span class="hs-card__title">Marlowe Fenn</span>
+          </span>
+        </div>
+        <div class="hs-card hs-card--artist">
+          <a class="hs-card__link" href="#orsa"><span class="hs-visually-hidden">Orsa</span></a>
+          <span class="hs-card__cover">
+            <span class="hs-art-placeholder"><svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-artist"/></svg></span>
+            <button class="hs-play-button hs-card__play" type="button" aria-label="Play Orsa">
+              <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-play"/></svg>
+            </button>
+          </span>
+          <span class="hs-card__text">
+            <span class="hs-card__title">Orsa</span>
+          </span>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

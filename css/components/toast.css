@@ -1,0 +1,88 @@
+/*
+ * k20-r3 D - toast: a pill, ink in light and popover in dark, placed per l11 and l11d.
+ *
+ * Markup, in the l11d dock (banner.css owns .hs-overlay-dock):
+ *   <div class="hs-overlay-dock">
+ *     <div class="hs-banner hs-banner--warning hs-banner--floating">...</div>
+ *     <div class="hs-toast-region" role="status" aria-label="Messages">
+ *       <div class="hs-toast" role="status">
+ *         <svg class="hs-icon hs-toast__glyph">...</svg>
+ *         <span class="hs-toast__message">Added to Road Trip.</span>
+ *         <button class="hs-toast__action" type="button">Dismiss</button>
+ *       </div>
+ *     </div>
+ *   </div>
+ * The dock is in column-reverse order: the banner sits on the player edge and the toast
+ * stacks 12 px above it. The region never takes focus; the action is reachable through
+ * the region. Errors use role="alert" on the toast. 5 s, paused on hover and focus.
+ */
+
+.hs-toast-region {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.hs-toast {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 6px 0 16px;
+  box-sizing: border-box;
+  border-radius: var(--hs-radius-full);
+  font: 400 14px var(--hs-font-body);
+  color: var(--hs-toast-fg);
+  background: var(--hs-toast-bg);
+  box-shadow: var(--hs-toast-shadow);
+  max-width: calc(100vw - 24px);
+}
+
+.hs-toast__glyph {
+  --hs-icon-size: 16px;
+  color: var(--hs-toast-glyph);
+}
+
+.hs-toast__message {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Flat text button: 32 px, weight 600, inherits the toast's ink. */
+.hs-toast__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  height: 32px;
+  padding: 0 12px;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-control);
+  background: transparent;
+  color: inherit;
+  font: 600 14px var(--hs-font-body);
+  cursor: default;
+  appearance: none;
+}
+
+.hs-toast__action:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* l11 A: phones cap the width at 100vw - 24 px and the toast fills it. */
+@media (max-width: 720px) {
+  .hs-toast {
+    width: 100%;
+  }
+}

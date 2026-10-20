@@ -1,0 +1,130 @@
+/*
+ * @hearthsound/design - stepper
+ *
+ * k29 B: six 28 px markers across the top on desktop, the compact step line on
+ * phones. p06 renamed step 6 to Summary. Values from shared/approved/
+ * components.css (.stepper, .stepdot, .stepline) and spec/components.md.
+ */
+
+.hs-stepper {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hs-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 84px;
+  font: 400 12px var(--hs-font-body);
+  text-align: center;
+  color: var(--hs-fg-muted);
+}
+
+.hs-step__marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font: 650 13px var(--hs-font-body);
+  background: var(--hs-control-tone);
+  color: var(--hs-fg-muted);
+}
+
+.hs-step__marker .hs-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Done: acid disc with the 14 px check. */
+.hs-step--done {
+  color: var(--hs-fg);
+}
+
+.hs-step--done .hs-step__marker {
+  background: var(--hs-accent-bg);
+  color: var(--hs-accent-fg);
+}
+
+/* Current: the text-colour disc, label at weight 600. */
+.hs-step[aria-current='step'] {
+  color: var(--hs-fg);
+  font-weight: 600;
+}
+
+.hs-step[aria-current='step'] .hs-step__marker {
+  background: var(--hs-fg);
+  color: var(--hs-view-bg);
+}
+
+.hs-step__connector {
+  flex: 1;
+  height: 2px;
+  margin-top: 13px;
+  background: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+}
+
+/* The connector after a done step is accent. */
+.hs-step--done + .hs-step__connector {
+  background: var(--hs-accent-bg);
+}
+
+/* ------------------------------------------------------------------ */
+/* Phone step line (k29)                                              */
+/* ------------------------------------------------------------------ */
+
+.hs-step-line {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px 4px;
+}
+
+.hs-step-line__row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 600 13px var(--hs-font-body);
+}
+
+.hs-step-line__row .hs-step__marker {
+  font-weight: 650;
+}
+
+.hs-step-line__count {
+  color: var(--hs-fg-muted);
+  font-weight: 500;
+}
+
+.hs-step-line__segment {
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+}
+
+.hs-step-line__segment--done {
+  background: var(--hs-accent-bg);
+}
+
+.hs-step-line__segment--current {
+  background: var(--hs-fg);
+}
+
+@media (max-width: 720px) {
+  .hs-stepper {
+    display: none;
+  }
+}
+
+@media (min-width: 721px) {
+  .hs-step-line {
+    display: none;
+  }
+}

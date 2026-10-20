@@ -1,0 +1,173 @@
+/*
+ * k09 A progress bar and spinner (k09-rm B reduced motion), k09b A skeleton, and
+ * k34 B endless loading.
+ *
+ * Bars and skeletons are still under reduced motion (f14b-r1); the spinner keeps
+ * turning at one turn per 2.7 s (k09-rm B).
+ */
+
+/* ------------------------------------------------------------------ */
+/* k09 - progress bar                                                  */
+/* ------------------------------------------------------------------ */
+
+/* Markup: <div class="hs-progress" role="progressbar" aria-label="Downloading"
+ * aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"><span
+ * class="hs-progress__fill" style="width:42%"></span></div>. Indeterminate drops
+ * aria-valuenow and adds .hs-progress--indeterminate. Never focusable. */
+.hs-progress {
+  position: relative;
+  height: 6px;
+  border-radius: var(--hs-radius-full);
+  background: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+  overflow: hidden;
+}
+
+.hs-progress__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--hs-radius-full);
+  background: var(--hs-accent-bg);
+}
+
+.hs-progress--indeterminate .hs-progress__fill {
+  width: 40%;
+  animation: hs-progress-slide 1.4s var(--hs-ease) infinite;
+}
+
+@keyframes hs-progress-slide {
+  from {
+    left: -40%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k09 - spinner                                                       */
+/* ------------------------------------------------------------------ */
+
+/* role="status" with visually hidden "Loading"; inside a button the button keeps its
+ * label and sets aria-busy instead (k09 board notes). */
+.hs-spinner {
+  display: inline-block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 2px solid color-mix(in srgb, var(--hs-fg) 16%, transparent);
+  border-top-color: var(--hs-accent-bg);
+  border-radius: 50%;
+  animation: hs-spin 0.9s linear infinite;
+}
+
+.hs-spinner--24 {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+/* The 48 px boot spinner is used by the first-run setup screen (p27). */
+.hs-spinner--48 {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+}
+
+@keyframes hs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inside suggested buttons and the play disc the ring is the accent foreground at 25%
+ * with an accent-foreground arc (k09); a destructive button does the same in its own
+ * foreground (busy-rule: the spinner takes the button's own colours). */
+.hs-button--suggested .hs-spinner,
+.hs-play-button .hs-spinner {
+  border-color: rgb(34 27 0 / 25%);
+  border-top-color: var(--hs-accent-fg);
+}
+
+.hs-button--destructive .hs-spinner {
+  border-color: color-mix(in srgb, var(--hs-destructive-fg) 25%, transparent);
+  border-top-color: var(--hs-destructive-fg);
+}
+
+/* p19b, p19-r1: the play disc's fetching spinner is 24 px with a 3 px ring. */
+.hs-play-button[aria-busy='true'] .hs-spinner {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+/* k09b - skeleton                                                     */
+/* ------------------------------------------------------------------ */
+
+/* Holds the space of the real item and is aria-hidden (k34). Content radii come from the
+ * component it stands in for. */
+.hs-skeleton {
+  display: block;
+  border-radius: 4px;
+  background: linear-gradient(
+      100deg,
+      var(--hs-skeleton-base) 30%,
+      var(--hs-skeleton-band) 50%,
+      var(--hs-skeleton-base) 70%
+    )
+    0 0 / 300% 100%;
+  animation: hs-shimmer 1.6s linear infinite;
+}
+
+@keyframes hs-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -50% 0;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k34 - endless loading                                               */
+/* ------------------------------------------------------------------ */
+
+/*
+ * The list region takes .hs-endless and aria-busy="true" while the next page loads; the
+ * placeholder items are .hs-skeleton shapes of the real rows or cards, inside an
+ * aria-hidden .hs-endless__placeholder, so they hold the space. The polite "Loading..."
+ * status is a .hs-visually-hidden element with role="status". There is no "Load more"
+ * button, and reaching the true end shows nothing extra.
+ */
+.hs-endless {
+  position: relative;
+}
+
+/* The placeholder wrapper adds no box of its own, so the skeletons lay out in the list. */
+.hs-endless__placeholder {
+  display: contents;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion (k09-rm B, f14b-r1)                                  */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-progress--indeterminate .hs-progress__fill {
+    animation: none;
+    left: 30%;
+  }
+
+  .hs-skeleton {
+    animation: none;
+  }
+
+  .hs-spinner {
+    animation-duration: 2.7s;
+  }
+}

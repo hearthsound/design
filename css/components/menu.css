@@ -1,0 +1,282 @@
+/*
+ * @hearthsound/design - menus
+ *
+ * k05 item anatomy, k18 A submenu (desktop cascade and phone replace-with-list),
+ * o01 account menu, k17-r3 song menu with like/dislike and stars. The k26 avatar
+ * and account row live in sidebar.css. Values from shared/approved/components.css
+ * (.popmenu, .songmenu, .stars, .amenu) and spec/components.md.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Menu surface (k18, k05 item anatomy)                               */
+/* ------------------------------------------------------------------ */
+
+.hs-menu {
+  background: var(--hs-popover-bg);
+  border-radius: var(--hs-radius-popover);
+  box-shadow: var(--hs-elevation-2);
+  padding: 6px;
+  box-sizing: border-box;
+  min-width: 220px;
+}
+
+/* 1 px separators inset 6 px. */
+.hs-menu hr {
+  border: 0;
+  height: 1px;
+  background: var(--hs-separator);
+  margin: 2px 6px 4px;
+}
+
+.hs-menu__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 2px 6px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hs-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 10px;
+  border: 0;
+  width: 100%;
+  background: none;
+  border-radius: var(--hs-radius-row);
+  position: relative;
+  font: 400 14px var(--hs-font-body);
+  color: var(--hs-fg);
+  text-align: left;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* "No playlists yet" (c03 item 19): a muted, non-interactive line. */
+.hs-menu__empty {
+  padding: 0 10px;
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+.hs-menu__item > .hs-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--hs-fg-muted);
+}
+
+/* A trailing icon on an item that opens a submenu is the 14 px chevron. */
+.hs-menu__item[aria-haspopup] > .hs-icon:last-child {
+  width: 14px;
+  height: 14px;
+}
+
+.hs-menu__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hs-menu__sub {
+  margin-left: auto;
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+.hs-menu__cover {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  overflow: hidden;
+  flex: none;
+  display: block;
+}
+
+.hs-menu__cover .hs-mosaic {
+  border-radius: inherit;
+}
+
+.hs-menu__check {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  color: var(--hs-accent-text);
+  visibility: hidden;
+  flex: none;
+}
+
+.hs-menu__item[aria-checked='true'] .hs-menu__check {
+  visibility: visible;
+}
+
+.hs-menu__item:hover {
+  background: var(--hs-control-tone);
+}
+
+.hs-menu__item:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  font-weight: 600;
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* ------------------------------------------------------------------ */
+/* k18 A - add-to-playlist submenu                                    */
+/* ------------------------------------------------------------------ */
+
+.hs-submenu {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 6px);
+  width: 270px;
+  box-sizing: border-box;
+  background: var(--hs-popover-bg);
+  border-radius: var(--hs-radius-popover);
+  box-shadow: var(--hs-elevation-2);
+  padding: 6px;
+}
+
+.hs-submenu__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 2px 6px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hs-submenu__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--hs-radius-control);
+  background: transparent;
+  color: var(--hs-fg-muted);
+  cursor: default;
+}
+
+.hs-submenu__back:hover {
+  background: var(--hs-control-tone);
+  color: var(--hs-fg);
+}
+
+.hs-submenu__back:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* Phones: the submenu content replaces the menu, so it stops floating. */
+@media (max-width: 720px) {
+  .hs-submenu {
+    position: static;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k17-r3 - song menu                                                 */
+/* ------------------------------------------------------------------ */
+
+.hs-song-menu {
+  width: 270px;
+}
+
+.hs-song-menu__feedback-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 6px;
+}
+
+.hs-song-menu__feedback-line .hs-button {
+  width: 40px;
+  height: 40px;
+}
+
+.hs-song-menu__feedback-line .hs-button--on {
+  background: transparent;
+  color: var(--hs-accent-text);
+}
+
+.hs-song-menu__rating-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 2px 4px 6px;
+}
+
+/* Rating stars: five 30 x 36 px targets, 18 px glyphs. */
+.hs-stars {
+  display: inline-flex;
+}
+
+.hs-star {
+  width: 30px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: var(--hs-radius-control);
+  color: var(--hs-fg-muted);
+  cursor: default;
+}
+
+.hs-star .hs-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.hs-star--on {
+  color: var(--hs-accent-text);
+}
+
+.hs-star:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+}
+
+/* ------------------------------------------------------------------ */
+/* o01 - account menu (avatar and account row live in sidebar.css)    */
+/* ------------------------------------------------------------------ */
+
+.hs-account-menu {
+  width: 250px;
+}
+
+.hs-account-menu__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 10px;
+}
+
+.hs-account-menu__who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hs-account-menu__who > :first-child {
+  font-weight: 600;
+}
+
+.hs-account-menu__who > :last-child {
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}

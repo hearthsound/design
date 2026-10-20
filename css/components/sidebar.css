@@ -1,0 +1,170 @@
+/*
+ * k24 B - sidebar rows and section headings (surface owned by the shell), plus the
+ * k26 C avatar and the account row. Hover is l02b A: a faint tone at half the
+ * current-page tone. Current is aria-current="page". The account menu itself is
+ * menu.css; the row keeps its pressed tone while that menu is open (p07b).
+ */
+
+.hs-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: var(--hs-sidebar-bg);
+  color: var(--hs-fg);
+}
+
+/* l01-r1, i03: the lockup leads the sidebar; the search field sits 8 px below it. */
+.hs-sidebar .hs-lockup {
+  min-height: 44px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.hs-sidebar .hs-search-field {
+  margin: 0 2px 8px;
+}
+
+/* Fills the space between the library rows and the foot (layouts.md 2.1). */
+.hs-sidebar__spacer {
+  flex: 1;
+  min-height: 8px;
+}
+
+/* ------------------------------------------------------------------ */
+/* k24 - headings and rows                                             */
+/* ------------------------------------------------------------------ */
+
+.hs-nav__heading {
+  margin: 0;
+  padding: 14px 10px 6px;
+  font: 600 11px var(--hs-font-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hs-fg-muted);
+}
+
+.hs-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-row);
+  background: transparent;
+  color: var(--hs-fg);
+  font: 400 14px var(--hs-font-body);
+  text-align: left;
+  text-decoration: none;
+  cursor: default;
+  appearance: none;
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-nav-item .hs-icon {
+  --hs-icon-size: 16px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-nav-item .hs-count-badge {
+  margin-left: auto;
+}
+
+/* l02b A: faint hover, never on the current page. */
+.hs-nav-item:hover:not(.hs-nav-item--current):not([aria-current='page']) {
+  background: color-mix(in srgb, var(--hs-fg) 5%, transparent);
+}
+
+.hs-nav-item--current,
+.hs-nav-item[aria-current='page'] {
+  background: var(--hs-control-tone);
+  font-weight: 600;
+}
+
+.hs-nav-item--current .hs-icon,
+.hs-nav-item[aria-current='page'] .hs-icon {
+  color: var(--hs-fg);
+}
+
+.hs-nav-item:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  font-weight: 600;
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* ------------------------------------------------------------------ */
+/* k26 - avatar and account row                                        */
+/* ------------------------------------------------------------------ */
+
+.hs-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--hs-control-tone);
+  color: var(--hs-fg-muted);
+}
+
+.hs-avatar .hs-icon {
+  --hs-icon-size: 18px;
+}
+
+.hs-account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-row);
+  background: var(--hs-control-tone);
+  color: var(--hs-fg);
+  font: 500 14px var(--hs-font-body);
+  text-align: left;
+  cursor: default;
+  appearance: none;
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-account__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* p07b: the row keeps its pressed tone while the menu is open. */
+.hs-account[aria-expanded='true'] {
+  background: color-mix(in srgb, var(--hs-fg) 15%, transparent);
+}
+
+.hs-account:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-nav-item,
+  .hs-account {
+    transition: none;
+  }
+}

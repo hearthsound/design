@@ -1,0 +1,78 @@
+<section>
+  <h2 class="hs-title-3">k31-r1 Drop zone</h2>
+  <p class="hs-caption">Rest: neutral grey with a transparent dashed border. While files are dragged over the page the panel takes the acid tint and the accent dashed outline.</p>
+  <div class="hs-drop-zone" role="group" aria-label="Drop audio files">
+    <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#custom-upload"/></svg>
+    <span class="hs-drop-zone__hint">Drop audio files here, or choose them.</span>
+    <button class="hs-button hs-button--suggested" type="button">Choose files</button>
+  </div>
+
+  <h3 class="hs-heading">Dragged over</h3>
+  <div class="hs-drop-zone hs-drop-zone--over" role="group" aria-label="Drop audio files">
+    <svg class="hs-icon" aria-hidden="true"><use href="../dist/icons.svg#custom-upload"/></svg>
+    <span class="hs-drop-zone__hint">Drop audio files here, or choose them.</span>
+    <button class="hs-button hs-button--suggested" type="button">Choose files</button>
+  </div>
+</section>
+
+<section>
+  <h2 class="hs-title-3">Upload items</h2>
+  <p class="hs-caption">Waiting, Uploading N%, Processing, Done and Failed: reason. The pill carries the state; there is no progress bar.</p>
+  <div class="hs-settings-group" role="list" aria-label="Uploads">
+    <div class="hs-setting-row hs-setting-row--two-line hs-upload-row" role="listitem">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"/></svg>
+      <span class="hs-setting-row__text">
+        <span>Marlowe Fenn - Northern Line.flac</span>
+        <span class="hs-setting-row__subtitle">42.6 MB</span>
+      </span>
+      <span class="hs-pill hs-pill--neutral">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-queue"/></svg>
+        Waiting
+      </span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-upload-row" role="listitem">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"/></svg>
+      <span class="hs-setting-row__text">
+        <span>Marlowe Fenn - Harbour Lights.flac</span>
+        <span class="hs-setting-row__subtitle">51.2 MB</span>
+      </span>
+      <span class="hs-pill hs-pill--accent">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#custom-upload"/></svg>
+        Uploading 64%
+      </span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-upload-row" role="listitem">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"/></svg>
+      <span class="hs-setting-row__text">
+        <span>Marlowe Fenn - Low Tide.flac</span>
+        <span class="hs-setting-row__subtitle">38.9 MB</span>
+      </span>
+      <span class="hs-pill hs-pill--accent">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-refresh"/></svg>
+        Processing
+      </span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-upload-row" role="listitem">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"/></svg>
+      <span class="hs-setting-row__text">
+        <span>Marlowe Fenn - Salt and Smoke.flac</span>
+        <span class="hs-setting-row__subtitle">47.4 MB</span>
+      </span>
+      <span class="hs-pill hs-pill--success">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"/></svg>
+        Done
+      </span>
+    </div>
+    <div class="hs-setting-row hs-setting-row--two-line hs-upload-row" role="listitem">
+      <svg class="hs-icon hs-setting-row__icon" aria-hidden="true"><use href="../dist/icons.svg#adwaita-song"/></svg>
+      <span class="hs-setting-row__text">
+        <span>Marlowe Fenn - Field Notes.flac</span>
+        <span class="hs-setting-row__subtitle">0 bytes</span>
+      </span>
+      <span class="hs-pill hs-pill--error">
+        <svg class="hs-icon hs-pill__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"/></svg>
+        Failed: no audio stream
+      </span>
+    </div>
+  </div>
+</section>

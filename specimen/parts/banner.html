@@ -1,0 +1,51 @@
+<section>
+  <h2>Banners</h2>
+
+  <!-- components.md k21 defines warning, error and success; the base tone is warning.
+       The phase brief's "info" banner is a SPEC GAP (see banner.css). -->
+  <h3>Base (warning tone)</h3>
+  <div class="hs-banner" role="status" style="margin-bottom: 12px;">
+    <svg class="hs-icon hs-banner__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"></use></svg>
+    <div class="hs-banner__text"><span>Your session ended. Sign in again to continue.</span></div>
+    <div class="hs-banner__actions">
+      <button class="hs-button" type="button">Sign in</button>
+    </div>
+  </div>
+
+  <h3>Warning</h3>
+  <div class="hs-banner hs-banner--warning" role="status" style="margin-bottom: 12px;">
+    <svg class="hs-icon hs-banner__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"></use></svg>
+    <div class="hs-banner__text"><span>Some index entries could not be read.</span></div>
+    <div class="hs-banner__actions">
+      <button class="hs-button" type="button">View Errors</button>
+    </div>
+  </div>
+
+  <h3>Error</h3>
+  <div class="hs-banner hs-banner--error" role="alert" style="margin-bottom: 12px;">
+    <svg class="hs-icon hs-banner__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"></use></svg>
+    <div class="hs-banner__text"><span>Server unreachable. Trying again...</span></div>
+    <div class="hs-banner__actions">
+      <button class="hs-button" type="button">Retry</button>
+    </div>
+  </div>
+
+  <h3>Success</h3>
+  <div class="hs-banner hs-banner--success" role="status" style="margin-bottom: 24px;">
+    <svg class="hs-icon hs-banner__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"></use></svg>
+    <div class="hs-banner__text"><span>The library scan finished.</span></div>
+  </div>
+
+  <h3>Floating above the player</h3>
+  <div style="position: relative; transform: translateZ(0); height: 200px; overflow: hidden; background: var(--hs-window-bg); border-radius: 12px;">
+    <div class="hs-overlay-dock">
+      <div class="hs-banner hs-banner--error hs-banner--floating" role="alert">
+        <svg class="hs-icon hs-banner__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"></use></svg>
+        <div class="hs-banner__text"><span>Server unreachable. Trying again...</span></div>
+        <div class="hs-banner__actions">
+          <button class="hs-button" type="button">Retry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

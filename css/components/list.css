@@ -1,0 +1,260 @@
+/*
+ * @hearthsound/design - lists
+ *
+ * k11-r1 boxed lists and settings rows (C: white page, deeper grey group),
+ * k28 admin tables, k30 / k30-r1 reorderable lists.
+ * Values from shared/approved/components.css (k11-r1, k28, k30) and
+ * spec/components.md. Board classes used there are mapped in components.md.
+ */
+
+/* ------------------------------------------------------------------ */
+/* k11-r1 - boxed lists (settings groups)                             */
+/* ------------------------------------------------------------------ */
+
+.hs-settings-group {
+  background: var(--hs-group-bg);
+  box-shadow: var(--hs-group-shadow);
+  border-radius: var(--hs-radius-card);
+  overflow: hidden;
+}
+
+.hs-setting-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--hs-row-comfortable);
+  padding: 8px 16px;
+  position: relative;
+  font: 400 14px/1.4 var(--hs-font-body);
+  color: var(--hs-fg);
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+/* k11-r1 - a 1 px hairline drawn as an inset shadow, so rows keep their height. */
+.hs-settings-group .hs-setting-row + .hs-setting-row {
+  box-shadow: inset 0 1px 0 var(--hs-separator);
+}
+
+.hs-setting-row--two-line {
+  min-height: 60px;
+}
+
+/* B08 - compact admin density. */
+.hs-setting-row--compact {
+  min-height: var(--hs-row-compact);
+  padding: var(--hs-row-pad-compact) 16px;
+}
+
+.hs-setting-row__text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hs-setting-row__subtitle {
+  color: var(--hs-fg-muted);
+  font-size: 13px;
+}
+
+.hs-setting-row__value {
+  color: var(--hs-fg-muted);
+}
+
+.hs-setting-row__icon {
+  color: var(--hs-fg-muted);
+  width: 16px;
+  height: 16px;
+}
+
+/* Button row: centred label with an icon, the icon in the text colour. */
+.hs-setting-row--button {
+  justify-content: center;
+  font-weight: 600;
+  gap: 8px;
+}
+
+.hs-setting-row--button .hs-setting-row__icon {
+  color: var(--hs-fg);
+}
+
+/* Property row: a muted 12 px key line over the value. */
+.hs-setting-row--property .hs-setting-row__text {
+  gap: 2px;
+}
+
+.hs-setting-row__key {
+  color: var(--hs-fg-muted);
+  font-size: 12px;
+}
+
+/* Expander row: the trailing chevron turns when the row is open. */
+.hs-setting-row--expander > .hs-setting-row__icon:last-child {
+  transition: transform var(--hs-duration-popover) var(--hs-ease);
+}
+
+.hs-setting-row--expander[aria-expanded='true'] > .hs-setting-row__icon:last-child {
+  transform: rotate(180deg);
+}
+
+.hs-setting-row--nested {
+  padding-left: 32px;
+}
+
+.hs-setting-row--interactive:hover {
+  background: var(--hs-control-tone);
+}
+
+.hs-setting-row--interactive:active {
+  background: color-mix(in srgb, var(--hs-fg) 15%, transparent);
+}
+
+/* f13-r3 - tint and lift, first text span in the accent text at weight 600. */
+.hs-setting-row:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  box-shadow: var(--hs-focus-shadow) !important;
+  z-index: 1;
+}
+
+.hs-setting-row:focus-visible .hs-setting-row__text > :first-child {
+  color: var(--hs-accent-text);
+  font-weight: 600;
+}
+
+.hs-setting-row[aria-disabled='true'] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-setting-row,
+  .hs-setting-row--expander > .hs-setting-row__icon:last-child {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k30 / k30-r1 - reorderable lists                                  */
+/* ------------------------------------------------------------------ */
+
+.hs-reorder-list .hs-setting-row__number {
+  width: 20px;
+  color: var(--hs-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hs-reorder-list .hs-setting-row__subtitle--mono {
+  font: 400 12px var(--hs-font-mono);
+}
+
+.hs-reorder-handle {
+  width: 16px;
+  height: 16px;
+  color: var(--hs-fg-muted);
+  cursor: grab;
+  display: none;
+}
+
+/* Reorder mode (k30-r1: entered from a "Reorder" menu item) or an
+ * always-handles list (setup Order p05b-r1, Customize Home p07b, Layers p25b). */
+.hs-reorder-list--reordering .hs-reorder-handle,
+.hs-reorder-list--handles .hs-reorder-handle {
+  display: inline-flex;
+}
+
+.hs-setting-row--lifted {
+  background: var(--hs-popover-bg);
+  box-shadow: var(--hs-elevation-2) !important;
+  border-radius: var(--hs-radius-row);
+  transform: translateY(-8px);
+  z-index: 3;
+}
+
+.hs-reorder-slot {
+  display: block;
+  height: 52px;
+  background: color-mix(in srgb, var(--hs-accent-bg) 14%, transparent);
+}
+
+.hs-setting-row--grabbed {
+  background: var(--hs-accent-tint);
+  box-shadow: var(--hs-focus-shadow) !important;
+}
+
+.hs-setting-row--grabbed .hs-setting-row__text > :first-child {
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
+/* k28 - admin tables                                                */
+/* ------------------------------------------------------------------ */
+
+.hs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font: 400 14px var(--hs-font-body);
+  color: var(--hs-fg);
+}
+
+.hs-table th {
+  text-align: left;
+  font: 600 12px var(--hs-font-body);
+  color: var(--hs-fg-muted);
+  height: 34px;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.hs-table th[aria-sort] {
+  color: var(--hs-fg);
+}
+
+.hs-table th .hs-icon {
+  width: 12px;
+  height: 12px;
+  vertical-align: -1px;
+  margin-left: 4px;
+}
+
+.hs-table td {
+  height: 36px;
+  padding: 0 10px;
+  box-shadow: inset 0 1px 0 var(--hs-separator);
+  white-space: nowrap;
+}
+
+.hs-table .hs-table__cell--numeric {
+  text-align: right;
+}
+
+.hs-sort-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: default;
+}
+
+.hs-sort-button:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+.hs-table__scroll {
+  position: relative;
+  overflow-x: auto;
+}
+
+/* k28 - phones scroll sideways with a right-edge fade. */
+@media (max-width: 720px) {
+  .hs-table__scroll {
+    mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent);
+  }
+}

@@ -1,0 +1,39 @@
+<section>
+  <h2>Toasts</h2>
+
+  <h3>Success and error toasts</h3>
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 24px 0;">
+    <div class="hs-toast-region" role="status" aria-label="Messages">
+      <div class="hs-toast">
+        <svg class="hs-icon hs-toast__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"></use></svg>
+        <span class="hs-toast__message">Added to Road Trip.</span>
+        <button class="hs-toast__action" type="button">Dismiss</button>
+      </div>
+      <div class="hs-toast" role="alert">
+        <svg class="hs-icon hs-toast__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-error"></use></svg>
+        <span class="hs-toast__message">Could not save the playlist.</span>
+        <button class="hs-toast__action" type="button">Retry</button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Stacked above a floating banner (l11d)</h3>
+  <div style="position: relative; transform: translateZ(0); height: 240px; overflow: hidden; background: var(--hs-window-bg); border-radius: 12px;">
+    <div class="hs-overlay-dock">
+      <div class="hs-banner hs-banner--warning hs-banner--floating" role="status">
+        <svg class="hs-icon hs-banner__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-warning"></use></svg>
+        <div class="hs-banner__text"><span>The server did not answer.</span></div>
+        <div class="hs-banner__actions">
+          <button class="hs-button" type="button">Retry</button>
+        </div>
+      </div>
+      <div class="hs-toast-region" role="status" aria-label="Messages">
+        <div class="hs-toast">
+          <svg class="hs-icon hs-toast__glyph" aria-hidden="true"><use href="../dist/icons.svg#adwaita-check"></use></svg>
+          <span class="hs-toast__message">Saved the order of My Layer.</span>
+          <button class="hs-toast__action" type="button">Dismiss</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

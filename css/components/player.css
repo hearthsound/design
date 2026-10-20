@@ -1,0 +1,524 @@
+/*
+ * k35 A - the player bar and the phone mini player (l04 B, l07 C), the o02 idle state,
+ * the p19-r1 fetch states ("Failed" pill anchored for the k27 tooltip, retry disc) and
+ * the p20-r4 now-playing view parts (p19-r1 queue, p20b unsynced lyrics, c03 item 12
+ * source line).
+ *
+ * The bar is a grid area under the content column in the shell. The mini player is the
+ * phone replacement and keeps its 8 px inset from the window edges.
+ */
+
+/* ------------------------------------------------------------------ */
+/* k35 - player bar                                                    */
+/* ------------------------------------------------------------------ */
+
+.hs-player {
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 1.4fr) 1fr;
+  align-items: center;
+  gap: 16px;
+  height: 88px;
+  padding: 0 18px;
+  box-sizing: border-box;
+  background: var(--hs-headerbar-bg);
+  box-shadow: 0 -1px 0 var(--hs-separator);
+}
+
+/* Left zone: cover, title over artist; both lines truncate. */
+.hs-player__now-playing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: var(--hs-radius-row);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  appearance: none;
+}
+
+/* f13-r3: the song region is the first tab stop and opens the now-playing view. */
+.hs-player__now-playing:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  box-shadow: var(--hs-focus-shadow);
+}
+
+.hs-player__cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--hs-radius-art-small);
+  overflow: hidden;
+  background: var(--hs-control-tone);
+  color: var(--hs-fg-muted);
+}
+
+.hs-player__cover > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* o02: the idle art slot is a control-tone tile with a 22 px muted song glyph. */
+.hs-player__cover > .hs-icon {
+  --hs-icon-size: 22px;
+}
+
+.hs-player__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  position: relative; /* the k27 tooltip of a Failed pill anchors here */
+}
+
+.hs-player__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.hs-player__title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.hs-player__artist {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--hs-fg-muted);
+}
+
+/* Centre zone: the transport row above the seek row with times at either side. */
+.hs-player__transport {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  width: 100%;
+}
+
+.hs-player__seek-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font: 400 12px var(--hs-font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--hs-fg-muted);
+}
+
+.hs-player__times {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Right zone: mute, the 150 px volume slider and the queue toggle. */
+.hs-player__end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+}
+
+.hs-player__volume {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 150px;
+}
+
+/* o02 - idle: muted title; the controls carry aria-disabled and their own 40% faded
+ * look (k01d), the fills are empty and the artist line is absent. */
+
+.hs-player--idle .hs-player__title {
+  color: var(--hs-fg-muted);
+}
+
+/* ------------------------------------------------------------------ */
+/* l07 C - fold at 721-1000 px                                         */
+/* ------------------------------------------------------------------ */
+
+@media (min-width: 721px) and (max-width: 1000px) {
+  .hs-player {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 12px;
+  }
+
+  .hs-player__transport {
+    min-width: 220px;
+  }
+
+  /* Shuffle and repeat are the first and last transport buttons. */
+  .hs-player .hs-transport > :first-child,
+  .hs-player .hs-transport > :last-child {
+    display: none;
+  }
+
+  .hs-player__volume {
+    width: auto;
+  }
+
+  .hs-player__volume .hs-slider {
+    display: none;
+  }
+}
+
+/* l01-r1, l04 B: the bar is replaced by the mini player card on phones. */
+@media (max-width: 720px) {
+  .hs-player:not(.hs-player--mini) {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* k35 A - phone mini player (l04 B)                                   */
+/* ------------------------------------------------------------------ */
+
+.hs-player--mini {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  margin: 0 8px 8px;
+  padding: 0 10px 0 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--hs-group-bg);
+  box-shadow: var(--hs-group-shadow);
+  color: var(--hs-fg);
+}
+
+.hs-player--mini .hs-player__cover {
+  width: 48px;
+  height: 48px;
+}
+
+.hs-player--mini .hs-player__meta {
+  flex: 1;
+}
+
+.hs-player--mini .hs-player__progress-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+}
+
+.hs-player--mini:focus-visible {
+  outline: none;
+  box-shadow: var(--hs-focus-shadow);
+}
+
+.hs-player__progress-line > i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--hs-accent-bg);
+}
+
+/* o02: nothing playing hides the progress line and the artist line is absent. */
+.hs-player--mini.hs-player--idle .hs-player__progress-line {
+  display: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* p20-r4 - now-playing view                                           */
+/* ------------------------------------------------------------------ */
+
+.hs-now-playing {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: min(400px, 44vh) 460px;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  padding: 48px 56px;
+  box-sizing: border-box;
+  overflow: auto;
+  background: var(--hs-view-bg);
+  color: var(--hs-fg);
+}
+
+/* The left column is as wide as the cover. Rows under the cover span that width. */
+.hs-now-playing__left {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'cover cover'
+    'details actions'
+    'seek seek'
+    'transport transport';
+  align-items: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.hs-now-playing__cover {
+  grid-area: cover;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--hs-radius-art);
+  overflow: hidden;
+  background: var(--hs-art-placeholder-bg);
+}
+
+.hs-now-playing__cover > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hs-now-playing__details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  position: relative;
+}
+
+.hs-now-playing__title {
+  margin: 0;
+  font: 750 26px/1.15 var(--hs-font-display);
+  letter-spacing: -0.02em;
+}
+
+.hs-now-playing__artist {
+  margin: 0;
+  font-size: 15px;
+  color: var(--hs-fg-muted);
+}
+
+.hs-now-playing__actions {
+  grid-area: actions;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* k17-r3: a pressed like or dislike stays transparent with the accent glyph. */
+.hs-now-playing__actions .hs-button--on,
+.hs-now-playing__actions .hs-button[aria-pressed='true'] {
+  background: transparent;
+  color: var(--hs-accent-text);
+}
+
+.hs-now-playing__seek {
+  grid-area: seek;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  font: 400 12px var(--hs-font-body);
+  font-variant-numeric: tabular-nums;
+  color: var(--hs-fg-muted);
+}
+
+.hs-now-playing__transport {
+  grid-area: transport;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+}
+
+.hs-now-playing__close {
+  position: absolute;
+  left: 24px;
+  top: 20px;
+}
+
+/* Right column: the text switch and one panel of the same width. */
+.hs-now-playing__right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  height: min(640px, calc(100vh - 96px));
+}
+
+.hs-now-playing__switch {
+  align-self: flex-start;
+  margin: 0;
+}
+
+.hs-now-playing__panel {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: auto;
+}
+
+/* Lyrics, synced (p20-r4): the current line is held at the panel's vertical centre. */
+.hs-lyrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 50vh 4px;
+}
+
+.hs-lyrics-line {
+  margin: 0;
+  font: 700 30px/1.3 var(--hs-font-display);
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, var(--hs-fg) 38%, transparent);
+}
+
+.hs-lyrics-line[aria-current='true'] {
+  color: var(--hs-fg);
+}
+
+.hs-lyrics-note {
+  font-size: 13px;
+  color: var(--hs-fg-muted);
+}
+
+/* p20b: unsynced lyrics scroll by hand from the top, nothing is highlighted. */
+.hs-lyrics--unsynced {
+  padding: 4px 4px 24px;
+  gap: 18px;
+}
+
+.hs-lyrics--unsynced .hs-lyrics-line {
+  font: 500 19px/1.55 var(--hs-font-body);
+  letter-spacing: 0;
+  color: var(--hs-fg);
+}
+
+.hs-lyrics--unsynced .hs-lyrics-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* c03 item 12: every lyrics panel ends with the source line. */
+.hs-lyrics-note--source {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* Queue (p19-r1): cover, title/artist and the pill + duration end cell. */
+.hs-now-playing__panel .hs-track-list {
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+}
+
+.hs-now-playing__panel .hs-track-row--queue {
+  grid-template-columns: subgrid;
+}
+
+.hs-now-playing__panel .hs-track-row--queue .hs-track-row__actions {
+  display: none;
+}
+
+.hs-now-playing__queue-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.hs-now-playing__queue-end .hs-track-row__duration {
+  width: 44px;
+  text-align: right;
+}
+
+/* ------------------------------------------------------------------ */
+/* l07 - middle widths (p20-r4: 1001-1100 px)                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .hs-now-playing {
+    grid-template-columns: min(340px, 40vh) 400px;
+    gap: 48px;
+  }
+
+  .hs-lyrics-line {
+    font-size: 26px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Phone (p20-r4 6.6): one scrolled column, 320 px lyrics panel        */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  .hs-now-playing {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 22px;
+    padding: 56px 20px 24px;
+  }
+
+  .hs-now-playing__left {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hs-now-playing__title {
+    font-size: 22px;
+  }
+
+  .hs-now-playing__close {
+    left: 12px;
+    top: 8px;
+  }
+
+  .hs-now-playing__right {
+    height: auto;
+  }
+
+  .hs-now-playing__switch {
+    align-self: center;
+  }
+
+  .hs-now-playing__panel:has(.hs-lyrics) {
+    flex: none;
+    height: 320px;
+  }
+
+  .hs-lyrics-line {
+    font-size: 22px;
+  }
+
+  .hs-lyrics--unsynced .hs-lyrics-line {
+    font-size: 17px;
+  }
+
+  .hs-now-playing__queue-end {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+
+  .hs-now-playing__queue-end .hs-track-row__duration {
+    width: auto;
+  }
+}
