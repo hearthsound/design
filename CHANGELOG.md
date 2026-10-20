@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.9] - 2026-10-20
+
+### Fixed
+
+- The phone sign-in shows the plain frame (no toned brand bar).
+- The phone step line's marker is the current-step disc.
+
 ## [0.1.8] - 2026-10-20
 
 ### Fixed
@@ -103,7 +110,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.8...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.9...HEAD
+[0.1.9]: https://github.com/hearthsound/design/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/hearthsound/design/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/hearthsound/design/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/hearthsound/design/compare/v0.1.5...v0.1.6
