@@ -213,6 +213,11 @@
   height: 48px;
 }
 
+/* The cover and text fill the card, so the disc sits at its right end (k35 A). */
+.hs-player--mini .hs-player__now-playing {
+  flex: 1;
+}
+
 .hs-player--mini .hs-player__meta {
   flex: 1;
 }
