@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.10] - 2026-10-20
+
+### Fixed
+
+- A reorder list has no list indent or markers.
+
 ## [0.1.9] - 2026-10-20
 
 ### Fixed
@@ -110,7 +116,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.9...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.10...HEAD
+[0.1.10]: https://github.com/hearthsound/design/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/hearthsound/design/compare/v0.1.8...v0.1.9
 [0.1.8]: https://github.com/hearthsound/design/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/hearthsound/design/compare/v0.1.6...v0.1.7
