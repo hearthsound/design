@@ -51,8 +51,8 @@
 
 /* Masked passwords: larger bullets; the placeholder keeps the body size. */
 .hs-field__input[type='password']:not(:placeholder-shown) {
-  font-size: 20px;
-  letter-spacing: 0.08em;
+  font-size: 17px;
+  letter-spacing: 0.04em;
 }
 
 .hs-field__input::placeholder {

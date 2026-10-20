@@ -13,6 +13,9 @@
 
 .hs-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   padding: 8px;
   margin: -8px;
   border-radius: var(--hs-radius-card);

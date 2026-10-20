@@ -103,7 +103,8 @@
 }
 
 .hs-setting-row--nested {
-  padding-left: 32px;
+  /* fc2-diff: nested rows line up with their parent; no extra indent. */
+  padding-left: 16px;
 }
 
 .hs-setting-row--interactive:hover {
