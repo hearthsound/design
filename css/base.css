@@ -1,0 +1,245 @@
+/*
+ * @hearthsound/design - base
+ *
+ * Fonts, reset, body typography, the type-scale classes (foundations.md 2.2),
+ * the focus indicator carrier, the icon base class and reduced motion.
+ * Component looks live in css/components/; this file only owns the page frame.
+ */
+
+/* f01, f01b, f02, B09 - the three approved faces, shipped in fonts/. */
+@font-face {
+  font-family: 'Geist';
+  src: url('../fonts/geist-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('../fonts/bricolage-var.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('../fonts/geist-mono.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reset                                                              */
+/* ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--hs-view-bg);
+  color: var(--hs-fg);
+  font-family: var(--hs-font-body);
+  font-size: var(--hs-type-body-size);
+  font-weight: var(--hs-type-body-weight);
+  line-height: var(--hs-type-body-lh);
+  letter-spacing: var(--hs-type-body-track);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* f02 - the mono face is shown with ligatures off. */
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--hs-font-mono);
+  font-variant-ligatures: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Type scale (f03, l07)                                              */
+/* ------------------------------------------------------------------ */
+
+.hs-display {
+  font-family: var(--hs-font-display);
+  font-size: var(--hs-type-display-size);
+  font-weight: var(--hs-type-display-weight);
+  line-height: var(--hs-type-display-lh);
+  letter-spacing: var(--hs-type-display-track);
+}
+
+.hs-title-1 {
+  font-family: var(--hs-font-display);
+  font-size: var(--hs-type-title-1-size);
+  font-weight: var(--hs-type-title-1-weight);
+  line-height: var(--hs-type-title-1-lh);
+  letter-spacing: var(--hs-type-title-1-track);
+}
+
+.hs-title-2 {
+  font-family: var(--hs-font-display);
+  font-size: var(--hs-type-title-2-size);
+  font-weight: var(--hs-type-title-2-weight);
+  line-height: var(--hs-type-title-2-lh);
+  letter-spacing: var(--hs-type-title-2-track);
+}
+
+.hs-title-3 {
+  font-family: var(--hs-font-display);
+  font-size: var(--hs-type-title-3-size);
+  font-weight: var(--hs-type-title-3-weight);
+  line-height: var(--hs-type-title-3-lh);
+  letter-spacing: var(--hs-type-title-3-track);
+}
+
+.hs-title-4 {
+  font-family: var(--hs-font-display);
+  font-size: var(--hs-type-title-4-size);
+  font-weight: var(--hs-type-title-4-weight);
+  line-height: var(--hs-type-title-4-lh);
+  letter-spacing: var(--hs-type-title-4-track);
+}
+
+.hs-heading {
+  font-family: var(--hs-font-display);
+  font-size: var(--hs-type-heading-size);
+  font-weight: var(--hs-type-heading-weight);
+  line-height: var(--hs-type-heading-lh);
+  letter-spacing: var(--hs-type-heading-track);
+}
+
+.hs-body {
+  font-family: var(--hs-font-body);
+  font-size: var(--hs-type-body-size);
+  font-weight: var(--hs-type-body-weight);
+  line-height: var(--hs-type-body-lh);
+  letter-spacing: var(--hs-type-body-track);
+}
+
+.hs-caption {
+  font-family: var(--hs-font-body);
+  font-size: var(--hs-type-caption-size);
+  font-weight: var(--hs-type-caption-weight);
+  line-height: var(--hs-type-caption-lh);
+  letter-spacing: var(--hs-type-caption-track);
+}
+
+/* ------------------------------------------------------------------ */
+/* Links (f06-r4)                                                     */
+/* ------------------------------------------------------------------ */
+
+a.link,
+.hs-link {
+  color: var(--hs-accent-text);
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-color: var(--hs-accent-bg);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* f06-r4 - light raises the underline to 3 px at a 3 px offset. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-scheme='dark']) :where(a.link, .hs-link) {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+  }
+}
+
+[data-scheme='light'] a.link,
+[data-scheme='light'] .hs-link {
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+[data-scheme='dark'] a.link,
+[data-scheme='dark'] .hs-link {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* f13-r3 - links take a tint background on keyboard focus. */
+a.link:focus-visible,
+.hs-link:focus-visible {
+  outline: none;
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus                                                              */
+/* ------------------------------------------------------------------ */
+
+/*
+ * f13-r3, k01b, k03f: focus is the tint-and-lift treatment, never a ring,
+ * outline, underline, bar or dot. Each component owns its exact focus rule;
+ * this reset removes the user-agent ring so no component has to repeat it.
+ * Text-type fields keep --hs-control-tone and show focus through the caret
+ * (k03f); filled buttons deepen their fill (k01b).
+ */
+:focus-visible {
+  outline: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                          */
+/* ------------------------------------------------------------------ */
+
+.hs-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*
+ * f12 A - every icon is an inline SVG using the shipped sprite. Size it with
+ * --hs-icon-size (16 px default); colour is inherited through currentColor.
+ */
+.hs-icon {
+  --hs-icon-size: 16px;
+  display: inline-block;
+  flex: none;
+  width: var(--hs-icon-size);
+  height: var(--hs-icon-size);
+  fill: currentColor;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion (f14b-r1)                                           */
+/* ------------------------------------------------------------------ */
+
+/*
+ * The duration tokens are overridden to 0ms in tokens.css. Scrolling is
+ * immediate as well. Components set their own animation fallbacks (the
+ * spinner is the recorded k09-rm exception).
+ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}

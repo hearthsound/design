@@ -1,0 +1,375 @@
+/*
+ * @hearthsound/design - tokens
+ *
+ * Every token from spec/foundations.md, with the approved light and dark values.
+ * Light is the :root base. Dark applies under prefers-color-scheme: dark unless
+ * data-scheme="light" is set, and always under data-scheme="dark" (B05).
+ * The [data-scheme] blocks also apply to non-root elements, so a subtree (for
+ * example the specimen's dark column) can carry its own scheme.
+ *
+ * Tokens whose declaration uses another token (--hs-control-tone,
+ * --hs-art-placeholder-bg, the dark switch knob) are repeated per scheme block:
+ * custom properties compute their var() references on the declaring element.
+ *
+ * --hs-accent-ind is deliberately not declared (f06-r4, k08): it is removed from
+ * the published token set and no component may use it.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Scheme-independent tokens                                           */
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  /* f01, f01b, B09 - faces. Files live in fonts/ (see base.css). */
+  --hs-font-body: 'Geist', system-ui, sans-serif;
+  --hs-font-display: 'Bricolage Grotesque', 'Geist', system-ui, sans-serif;
+  --hs-font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  /* f03 - type scale. Each role: size, weight, line height, tracking. */
+  --hs-type-display-size: 46px;
+  --hs-type-display-weight: 750;
+  --hs-type-display-lh: 1.05;
+  --hs-type-display-track: -0.025em;
+  --hs-type-title-1-size: 37px;
+  --hs-type-title-1-weight: 750;
+  --hs-type-title-1-lh: 1.1;
+  --hs-type-title-1-track: -0.02em;
+  --hs-type-title-2-size: 29px;
+  --hs-type-title-2-weight: 700;
+  --hs-type-title-2-lh: 1.15;
+  --hs-type-title-2-track: -0.015em;
+  --hs-type-title-3-size: 23px;
+  --hs-type-title-3-weight: 700;
+  --hs-type-title-3-lh: 1.2;
+  --hs-type-title-3-track: -0.01em;
+  --hs-type-title-4-size: 19px;
+  --hs-type-title-4-weight: 700;
+  --hs-type-title-4-lh: 1.25;
+  --hs-type-title-4-track: -0.005em;
+  --hs-type-heading-size: 15px;
+  --hs-type-heading-weight: 700;
+  --hs-type-heading-lh: 1.35;
+  --hs-type-heading-track: 0em;
+  --hs-type-body-size: 15px;
+  --hs-type-body-weight: 400;
+  --hs-type-body-lh: 1.5;
+  --hs-type-body-track: 0em;
+  --hs-type-caption-size: 13px;
+  --hs-type-caption-weight: 400;
+  --hs-type-caption-lh: 1.4;
+  --hs-type-caption-track: 0em;
+
+  /* f08-r1, B08 - 4 px spacing grid and the two densities. */
+  --hs-space-1: 2px;
+  --hs-space-2: 4px;
+  --hs-space-3: 8px;
+  --hs-space-4: 12px;
+  --hs-space-5: 16px;
+  --hs-space-6: 24px;
+  --hs-space-7: 32px;
+  --hs-space-8: 48px;
+  --hs-row-comfortable: 48px;
+  --hs-row-compact: 36px;
+  --hs-row-pad-comfortable: 12px;
+  --hs-row-pad-compact: 8px;
+
+  /* f09 - corner radii. */
+  --hs-radius-control: 8px;
+  --hs-radius-row: 10px;
+  --hs-radius-card: 12px;
+  --hs-radius-art-small: 6px;
+  --hs-radius-art: 10px;
+  --hs-radius-popover: 14px;
+  --hs-radius-dialog: 18px;
+  --hs-radius-full: 999px;
+
+  /* f07 - tint percentages for pills and messages. */
+  --hs-status-tint: 13%;
+  --hs-message-tint: 12%;
+
+  /* f14-r2 - motion. f14b-r1 overrides the durations under reduced motion. */
+  --hs-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --hs-duration-hover: 150ms;
+  --hs-duration-press: 100ms;
+  --hs-duration-popover: 200ms;
+  --hs-duration-dialog: 260ms;
+  --hs-duration-page: 240ms;
+  --hs-duration-player: 320ms;
+
+  /* f15, f15c - artwork never carries a shadow; artist images are round. */
+  --hs-art-shadow: none;
+  --hs-radius-artist: 50%;
+
+  /* f03 phone sizes (l07): only the size tokens shrink. */
+  /* Handled below in the phone media query. */
+}
+
+@media (max-width: 720px) {
+  :root {
+    --hs-type-display-size: 34px;
+    --hs-type-title-1-size: 29px;
+    --hs-type-title-2-size: 24px;
+    --hs-type-title-3-size: 20px;
+    --hs-type-title-4-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --hs-duration-hover: 0ms;
+    --hs-duration-press: 0ms;
+    --hs-duration-popover: 0ms;
+    --hs-duration-dialog: 0ms;
+    --hs-duration-page: 0ms;
+    --hs-duration-player: 0ms;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Light scheme (f04, f06-r3, f07, f10-r1, f13-r3, k07-r2, i01-r12)    */
+/* ------------------------------------------------------------------ */
+
+:root,
+[data-scheme='light'] {
+  color-scheme: light;
+
+  --hs-window-bg: #ecebe8;
+  --hs-view-bg: #ffffff;
+  --hs-group-bg: #ecebe8;
+  --hs-group-shadow: none;
+  --hs-sidebar-bg: #e2e0dc;
+  --hs-headerbar-bg: #f3f2ef;
+  --hs-card-bg: #ffffff;
+  --hs-popover-bg: #ffffff;
+  --hs-dialog-bg: #f6f5f2;
+  --hs-fg: #23211e;
+  --hs-fg-muted: #5c5851;
+  --hs-border: rgb(35 30 25 / 16%);
+  --hs-separator: rgb(35 30 25 / 10%);
+  --hs-shade: rgb(35 30 25 / 9%);
+  --hs-control-tone: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+
+  /*
+   * Component tokens. The frozen foundations tables keep these values in the
+   * component entries (components.md); they live here because every one of them
+   * switches with the scheme and a component file must not carry a scheme selector.
+   */
+  --hs-slider-track: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+  --hs-slider-buffer: color-mix(in srgb, var(--hs-fg) 30%, transparent);
+  --hs-skeleton-base: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+  --hs-skeleton-band: color-mix(in srgb, var(--hs-fg) 4%, transparent);
+  --hs-segment-selected-bg: var(--hs-card-bg);
+  --hs-tooltip-bg: var(--hs-fg);
+  --hs-tooltip-fg: var(--hs-view-bg);
+  --hs-tooltip-shadow: none;
+  --hs-toast-bg: var(--hs-fg);
+  --hs-toast-fg: var(--hs-view-bg);
+  --hs-toast-shadow: none;
+  --hs-toast-glyph: #84d39d;
+  --hs-destructive-focus-bg: color-mix(in srgb, var(--hs-destructive-bg) 72%, #000);
+
+  --hs-accent-bg: #f5d10a;
+  --hs-accent-fg: #221b00;
+  --hs-accent-text: #23211e;
+  --hs-accent-tint: rgb(245 209 10 / 26%);
+
+  --hs-success: #286a40;
+  --hs-warning: #9e460c;
+  --hs-error: #b3261e;
+  --hs-destructive-bg: #b3261e;
+  --hs-destructive-fg: #ffffff;
+
+  --hs-elevation-1: 0 1px 2px rgb(35 30 25 / 6%), 0 2px 8px rgb(35 30 25 / 5%);
+  --hs-elevation-2: 0 4px 12px rgb(35 30 25 / 9%), 0 14px 34px rgb(35 30 25 / 11%);
+  --hs-elevation-3: 0 8px 24px rgb(35 30 25 / 12%), 0 28px 64px rgb(35 30 25 / 18%);
+  --hs-focus-shadow: 0 2px 6px rgb(35 30 25 / 3%), 0 6px 16px rgb(35 30 25 / 3.5%);
+
+  --hs-brand-core: #c46a12;
+  --hs-art-placeholder-bg: color-mix(in srgb, var(--hs-fg) 8%, var(--hs-view-bg));
+
+  /* k07-r2 switch tokens. */
+  --hs-switch-off: #8e8c8a;
+  --hs-switch-knob: #fff;
+  --hs-switch-knob-on: #fff;
+  --hs-switch-knob-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+}
+
+/* ------------------------------------------------------------------ */
+/* Dark scheme (f05, f06-r3, f07, f10-r1, f13-r3, k11-r1, k07-r2)      */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-scheme='light']) {
+    color-scheme: dark;
+
+    --hs-window-bg: #171614;
+    --hs-view-bg: #121110;
+    --hs-group-bg: #1f1d1b;
+    --hs-group-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+    --hs-sidebar-bg: #1e1d1b;
+    --hs-headerbar-bg: #1c1b19;
+    --hs-card-bg: #1f1d1b;
+    --hs-popover-bg: #2a2825;
+    --hs-dialog-bg: #262420;
+    --hs-fg: #eeebe6;
+    --hs-fg-muted: #aaa49b;
+    --hs-border: rgb(255 245 230 / 12%);
+    --hs-separator: rgb(255 245 230 / 7%);
+    --hs-shade: rgb(0 0 0 / 40%);
+    --hs-control-tone: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+    --hs-slider-track: color-mix(in srgb, var(--hs-fg) 18%, transparent);
+    --hs-slider-buffer: color-mix(in srgb, var(--hs-fg) 34%, transparent);
+    --hs-skeleton-base: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+    --hs-skeleton-band: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+    --hs-segment-selected-bg: color-mix(in srgb, var(--hs-fg) 22%, var(--hs-view-bg));
+    --hs-tooltip-bg: var(--hs-popover-bg);
+    --hs-tooltip-fg: var(--hs-fg);
+    --hs-tooltip-shadow: var(--hs-elevation-2);
+    --hs-toast-bg: var(--hs-popover-bg);
+    --hs-toast-fg: var(--hs-fg);
+    --hs-toast-shadow: var(--hs-elevation-2);
+    --hs-toast-glyph: var(--hs-success);
+    --hs-destructive-focus-bg: color-mix(in srgb, var(--hs-destructive-bg) 80%, #000);
+
+    --hs-accent-bg: #ffd91a;
+    --hs-accent-fg: #221b00;
+    --hs-accent-text: #ffe253;
+    --hs-accent-tint: rgb(255 217 26 / 14%);
+
+    --hs-success: #84d39d;
+    --hs-warning: #ffa463;
+    --hs-error: #ff8a80;
+    --hs-destructive-bg: #ff7b72;
+    --hs-destructive-fg: #2a0404;
+
+    --hs-elevation-1: 0 1px 3px rgb(0 0 0 / 35%);
+    --hs-elevation-2: 0 6px 16px rgb(0 0 0 / 45%), 0 16px 40px rgb(0 0 0 / 45%);
+    --hs-elevation-3: 0 10px 28px rgb(0 0 0 / 50%), 0 30px 70px rgb(0 0 0 / 55%);
+    --hs-focus-shadow: 0 2px 8px rgb(0 0 0 / 15%), 0 8px 20px rgb(0 0 0 / 15%);
+
+    --hs-brand-core: #ff8a2a;
+    --hs-art-placeholder-bg: color-mix(in srgb, var(--hs-fg) 8%, var(--hs-view-bg));
+
+    --hs-switch-off: #807e7b;
+    --hs-switch-knob: var(--hs-view-bg);
+    --hs-switch-knob-on: var(--hs-accent-fg);
+    --hs-switch-knob-shadow: none;
+  }
+
+  [data-scheme='dark'] {
+    color-scheme: dark;
+
+    --hs-window-bg: #171614;
+    --hs-view-bg: #121110;
+    --hs-group-bg: #1f1d1b;
+    --hs-group-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+    --hs-sidebar-bg: #1e1d1b;
+    --hs-headerbar-bg: #1c1b19;
+    --hs-card-bg: #1f1d1b;
+    --hs-popover-bg: #2a2825;
+    --hs-dialog-bg: #262420;
+    --hs-fg: #eeebe6;
+    --hs-fg-muted: #aaa49b;
+    --hs-border: rgb(255 245 230 / 12%);
+    --hs-separator: rgb(255 245 230 / 7%);
+    --hs-shade: rgb(0 0 0 / 40%);
+    --hs-control-tone: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+    --hs-slider-track: color-mix(in srgb, var(--hs-fg) 18%, transparent);
+    --hs-slider-buffer: color-mix(in srgb, var(--hs-fg) 34%, transparent);
+    --hs-skeleton-base: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+    --hs-skeleton-band: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+    --hs-segment-selected-bg: color-mix(in srgb, var(--hs-fg) 22%, var(--hs-view-bg));
+    --hs-tooltip-bg: var(--hs-popover-bg);
+    --hs-tooltip-fg: var(--hs-fg);
+    --hs-tooltip-shadow: var(--hs-elevation-2);
+    --hs-toast-bg: var(--hs-popover-bg);
+    --hs-toast-fg: var(--hs-fg);
+    --hs-toast-shadow: var(--hs-elevation-2);
+    --hs-toast-glyph: var(--hs-success);
+    --hs-destructive-focus-bg: color-mix(in srgb, var(--hs-destructive-bg) 80%, #000);
+
+    --hs-accent-bg: #ffd91a;
+    --hs-accent-fg: #221b00;
+    --hs-accent-text: #ffe253;
+    --hs-accent-tint: rgb(255 217 26 / 14%);
+
+    --hs-success: #84d39d;
+    --hs-warning: #ffa463;
+    --hs-error: #ff8a80;
+    --hs-destructive-bg: #ff7b72;
+    --hs-destructive-fg: #2a0404;
+
+    --hs-elevation-1: 0 1px 3px rgb(0 0 0 / 35%);
+    --hs-elevation-2: 0 6px 16px rgb(0 0 0 / 45%), 0 16px 40px rgb(0 0 0 / 45%);
+    --hs-elevation-3: 0 10px 28px rgb(0 0 0 / 50%), 0 30px 70px rgb(0 0 0 / 55%);
+    --hs-focus-shadow: 0 2px 8px rgb(0 0 0 / 15%), 0 8px 20px rgb(0 0 0 / 15%);
+
+    --hs-brand-core: #ff8a2a;
+    --hs-art-placeholder-bg: color-mix(in srgb, var(--hs-fg) 8%, var(--hs-view-bg));
+
+    --hs-switch-off: #807e7b;
+    --hs-switch-knob: var(--hs-view-bg);
+    --hs-switch-knob-on: var(--hs-accent-fg);
+    --hs-switch-knob-shadow: none;
+  }
+}
+
+:root[data-scheme='dark'],
+[data-scheme='dark'] {
+  color-scheme: dark;
+
+  --hs-window-bg: #171614;
+  --hs-view-bg: #121110;
+  --hs-group-bg: #1f1d1b;
+  --hs-group-shadow: 0 1px 3px rgb(0 0 0 / 35%);
+  --hs-sidebar-bg: #1e1d1b;
+  --hs-headerbar-bg: #1c1b19;
+  --hs-card-bg: #1f1d1b;
+  --hs-popover-bg: #2a2825;
+  --hs-dialog-bg: #262420;
+  --hs-fg: #eeebe6;
+  --hs-fg-muted: #aaa49b;
+  --hs-border: rgb(255 245 230 / 12%);
+  --hs-separator: rgb(255 245 230 / 7%);
+  --hs-shade: rgb(0 0 0 / 40%);
+  --hs-control-tone: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+  --hs-slider-track: color-mix(in srgb, var(--hs-fg) 18%, transparent);
+  --hs-slider-buffer: color-mix(in srgb, var(--hs-fg) 34%, transparent);
+  --hs-skeleton-base: color-mix(in srgb, var(--hs-fg) 9%, transparent);
+  --hs-skeleton-band: color-mix(in srgb, var(--hs-fg) 16%, transparent);
+  --hs-segment-selected-bg: color-mix(in srgb, var(--hs-fg) 22%, var(--hs-view-bg));
+  --hs-tooltip-bg: var(--hs-popover-bg);
+  --hs-tooltip-fg: var(--hs-fg);
+  --hs-tooltip-shadow: var(--hs-elevation-2);
+  --hs-toast-bg: var(--hs-popover-bg);
+  --hs-toast-fg: var(--hs-fg);
+  --hs-toast-shadow: var(--hs-elevation-2);
+  --hs-toast-glyph: var(--hs-success);
+  --hs-destructive-focus-bg: color-mix(in srgb, var(--hs-destructive-bg) 80%, #000);
+
+  --hs-accent-bg: #ffd91a;
+  --hs-accent-fg: #221b00;
+  --hs-accent-text: #ffe253;
+  --hs-accent-tint: rgb(255 217 26 / 14%);
+
+  --hs-success: #84d39d;
+  --hs-warning: #ffa463;
+  --hs-error: #ff8a80;
+  --hs-destructive-bg: #ff7b72;
+  --hs-destructive-fg: #2a0404;
+
+  --hs-elevation-1: 0 1px 3px rgb(0 0 0 / 35%);
+  --hs-elevation-2: 0 6px 16px rgb(0 0 0 / 45%), 0 16px 40px rgb(0 0 0 / 45%);
+  --hs-elevation-3: 0 10px 28px rgb(0 0 0 / 50%), 0 30px 70px rgb(0 0 0 / 55%);
+  --hs-focus-shadow: 0 2px 8px rgb(0 0 0 / 15%), 0 8px 20px rgb(0 0 0 / 15%);
+
+  --hs-brand-core: #ff8a2a;
+  --hs-art-placeholder-bg: color-mix(in srgb, var(--hs-fg) 8%, var(--hs-view-bg));
+
+  --hs-switch-off: #807e7b;
+  --hs-switch-knob: var(--hs-view-bg);
+  --hs-switch-knob-on: var(--hs-accent-fg);
+  --hs-switch-knob-shadow: none;
+}

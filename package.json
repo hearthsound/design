@@ -1,0 +1,37 @@
+{
+  "name": "@hearthsound/design",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Design language of Hearthsound: tokens, fonts, icons and component styles",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hearthsound/design.git"
+  },
+  "type": "module",
+  "files": [
+    "css",
+    "fonts",
+    "icons",
+    "identity",
+    "dist",
+    "LICENSE",
+    "THIRD-PARTY.md"
+  ],
+  "exports": {
+    "./index.css": "./css/index.css",
+    "./css/*": "./css/*",
+    "./fonts/*": "./fonts/*",
+    "./identity/*": "./identity/*",
+    "./icons.svg": "./dist/icons.svg",
+    "./icons": {
+      "types": "./dist/icons.d.ts",
+      "default": "./dist/icons.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs && node scripts/verify.mjs",
+    "prepack": "npm run build",
+    "specimen": "node scripts/build.mjs && node scripts/specimen.mjs"
+  }
+}
