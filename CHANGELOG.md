@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.8] - 2026-10-20
+
+### Fixed
+
+- Phone setup keeps the plain frame's 24 px top padding; setup step titles stay 23 px on
+  phones; the phone sign-in column is centred with the 20vh upward bias.
+- `hs-inline-code` padding matches the approved board (1 px 5 px).
+
 ## [0.1.7] - 2026-10-20
 
 ### Added
@@ -95,7 +103,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.8...HEAD
+[0.1.8]: https://github.com/hearthsound/design/compare/v0.1.7...v0.1.8
 [0.1.7]: https://github.com/hearthsound/design/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/hearthsound/design/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/hearthsound/design/compare/v0.1.4...v0.1.5
