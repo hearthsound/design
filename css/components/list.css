@@ -148,6 +148,13 @@
 /* k30 / k30-r1 - reorderable lists                                  */
 /* ------------------------------------------------------------------ */
 
+/* The reorder list is a <ul>: no indent or markers (fc4-diff). */
+.hs-reorder-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .hs-reorder-list .hs-setting-row__number {
   width: 20px;
   color: var(--hs-fg-muted);
