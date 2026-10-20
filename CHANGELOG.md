@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-20
+
+### Fixed
+
+- The k05 drop-down list classes `hs-listbox`, `hs-option`, `hs-option--selected` and
+  `hs-option--active`, which the spec names but 0.1.0 did not style.
+- An invalid drop-down (`hs-select` with `aria-invalid="true"`) shows the invalid tint like
+  a text field.
+
 ## [0.1.0] - 2026-10-20
 
 ### Added
@@ -27,5 +36,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/hearthsound/design/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/hearthsound/design/releases/tag/v0.1.0
