@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-10-20
+
+### Changed
+
+- The segmented control has no outer margin by default.
+- Nested settings rows line up with their parent instead of indenting 32 px.
+- Masked password bullets are 17 px.
+
+### Fixed
+
+- Cards keep the approved 8 px gap between the cover and the text.
+
 ## [0.1.2] - 2026-10-20
 
 ### Added
@@ -49,7 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/hearthsound/design/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/hearthsound/design/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/hearthsound/design/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/hearthsound/design/releases/tag/v0.1.0
