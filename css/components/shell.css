@@ -129,6 +129,17 @@
   height: 26px;
 }
 
+/* The sidebar lockup is a link to Home (brand-home): no underline, the shared focus. */
+a.hs-lockup {
+  text-decoration: none;
+  border-radius: var(--hs-radius-row);
+}
+
+a.hs-lockup:focus-visible {
+  outline: none;
+  box-shadow: var(--hs-focus-shadow);
+}
+
 .hs-lockup--large {
   gap: 14px;
   font-size: 34px;
