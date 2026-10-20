@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-10-20
+
+### Fixed
+
+- The mini player's play disc sits at the right end of the card when the cover and title
+  are a button.
+
 ## [0.1.4] - 2026-10-20
 
 ### Added
@@ -67,7 +74,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/hearthsound/design/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/hearthsound/design/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/hearthsound/design/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/hearthsound/design/compare/v0.1.1...v0.1.2
