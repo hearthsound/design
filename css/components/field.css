@@ -128,7 +128,9 @@
 /* Declared after focus: the invalid tint is not a focus treatment and stays while the
  * field is focused or hovered. The doubled class matches the focus rule's specificity. */
 .hs-field.hs-field--invalid,
-.hs-field[aria-invalid='true'] {
+.hs-field[aria-invalid='true'],
+.hs-select.hs-field--invalid,
+.hs-select[aria-invalid='true'] {
   background: color-mix(in srgb, var(--hs-error) 12%, transparent);
 }
 

@@ -127,6 +127,59 @@
 }
 
 /* ------------------------------------------------------------------ */
+/* k05 A - drop-down list: the menu surface and items, check at the end */
+/* ------------------------------------------------------------------ */
+
+.hs-listbox {
+  background: var(--hs-popover-bg);
+  border-radius: var(--hs-radius-popover);
+  box-shadow: var(--hs-elevation-2);
+  padding: 6px;
+  box-sizing: border-box;
+  min-width: 200px;
+  margin: 0;
+  list-style: none;
+}
+
+.hs-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: var(--hs-radius-row);
+  font: 400 14px var(--hs-font-body);
+  color: var(--hs-fg);
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.hs-option > .hs-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  color: var(--hs-accent-text);
+  visibility: hidden;
+  flex: none;
+}
+
+.hs-option--selected > .hs-icon,
+.hs-option[aria-selected='true'] > .hs-icon {
+  visibility: visible;
+}
+
+.hs-option:hover {
+  background: var(--hs-control-tone);
+}
+
+.hs-option--active {
+  background: var(--hs-accent-tint);
+  color: var(--hs-accent-text);
+  font-weight: 600;
+  box-shadow: var(--hs-focus-shadow);
+}
+
+/* ------------------------------------------------------------------ */
 /* k18 A - add-to-playlist submenu                                    */
 /* ------------------------------------------------------------------ */
 
