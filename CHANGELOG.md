@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-20
+
+### Added
+
+- `hs-segmented__thumb`: the segmented control's selection slides between segments.
+
+### Fixed
+
+- Mosaic tiles are spliced edge to edge; only the whole mosaic is rounded.
+- A disabled settings row dims its contents, so its separator keeps the shared colour.
+- `hs-settings-group` on a list element has no indent or markers.
+- Masked passwords show larger bullets.
+
 ## [0.1.1] - 2026-10-20
 
 ### Fixed
@@ -36,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/hearthsound/design/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/hearthsound/design/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/hearthsound/design/releases/tag/v0.1.0
