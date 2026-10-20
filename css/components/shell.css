@@ -209,6 +209,13 @@ a.hs-lockup:focus-visible {
   justify-content: center;
 }
 
+/* Setup: 760 px column, 640 px form, Back and Continue at the ends. Step titles keep the
+ * board's 23 px at every width (p02-p06). */
+.hs-setup .hs-title-3 {
+  font-size: 23px;
+  line-height: 1.2;
+}
+
 /* Setup: 760 px column, 640 px form, Back and Continue at the ends. */
 .hs-setup {
   display: flex;
@@ -245,12 +252,12 @@ a.hs-lockup:focus-visible {
     padding: 14px;
   }
 
+  /* The plain frame keeps its 24 px top padding on phones (l12-r1). */
   .hs-onboarding__body {
-    padding: 0 14px 24px;
+    padding: 24px 14px 24px;
   }
 
-  .hs-onboarding__body > .hs-signin,
-  .hs-onboarding--split .hs-onboarding__main .hs-signin {
+  .hs-onboarding__body > .hs-signin {
     margin-top: 20vh;
   }
 
@@ -276,9 +283,10 @@ a.hs-lockup:focus-visible {
     height: 26px;
   }
 
+  /* Phone sign-in: the column is centred in the space left, biased up by 20vh (l12-r1 B). */
   .hs-onboarding__main {
-    align-items: flex-start;
-    padding: 14px 14px 24px;
+    align-items: center;
+    padding: 14px 14px 20vh;
   }
 
   .hs-setup__actions {

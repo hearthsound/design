@@ -246,7 +246,7 @@ a.link:focus-visible,
 
 /* p02: inline code in running text, 13 px mono on the control tone, radius 5. */
 .hs-inline-code {
-  padding: 0 4px;
+  padding: 1px 5px;
   font-family: var(--hs-font-mono);
   font-size: 13px;
   background: var(--hs-control-tone);
