@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-10-20
+
+### Fixed
+
+- A shelf's scrollport keeps room for the card's 8 px hover tile, so the tile is never clipped.
+- The app shell's main column reserves the scrollbar's gutter, so a page that grows past the
+  viewport does not shift sideways.
+
 ## [0.2.0] - 2026-10-20
 
 ### Added
@@ -129,7 +137,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/hearthsound/design/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/hearthsound/design/compare/v0.1.10...v0.2.0
 [0.1.10]: https://github.com/hearthsound/design/compare/v0.1.9...v0.1.10
 [0.1.9]: https://github.com/hearthsound/design/compare/v0.1.8...v0.1.9
