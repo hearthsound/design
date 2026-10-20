@@ -249,7 +249,8 @@ a.hs-lockup:focus-visible {
     padding: 0 14px 24px;
   }
 
-  .hs-onboarding__body > .hs-signin {
+  .hs-onboarding__body > .hs-signin,
+  .hs-onboarding--split .hs-onboarding__main .hs-signin {
     margin-top: 20vh;
   }
 

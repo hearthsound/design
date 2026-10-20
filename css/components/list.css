@@ -154,8 +154,30 @@
   font-variant-numeric: tabular-nums;
 }
 
-.hs-reorder-list .hs-setting-row__subtitle--mono {
+.hs-setting-row__subtitle--mono {
   font: 400 12px var(--hs-font-mono);
+  overflow-wrap: anywhere;
+}
+
+/* p04-r1, p06: a failed outcome or check line. */
+.hs-setting-row__subtitle--error {
+  color: var(--hs-error);
+}
+
+/* p04-r1: the glyph that leads a plugin outcome row. */
+.hs-setting-row__icon--success {
+  color: var(--hs-success);
+}
+
+.hs-setting-row__icon--error {
+  color: var(--hs-error);
+}
+
+/* p04-r1: a muted group heading above a grey group (plugin layers in setup). */
+.hs-group-heading {
+  margin: 10px 0 0;
+  font: 600 13px var(--hs-font-body);
+  color: var(--hs-fg-muted);
 }
 
 .hs-reorder-handle {

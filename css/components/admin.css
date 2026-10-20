@@ -255,3 +255,8 @@
     white-space: normal;
   }
 }
+
+/* p24-r3: a permission list inside a grey group takes the group's insets. */
+.hs-settings-group > .hs-permission-list {
+  padding: 14px 16px;
+}

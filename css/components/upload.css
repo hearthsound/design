@@ -68,3 +68,9 @@
     margin-left: 28px;
   }
 }
+
+/* p24-r1: the smaller drop area inside the Add Plugins dialog. */
+.hs-drop-zone--small {
+  padding: 18px 14px;
+  gap: 8px;
+}

@@ -34,13 +34,15 @@
 }
 
 /* The native control keeps its semantics and keyboard behaviour; the box draws it. */
+/* The native control covers the whole row, invisible, so the row is its hit target. */
 .hs-choice__input {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   margin: 0;
   opacity: 0;
-  pointer-events: none;
+  cursor: inherit;
 }
 
 .hs-choice__box {
