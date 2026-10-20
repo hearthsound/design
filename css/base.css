@@ -7,6 +7,17 @@
  */
 
 /* f01, f01b, f02, B09 - the three approved faces, shipped in fonts/. */
+/* pw-mask: the one-glyph font that draws password dots (scripts/mask-font.py),
+ * so every browser shows the same round disc while the field keeps its normal
+ * text size, spacing and caret. */
+@font-face {
+  font-family: 'Hearthsound Mask';
+  src: url('../fonts/hs-mask.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
 @font-face {
   font-family: 'Geist';
   src: url('../fonts/geist-var.woff2') format('woff2');

@@ -34,6 +34,11 @@ enough; see http://www.gnome.org.
 
 Files: every `icons/adwaita-*.svg`.
 
+### Hearthsound Mask
+
+A one-glyph font of Hearthsound's own work (`scripts/mask-font.py` in this repository
+builds it); no third-party material. It draws the password disc.
+
 ### Custom icons derived from Adwaita
 
 `icons/custom-like-outline.svg`, `icons/custom-dislike-outline.svg`,

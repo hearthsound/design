@@ -49,10 +49,11 @@
   caret-color: var(--hs-accent-text);
 }
 
-/* Masked passwords: larger bullets; the placeholder keeps the body size. */
+/* Masked passwords: the mask font draws the disc (pw-mask), so every browser
+ * shows the same dots while the field keeps its normal text size, spacing and
+ * caret; the placeholder stays in the body face. */
 .hs-field__input[type='password']:not(:placeholder-shown) {
-  font-size: 17px;
-  letter-spacing: 0.04em;
+  font-family: 'Hearthsound Mask', var(--hs-font-body);
 }
 
 .hs-field__input::placeholder {
