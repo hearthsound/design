@@ -12,6 +12,10 @@
 /* ------------------------------------------------------------------ */
 
 .hs-settings-group {
+  /* Also used on <ul>/<ol> (reorder lists): no list indent or markers. */
+  margin: 0;
+  padding: 0;
+  list-style: none;
   background: var(--hs-group-bg);
   box-shadow: var(--hs-group-shadow);
   border-radius: var(--hs-radius-card);
@@ -124,8 +128,12 @@
 }
 
 .hs-setting-row[aria-disabled='true'] {
-  opacity: 0.4;
   pointer-events: none;
+}
+
+/* The contents dim, not the row, so its hairline keeps the separator colour. */
+.hs-setting-row[aria-disabled='true'] > * {
+  opacity: 0.4;
 }
 
 @media (prefers-reduced-motion: reduce) {

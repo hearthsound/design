@@ -10,6 +10,7 @@
  */
 
 .hs-segmented {
+  position: relative;
   display: flex;
   gap: 0;
   margin: 0 14px 12px;
@@ -61,4 +62,36 @@
   color: var(--hs-accent-text);
   font-weight: 600;
   box-shadow: var(--hs-focus-shadow);
+}
+
+/*
+ * Sliding selection: with a thumb element the selected look moves between tabs.
+ * The thumb sits under the tabs; the selected tab drops its own background.
+ * Markup: <span class="hs-segmented__thumb" style="--hs-segment-x: <px>; --hs-segment-w: <px>">
+ * as the first child of the control; the client sets both from the selected tab.
+ */
+.hs-segmented__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  width: var(--hs-segment-w, 0);
+  transform: translateX(var(--hs-segment-x, 0));
+  border-radius: var(--hs-radius-full);
+  background: var(--hs-segment-selected-bg);
+  box-shadow: var(--hs-elevation-1);
+  transition: transform var(--hs-duration-popover) var(--hs-ease),
+    width var(--hs-duration-popover) var(--hs-ease);
+  pointer-events: none;
+}
+
+.hs-segmented:has(.hs-segmented__thumb) .hs-segmented__tab {
+  position: relative;
+  transition: background var(--hs-duration-hover) var(--hs-ease);
+}
+
+.hs-segmented:has(.hs-segmented__thumb) .hs-segmented__tab--selected,
+.hs-segmented:has(.hs-segmented__thumb) .hs-segmented__tab[aria-selected='true'] {
+  background: transparent;
+  box-shadow: none;
 }

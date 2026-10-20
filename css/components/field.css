@@ -49,6 +49,12 @@
   caret-color: var(--hs-accent-text);
 }
 
+/* Masked passwords: larger bullets; the placeholder keeps the body size. */
+.hs-field__input[type='password']:not(:placeholder-shown) {
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+
 .hs-field__input::placeholder {
   color: var(--hs-fg-muted);
 }

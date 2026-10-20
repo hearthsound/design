@@ -182,6 +182,8 @@
 }
 
 .hs-mosaic img {
+  /* The tiles are spliced edge to edge; only the whole mosaic is rounded. */
+  border-radius: 0;
   width: 100%;
   height: 100%;
   min-height: 0;
