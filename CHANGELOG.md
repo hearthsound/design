@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-20
+
 ### Added
 
 - Every design token from the frozen foundations, with light and dark values and the
@@ -24,3 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   reference built by `npm run specimen`.
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
+
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/hearthsound/design/releases/tag/v0.1.0
