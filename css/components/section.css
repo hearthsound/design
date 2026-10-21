@@ -91,13 +91,6 @@
     padding: 8px 14px 12px;
   }
 
-/* A flush shelf sits on the page margin, so its header does too: the
- * scrollport keeps the 8 px the hover tile needs (fc5b-diff). */
-.hs-home-section--flush .hs-section-header {
-  padding-inline: 0;
-}
-
-
   .hs-shelf__button {
     display: none;
   }
@@ -108,4 +101,11 @@
 .hs-shelf--flush {
   padding-inline: var(--hs-space-3);
   margin-inline: calc(-1 * var(--hs-space-3));
+}
+
+/* A shelf that sits on the page margin (the Liked shelves): its header is flush
+ * too, and the scrollport keeps only the 8 px the hover tile needs. Declared
+ * after the width rules so it wins at every width (fc5b-diff). */
+.hs-home-section--flush .hs-section-header {
+  padding-inline: 0;
 }
