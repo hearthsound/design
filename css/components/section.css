@@ -62,12 +62,6 @@
   }
 }
 
-/* A flush shelf sits on the page margin, so its header does too: the
- * scrollport keeps the 8 px the hover tile needs (fc5b-diff). */
-.hs-home-section--flush .hs-section-header {
-  padding-inline: 0;
-}
-
 /* Desktop scroll buttons sit at the right of the header. */
 .hs-home-section .hs-section-header > .hs-shelf__button:first-of-type {
   margin-left: auto;
@@ -96,6 +90,13 @@
     gap: 14px;
     padding: 8px 14px 12px;
   }
+
+/* A flush shelf sits on the page margin, so its header does too: the
+ * scrollport keeps the 8 px the hover tile needs (fc5b-diff). */
+.hs-home-section--flush .hs-section-header {
+  padding-inline: 0;
+}
+
 
   .hs-shelf__button {
     display: none;
