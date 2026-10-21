@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-10-20
+
+### Added
+
+- `--hs-track-row-inset` names the row's lead inset, and `hs-shelf--flush` a shelf that sits
+  on the page margin.
+
+### Fixed
+
+- A card's play disc is pressed instead of the card link that sits above it.
+- The shelf header is 44 px (42 px on phones) with `border-box`, so art sits the approved
+  distance under its title.
+- The phone track list declares three columns, so the row's actions end at its padding.
+- The play disc stays above the card link even while the cover is promoted for a press or
+  focus.
+
 ## [0.2.1] - 2026-10-20
 
 ### Fixed
@@ -137,7 +153,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/hearthsound/design/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/hearthsound/design/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/hearthsound/design/compare/v0.1.10...v0.2.0
 [0.1.10]: https://github.com/hearthsound/design/compare/v0.1.9...v0.1.10
