@@ -101,6 +101,16 @@
   border-radius: inherit;
 }
 
+/* p17: a destructive command reads in the danger tone, icon included. */
+.hs-menu__item--destructive,
+.hs-menu__item--destructive > .hs-icon {
+  color: var(--hs-destructive-bg);
+}
+
+.hs-menu__item--destructive:focus-visible {
+  color: var(--hs-destructive-bg);
+}
+
 .hs-menu__check {
   width: 16px;
   height: 16px;
