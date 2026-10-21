@@ -56,6 +56,13 @@
   font-family: 'Hearthsound Mask', var(--hs-font-body);
 }
 
+/* A search field draws its own Clear action; Chromium's native cancel button
+ * would sit beside it (fc7). */
+.hs-field__input::-webkit-search-cancel-button {
+  appearance: none;
+  display: none;
+}
+
 .hs-field__input::placeholder {
   color: var(--hs-fg-muted);
 }
