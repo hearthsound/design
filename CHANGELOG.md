@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.7] - 2026-10-21
+
+### Fixed
+
+- The flush shelf header rule is declared after the width rules (0.2.6 nested it inside the
+  phone block), so the header is flush on desktop and phone alike.
+
 ## [0.2.6] - 2026-10-21
 
 ### Fixed
@@ -184,7 +191,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.7...HEAD
+[0.2.7]: https://github.com/hearthsound/design/compare/v0.2.6...v0.2.7
 [0.2.6]: https://github.com/hearthsound/design/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/hearthsound/design/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/hearthsound/design/compare/v0.2.3...v0.2.4
