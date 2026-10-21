@@ -74,6 +74,9 @@
   --hs-row-compact: 36px;
   --hs-row-pad-comfortable: 12px;
   --hs-row-pad-compact: 8px;
+  /* The row's lead inset: the art sits this far in so its hover tile may start
+   * left of it (k12, fc5b-diff). */
+  --hs-track-row-inset: 6px;
 
   /* f09 - corner radii. */
   --hs-radius-control: 8px;

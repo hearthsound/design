@@ -52,6 +52,14 @@
 
 .hs-home-section .hs-section-header {
   padding: 0 24px 8px 32px;
+  /* border-box counts the padding in: 36 px line + 8 px padding (l13, k33). */
+  min-height: 44px;
+}
+
+@media (max-width: 720px) {
+  .hs-home-section .hs-section-header {
+    min-height: 42px;
+  }
 }
 
 /* Desktop scroll buttons sit at the right of the header. */
@@ -86,4 +94,11 @@
   .hs-shelf__button {
     display: none;
   }
+}
+
+/* A shelf whose section header is flush with the page margin (the Liked
+ * shelves): the scrollport keeps only the 8 px the hover tile needs. */
+.hs-shelf--flush {
+  padding-inline: var(--hs-space-3);
+  margin-inline: calc(-1 * var(--hs-space-3));
 }

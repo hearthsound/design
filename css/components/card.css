@@ -43,6 +43,10 @@
 
 .hs-card__cover {
   position: relative;
+  /* Above the link, transparent to the pointer: the disc stays the only target
+     inside the cover, and a press on the disc never lands on the link. */
+  z-index: 2;
+  pointer-events: none;
   display: block;
   aspect-ratio: 1;
   border-radius: var(--hs-radius-art);
@@ -119,6 +123,10 @@
 .hs-card:focus-within .hs-card__play {
   opacity: 1;
   transform: none;
+}
+
+.hs-card__play {
+  pointer-events: auto;
 }
 
 .hs-card:active .hs-card__cover {
