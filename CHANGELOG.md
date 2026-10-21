@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.5] - 2026-10-21
+
+### Fixed
+
+- A flush shelf's header sits on the page margin with its shelf, instead of keeping the Home
+  shelf's 32 px (14 px phone) inset.
+
 ## [0.2.4] - 2026-10-21
 
 ### Fixed
@@ -170,7 +177,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI that runs the checks and a dry-run pack, and a tag-triggered release that publishes
   to npm through Trusted Publishing and creates the GitHub release.
 
-[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/hearthsound/design/compare/v0.2.5...HEAD
+[0.2.5]: https://github.com/hearthsound/design/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/hearthsound/design/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/hearthsound/design/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/hearthsound/design/compare/v0.2.1...v0.2.2
