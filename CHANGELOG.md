@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- The p26 storage usage bar and its legend have an Other part for the space on the server's
+  filesystems that is neither library, downloads, cache nor free: `hs-storage-bar__other` and
+  `hs-storage-legend__swatch--other`, a neutral between the muted Folders and the faint Free.
+
 ## [0.2.7] - 2026-10-21
 
 ### Fixed

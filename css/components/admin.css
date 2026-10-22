@@ -206,7 +206,8 @@
   font-size: 13px;
 }
 
-/* p26: Library acid, Cache acid at 55% over the view, Folders muted, the rest free. */
+/* p26: Library acid, Cache acid at 55% over the view, Folders muted, Other a
+   neutral between the two, the rest free. */
 .hs-storage-bar__library,
 .hs-storage-legend__swatch--library {
   background: var(--hs-accent-bg);
@@ -220,6 +221,14 @@
 .hs-storage-bar__folders,
 .hs-storage-legend__swatch--folders {
   background: var(--hs-fg-muted);
+}
+
+/* p26: the space on the same filesystems that is neither library, downloads,
+   cache nor free; a neutral between Folders and Free that stays apart from both
+   because the tokens adapt to the scheme. */
+.hs-storage-bar__other,
+.hs-storage-legend__swatch--other {
+  background: color-mix(in srgb, var(--hs-fg) 30%, transparent);
 }
 
 .hs-storage-bar__free,
