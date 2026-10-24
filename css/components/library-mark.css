@@ -1,0 +1,39 @@
+/*
+ * @hearthsound/design - library mark
+ *
+ * A song or album the user's library holds. The glyph is `adwaita-check`; the
+ * mark never relies on colour alone, because the markup carries the accessible
+ * name and the glyph says what it is. Items that are not in the library carry
+ * no mark at all.
+ *
+ * Two placements: inline in a track row's status cell, and as a badge on the
+ * bottom-left of an album card's cover.
+ */
+
+.hs-library-mark {
+  --hs-icon-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hs-accent-text);
+}
+
+/* Sits above the cover art and its play disc, and takes no pointer events: the
+ * card link and the disc stay the only targets (k13). */
+.hs-card__library-mark {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--hs-radius-full);
+  background: var(--hs-accent-bg);
+  color: var(--hs-accent-fg);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+  pointer-events: none;
+  --hs-icon-size: 14px;
+}
