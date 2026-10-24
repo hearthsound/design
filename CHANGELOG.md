@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.9] - 2026-10-24
+
+### Added
+
+- The library mark: `hs-library-mark` for a song in the user's library, drawn in a track row's
+  status cell, and `hs-card__library-mark` for an album the library holds, drawn as a badge on
+  the bottom-left of the card cover. Both carry the `adwaita-check` glyph; an item that is not in
+  the library carries no mark.
+
 ## [0.2.8] - 2026-10-22
 
 ### Added
