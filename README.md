@@ -52,6 +52,9 @@ Components use BEM-like `hs-` classes:
 - utilities: the type scale (`hs-display`, `hs-title-1` to `hs-title-4`, `hs-heading`,
   `hs-body`, `hs-caption`), `hs-link`, `hs-visually-hidden` and `hs-icon`.
 
+Card modifiers `hs-card--album` and `hs-card--playlist` mark the kind of card and carry no
+rules of their own; `hs-card--artist` is the only card that changes layout.
+
 State is expressed with real pseudo-classes and ARIA attributes, never helper classes:
 `:hover`, `:focus-visible`, `:disabled`, `[aria-disabled="true"]`, `[aria-pressed="true"]`,
 `[aria-selected="true"]`, `[aria-current]`, `[aria-busy="true"]`, `[aria-invalid="true"]`
