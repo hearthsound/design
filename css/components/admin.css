@@ -5,10 +5,9 @@
  * import-root rows, the plugin permission list, the storage bar with its legend, and
  * the acquisition row spacing.
  *
- * plugin-approval-interim: the Install confirmation (340 px dialog with the permission
- * list, Cancel and a suggested Install) and the File-tab permission list are built but
- * stay switched off until the core reports permissions for uninstalled plugins. Until
- * then no permission list shows before install. No CSS state is added for the switch.
+ * p24-r3: the permission list is shown in the 340 px Install confirmation before an
+ * install from an index, and in the review of an upgrade that asks for new permissions.
+ * `plugins.confirm_install` (Don't ask again) skips the confirmation.
  */
 
 /* ------------------------------------------------------------------ */
