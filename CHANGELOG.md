@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.10] - 2026-10-24
+
 ### Changed
 
 - The song library mark is drawn beside the track title instead of in the status cell: a muted
