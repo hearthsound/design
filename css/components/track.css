@@ -144,6 +144,19 @@
   min-width: 0;
 }
 
+/* The title and the library mark share one line: the title keeps the ellipsis
+ * and the mark stays visible beside it at every width. */
+.hs-track-row__title-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hs-track-row__title-line .hs-track-row__title {
+  min-width: 0;
+}
+
 .hs-track-row__title,
 .hs-track-row__artist,
 .hs-track-row__album {

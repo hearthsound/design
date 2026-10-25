@@ -6,16 +6,22 @@
  * name and the glyph says what it is. Items that are not in the library carry
  * no mark at all.
  *
- * Two placements: inline in a track row's status cell, and as a badge on the
- * bottom-left of an album card's cover.
+ * Two placements: beside a track row's title, where it is small and muted so it
+ * reads as a detail of the title rather than as a column of its own, and as a
+ * badge on the bottom-left of an album card's cover.
  */
 
 .hs-library-mark {
-  --hs-icon-size: 16px;
   display: inline-flex;
+  flex: none;
   align-items: center;
-  justify-content: center;
-  color: var(--hs-accent-text);
+  color: var(--hs-fg-muted);
+}
+
+/* `.hs-icon` declares its own size on the element, so the mark's size is set
+ * there too rather than inherited from the wrapper. */
+.hs-library-mark .hs-icon {
+  --hs-icon-size: 11px;
 }
 
 /* Sits above the cover art and its play disc, and takes no pointer events: the

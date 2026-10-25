@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The song library mark is drawn beside the track title instead of in the status cell: a muted
+  `adwaita-check` at 11 px, four pixels after the title, so it reads as a detail of the title and
+  stays visible on phones, where the status cell is hidden. The album card badge is unchanged.
+  `hs-track-row__title-line` lays the title and the mark out on one line.
+
 ## [0.2.9] - 2026-10-24
 
 ### Added
