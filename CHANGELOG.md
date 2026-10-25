@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.11] - 2026-10-25
+
+### Added
+
+- `.hs-hero__by-link` and `.hs-track-row__link` style an album's artist name as a link: the
+  hero by-line keeps its weight and tone, and a track row's artist name takes presses back from
+  the covering play button and lifts above it. Both underline on hover and keyboard focus only
+  (E-E-2).
+
+### Fixed
+
+- The plugin permission row is a grid, so a long permission value wraps inside its column
+  instead of painting under the risk pill in the 340 px Install confirmation (UR3).
+
 ## [0.2.10] - 2026-10-24
 
 ### Changed
