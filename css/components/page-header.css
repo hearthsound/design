@@ -123,6 +123,19 @@
   font-weight: 600;
 }
 
+/* E-E-2: the album hero's artist is a link inside the by-line, in the line's own
+ * weight and tone; the underline appears on hover and keyboard focus only. */
+.hs-hero__by-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hs-hero__by-link:hover,
+.hs-hero__by-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .hs-hero__meta {
   margin: 0;
   color: var(--hs-fg-muted);

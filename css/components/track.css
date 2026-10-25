@@ -171,6 +171,23 @@
   color: var(--hs-fg-muted);
 }
 
+/* E-E-2: an artist name inside a row is a link. The row's text is pointer-events:
+ * none so presses reach the covering play button, so the link takes presses back and
+ * lifts above that button; the underline appears on hover and keyboard focus only. */
+.hs-track-row__link {
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
+.hs-track-row__link:hover,
+.hs-track-row__link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .hs-track-row__duration {
   font-size: 13px;
   font-variant-numeric: tabular-nums;
