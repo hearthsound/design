@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.13] - 2026-10-26
+
+### Fixed
+
+- `.hs-dialog` is as tall as its content again (`height: fit-content`). Centring with `inset: 0`
+  and `margin: auto` in 0.2.12 stretched a short dialog to the full viewport height.
+
 ## [0.2.12] - 2026-10-26
 
 ### Fixed
