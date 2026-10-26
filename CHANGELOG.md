@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `.hs-hero__more` is a button that reads as a link: the biography's Show more opens the whole text
+  in a dialog instead of expanding the clamped paragraph in place, which grew the hero and moved the
+  portrait. `.hs-hero__bio-toggle`, `.hs-hero__more-open` and their `:checked` rules are gone.
+- `.hs-dialog` centres with `inset` and `margin` instead of a `translate` transform. A transformed
+  element is the containing block of a `position: fixed` descendant, so a drop-down's list opened in
+  a dialog (the instance dialog's import-root mode) was placed against the card and cut off by its
+  scroll box; the list and the row menus are placed in viewport coordinates and now land on the
+  trigger.
+
 ## [0.2.11] - 2026-10-25
 
 ### Added

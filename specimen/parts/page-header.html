@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <h3>Artist hero (round art, biography clamp and Show more)</h3>
+  <h3>Artist hero (round art, biography clamp and Show more that opens a dialog)</h3>
   <div style="background: var(--hs-view-bg); border-radius: 12px; overflow: hidden; margin-bottom: 24px;">
     <div class="hs-hero">
       <div class="hs-hero__art hs-hero__art--round">
@@ -84,12 +84,8 @@
       <div class="hs-hero__text">
         <h1>Northbound</h1>
         <div class="hs-hero__bio">
-          <input class="hs-visually-hidden hs-hero__bio-toggle" type="checkbox" id="spec-artist-bio">
           <p>Northbound is a four-piece from the coast whose slow, layered songs move between folk and ambient music. The band records in a converted boathouse and releases on its own label.</p>
-          <label class="hs-link hs-hero__more" for="spec-artist-bio">
-            <span class="hs-hero__more-closed">Show more</span>
-            <span class="hs-hero__more-open">Show less</span>
-          </label>
+          <button class="hs-link hs-hero__more" type="button">Show more</button>
         </div>
         <div class="hs-hero__actions">
           <button class="hs-play-button hs-play-button--large" type="button" aria-label="Play">
@@ -106,15 +102,14 @@
     </div>
   </div>
 
-  <h3>Biography expanded (Show less)</h3>
+  <h3>Biography in its dialog (what Show more opens)</h3>
   <div style="background: var(--hs-view-bg); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
-    <div class="hs-hero__bio" style="max-width: none;">
-      <input class="hs-visually-hidden hs-hero__bio-toggle" type="checkbox" id="spec-artist-bio-open" checked>
+    <div class="hs-dialog hs-dialog--wide" style="position: static; transform: none; margin: 0; max-height: none;">
+      <h2 class="hs-dialog__title">About Northbound</h2>
       <p>Northbound is a four-piece from the coast whose slow, layered songs move between folk and ambient music. The band records in a converted boathouse and releases on its own label. Their third album was written over two winters and mixed in a single week.</p>
-      <label class="hs-link hs-hero__more" for="spec-artist-bio-open">
-        <span class="hs-hero__more-closed">Show more</span>
-        <span class="hs-hero__more-open">Show less</span>
-      </label>
+      <div class="hs-dialog__footer">
+        <button class="hs-button hs-button--suggested" type="button">Close</button>
+      </div>
     </div>
   </div>
 

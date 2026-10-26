@@ -142,9 +142,9 @@
   font-size: 13px;
 }
 
-/* p16-r1: the biography is muted, clamped to three lines, with Show more / Show less
- * in place. A visually hidden checkbox carries the expanded state so the text stays
- * visible while collapsed; the label is the disclosure control. */
+/* p16-r1: the biography is muted and clamped to three lines. Show more opens the
+ * whole text in a dialog: expanding it in place grew the hero and moved the
+ * portrait, so the clamp is permanent and the command is a button. */
 .hs-hero__bio {
   position: relative;
   max-width: 62ch;
@@ -160,37 +160,17 @@
   overflow: hidden;
 }
 
-.hs-hero__bio-toggle {
-  position: absolute; /* markup also carries .hs-visually-hidden */
-}
-
-.hs-hero__bio-toggle:checked ~ p {
-  display: block;
-  overflow: visible;
-}
-
+/* A button that reads as the link it sits beside; `.hs-link` gives it the tone,
+ * the underline and the focus tint. */
 .hs-hero__more {
   display: inline-block;
   width: max-content;
   margin-top: 4px;
-  cursor: default;
-}
-
-.hs-hero__more-open {
-  display: none;
-}
-
-.hs-hero__bio-toggle:checked ~ .hs-hero__more .hs-hero__more-open {
-  display: inline;
-}
-
-.hs-hero__bio-toggle:checked ~ .hs-hero__more .hs-hero__more-closed {
-  display: none;
-}
-
-.hs-hero__bio-toggle:focus-visible ~ .hs-hero__more {
-  outline: none;
-  background: var(--hs-accent-tint);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
 }
 
 .hs-hero__actions {
